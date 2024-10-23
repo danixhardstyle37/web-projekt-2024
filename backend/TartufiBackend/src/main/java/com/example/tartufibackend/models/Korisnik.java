@@ -1,4 +1,4 @@
-package com.example.tartufibackend;
+package com.example.tartufibackend.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,12 +15,16 @@ public class Korisnik {
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "Username")
     private String username;
+
     @Column(name = "Password")
     private String password;
+
     @Column(name = "Ime_prezime")
     private String ime_prezime;
+
     @Column(name = "Email")
     private String email;
 

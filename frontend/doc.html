@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 20px; /* Add margin to the body */
+        }
+        
+        table {
+            width: 80%; /* Set table width to 80% of the screen */
+            max-width: 1000px; /* Set a max width for larger screens */
+            border-collapse: collapse;
+            margin-bottom: 20px; /* Space between tables */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px; /* Add padding to table cells */
+            text-align: left; /* Align text to the left */
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold; /* Make header bold */
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping for rows */
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1; /* Highlight row on hover */
+        }
+
+        button{
+            display: none;
+        }
+
+        p{
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <section id = "top"></section>
+    <a href="#korisnikSection">Korisnik</a>
+    <a href="#turaSection">Tura</a>
+    <a href="#vodicSection">Vodic</a>
+    <a href="#merchSection">Merch</a>
+    <a href="#duljinaSection">Duljina</a>
+    <a href="#zivotinjeSection">Zivotinja</a>
+    <a href="#zakazaneTureSection">Zakazane ture</a>
+    <a href="#metodeSection">Metode</a>
+
+
+    <button id = "deleteButton">Delete</button>
+    <button id = "addButton">Add</button>
+    <button id = "updateButton">Update</button>
+    <section id = "korisnikSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Korisnik List</h1>
+    <table id="korisnikTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Ime i Prezime</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "turaSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Tura List</h1>
+    <table id="turaTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Duljine</th>
+                <th>Ime</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "vodicSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Vodic List</h1>
+    <table id="vodicTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ime i Prezime</th>
+                <th>Broj Tura</th>
+                <th>Broj Telefona</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "merchSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Merch List</h1>
+    <table id="merchTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tip</th>
+                <th>Cijena</th>
+                <th>Opis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "duljinaSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Duljine List</h1>
+    <table id="duljineTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Duljina (km)</th>
+                <th>Cijena</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "zivotinjeSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Zivotinje List</h1>
+    <table id="zivotinjeTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vrsta</th>
+                <th>Ime</th>
+                <th>Godine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+    <section id = "zakazaneTureSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Zakazane Ture List</h1>
+    <table id="zakazaneTureTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Korisnika</th>
+                <th>ID Ture</th>
+                <th>DateTime Od</th>
+                <th>DateTime Do</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+    <section id = "metodeSection"></section>
+    <a href = "#top">Back</a>
+    <h1>Metode</h1>
+    <p>
+        Za korištenje CRUD metoda script dio mora biti tipa module i treba importat "import service from '.scripts/service.js'".<br>
+        <b>Cijela lista: </b> get[IME_TABLICE]All()<br>
+        <b>Po id: </b> get[IME_TABlICE]ById(id)<br>
+        <b>Dodaj: </b> add[IME_TABLICE](objekt{ako postoji foreign key u objektu mora se poslati taj foreign key ko objekt i definirati barem id(npr. kod tura id_duljine bi predali kao duljina:{id:1})})<br>
+        <b>Update: </b> update[IME_TABLICE](id, objekt{ista stvar s foreign key})<br>
+        <b>Delete: </b> delete[IME_TABLICE]ById(id)<br>
+    </p>
+    <script type = "module">
+        import service from './scripts/service.js';
+
+        async function populateKorisnikTable() {
+            const korisnikList = await service.getKorisnikAll(); 
+            const tbody = document.getElementById('korisnikTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            korisnikList.forEach(korisnik => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${korisnik.id}</td>
+                    <td>${korisnik.username}</td>
+                    <td>${korisnik.ime_prezime}</td>
+                    <td>${korisnik.email}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateTuraTable() {
+            const turaList = await service.getTuraAll(); 
+            const tbody = document.getElementById('turaTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            turaList.forEach(tura => {
+    
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${tura.id}</td>
+                    <td>${tura.duljina.id}</td>
+                    <td>${tura.ime}</td>
+                    <td>${tura.opis}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateVodicTable() {
+            const vodicList = await service.getVodicAll(); 
+            const tbody = document.getElementById('vodicTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            vodicList.forEach(vodic => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${vodic.id}</td>
+                    <td>${vodic.imePrezime}</td>
+                    <td>${vodic.brojTura}</td>
+                    <td>${vodic.broj_telefona}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateMerchTable() {
+            const merchList = await service.getMerchAll();
+            const tbody = document.getElementById('merchTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            merchList.forEach(merch => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${merch.id}</td>
+                    <td>${merch.tip}</td>
+                    <td>${merch.cijena}</td>
+                    <td>${merch.opis}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateDuljineTable() {
+            const duljineList = await service.getDuljinaAll();
+            const tbody = document.getElementById('duljineTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            duljineList.forEach(duljina => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${duljina.id}</td>
+                    <td>${duljina.duljina}</td> <!-- Adjust based on your model -->
+                    <td>${duljina.cijena}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateZivotinjeTable() {
+            const zivotinjeList = await service.getZivotinjaAll(); 
+            const tbody = document.getElementById('zivotinjeTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            zivotinjeList.forEach(zivotinja => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${zivotinja.id}</td>
+                    <td>${zivotinja.vrsta}</td>
+                    <td>${zivotinja.ime}</td>
+                    <td>${zivotinja.opis}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        async function populateZakazaneTureTable() {
+            const zakazaneTureList = await service.getZakazaneTureAll();
+            const tbody = document.getElementById('zakazaneTureTable').querySelector('tbody');
+            tbody.innerHTML = ''; // Clear previous data
+
+            zakazaneTureList.forEach(tura => {
+
+                const datumOd = new Date(tura.dateTime_Od + 'Z');
+                const datumDo = new Date(tura.dateTime_Do + 'Z');
+
+                console.log("Od: " + datumDo + "\nDo: " + datumDo);
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${tura.id}</td>
+                    <td>${tura.korisnik.id}</td> <!-- Adjust based on your model -->
+                    <td>${tura.tura.id}</td>
+                    <td>${datumOd}</td> <!-- Adjust based on your model -->
+                    <td>${datumDo}</td> <!-- Adjust based on your model -->
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        console.log(await service.getTuraById(3));
+
+
+        document.getElementById('deleteButton').addEventListener('click', async () => {
+            await service.deleteTuraById(4);
+            alert('Tura deleted successfully!');
+        });
+
+        document.getElementById('addButton').addEventListener('click', async () => {
+            const data = {
+                duljina: {
+                    id: 1  // Send only the ID of the Duljina entity
+                },
+                ime: "New Tura",
+                opis: "Opis"
+            };
+
+            await service.addTura(data);
+        });
+
+        document.getElementById('updateButton').addEventListener('click', async () => {
+            const data = {
+                duljina: {
+                    id: 1  // Send only the ID of the Duljina entity
+                },
+                ime: "updated tura name",
+                opis: "updated tura opis"
+            };
+
+            await service.updateTura(6, data);
+        });
+
+        populateKorisnikTable();
+        populateTuraTable();
+        populateVodicTable();
+        populateMerchTable();
+        populateDuljineTable();
+        populateZivotinjeTable();
+        populateZakazaneTureTable();
+
+    </script>
+</body>
+</html>

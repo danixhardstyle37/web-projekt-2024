@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.example.tartufibackend")
 public class TartufiBackendApplication {
