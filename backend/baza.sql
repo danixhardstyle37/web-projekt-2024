@@ -1,6 +1,6 @@
 /*
-SQLyog Community v13.1.9 (64 bit)
-MySQL - 10.4.27-MariaDB : Database - tartufi
+SQLyog Community v13.3.0 (64 bit)
+MySQL - 10.4.32-MariaDB : Database - tartufi
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - tartufi
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`tartufi` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_croatian_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`tartufi` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `tartufi`;
 
@@ -26,9 +26,12 @@ CREATE TABLE `duljina` (
   `Duljina` varchar(255) DEFAULT NULL,
   `Velicina_grupe` int(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `duljina` */
+
+insert  into `duljina`(`Id`,`Cijena`,`Duljina`,`Velicina_grupe`) values 
+(1,100,'2 hours',10);
 
 /*Table structure for table `korisnik` */
 
@@ -58,9 +61,12 @@ CREATE TABLE `merch` (
   `Cijena` float DEFAULT NULL,
   `Opis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `merch` */
+
+insert  into `merch`(`Id`,`Tip`,`Cijena`,`Opis`) values 
+(1,'T-shirt',20,'High quality cotton t-shirt');
 
 /*Table structure for table `tura` */
 
@@ -74,9 +80,16 @@ CREATE TABLE `tura` (
   PRIMARY KEY (`Id`),
   KEY `fk_tura_duljina` (`Id_duljine`),
   CONSTRAINT `fk_tura_duljina` FOREIGN KEY (`Id_duljine`) REFERENCES `duljina` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `tura` */
+
+insert  into `tura`(`Id`,`Id_duljine`,`Ime`,`Opis`) values 
+(1,1,'Truffle Hunt Adventure','A fun truffle hunting tour'),
+(3,1,'Safari Adventure','An exciting safari tour through the national park.'),
+(5,1,'Safari Adventure','An exciting safari tour through the national park.'),
+(6,1,'updated tura name','updated tura opis'),
+(7,1,'New Tura','Opis');
 
 /*Table structure for table `vodic` */
 
@@ -89,9 +102,12 @@ CREATE TABLE `vodic` (
   `opis` varchar(255) DEFAULT NULL,
   `Broj_telefona` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `vodic` */
+
+insert  into `vodic`(`Id`,`Ime_prezime`,`Broj_tura`,`opis`,`Broj_telefona`) values 
+(1,'Marko Kovac',5,'Experienced truffle hunting guide','123-456-789');
 
 /*Table structure for table `zakazane_ture` */
 
@@ -103,8 +119,8 @@ CREATE TABLE `zakazane_ture` (
   `Id_korisnik` int(255) NOT NULL,
   `Id_vodic` int(255) NOT NULL,
   `Id_zivotinja` int(255) NOT NULL,
-  `DateTime_od` datetime NOT NULL,
-  `DateTime_do` datetime NOT NULL,
+  `date_time_od` datetime(6) DEFAULT NULL,
+  `date_time_do` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_zakazane_ture_tura` (`Id_tura`),
   KEY `fk_zakazane_ture_korisnik` (`Id_korisnik`),
@@ -114,9 +130,12 @@ CREATE TABLE `zakazane_ture` (
   CONSTRAINT `fk_zakazane_ture_tura` FOREIGN KEY (`Id_tura`) REFERENCES `tura` (`Id`),
   CONSTRAINT `fk_zakazane_ture_vodic` FOREIGN KEY (`Id_vodic`) REFERENCES `vodic` (`Id`),
   CONSTRAINT `fk_zakazane_ture_zivotinja` FOREIGN KEY (`Id_zivotinja`) REFERENCES `zivotinja` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zakazane_ture` */
+
+insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`date_time_od`,`date_time_do`) values 
+(2,1,1,1,1,'2024-10-25 09:00:00.000000','2024-10-25 12:00:00.000000');
 
 /*Table structure for table `zivotinja` */
 
@@ -128,9 +147,12 @@ CREATE TABLE `zivotinja` (
   `Vrsta` varchar(255) DEFAULT NULL,
   `Opis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zivotinja` */
+
+insert  into `zivotinja`(`Id`,`Ime`,`Vrsta`,`Opis`) values 
+(1,'Rex','Dog','Truffle hunting dog');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
