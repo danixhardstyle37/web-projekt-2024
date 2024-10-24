@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervacija</title>
+    <link rel="stylesheet" type="text/css" href="styles/rezervacija.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="step-info" id="step-info">Step 1/8</div>
+            <button class="next-btn" id="next-btn" onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="steps">
+            <!-- Step 1 -->
+            <div class="step active" id="step1">
+                <h1>Veličina grupe</h1>
+                <div class="options">
+                    <button class="option-btn" id="parovi" onclick="selectOption('Za parove')">Za parove</button>
+                    <button class="option-btn" id="grupa" onclick="selectOption('Grupa 3-5')">Grupa 3-5</button>
+                    <button class="option-btn" id="teambuilding" onclick="selectOption('Teambuilding')">Teambuilding</button>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step" id="step2">
+                <h1>Duljina ture</h1>
+                <div class="options">
+                    <button class="option-btn" id="kratka" onclick="selectOption('Kratka')">Kratka</button>
+                    <button class="option-btn" id="srednja" onclick="selectOption('Srednja')">Srednja</button>
+                    <button class="option-btn" id="duga" onclick="selectOption('Duga')">Duga</button>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step" id="step3">
+                <div class="right">
+                    <h1>Ture</h1>
+                    <div id="tura-buttons">
+                        <!-- Buttons for tours will be dynamically generated here -->
+                    </div>
+                </div>
+                <div class="left">
+                    <h1>Informacije o turi</h1>
+                    <div class="tura-description" id="tura-description">
+                        <!-- Selected tour information will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step" id="step4">
+                <h1>Odaberite datum</h1>
+                <input type="date" id="reservation-date" class="date-input" onchange="selectDate()">
+                <div id="selected-date" class="selected-date"></div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step" id="step5">
+                <div class="right">
+                    <h1>Vodici</h1>
+                    <div id="vodic-buttons">
+                        <!-- Buttons for guides will be dynamically generated here -->
+                    </div>
+                </div>
+                <div class="left">
+                    <h1>Informacije o vodicu</h1>
+                    <div class="vodic-description" id="vodic-description">
+                        <!-- Selected guide information will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step" id="step6">
+                <h1>Odaberite ljubimca</h1>
+                <div class="options">
+                    <button class="option-btn" id="pas" onclick="selectOption('Pas')">Pas</button>
+                    <button class="option-btn" id="svinja" onclick="selectOption('Svinja')">Svinja</button>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step" id="step7">
+                <div class="right">
+                    <h1>Životinje</h1>
+                    <div id="zivotinja-buttons">
+                        <!-- Buttons for animals will be dynamically generated here -->
+                    </div>
+                </div>
+                <div class="left">
+                    <h1>Informacije o životinji</h1>
+                    <div class="zivotinja-description" id="zivotinja-description">
+                        <!-- Selected animal information will be displayed here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step" id="step8">
+                <h1>Pregled rezervacije</h1>
+                <div id="summary" class="summary">
+                    <p><strong>Veličina grupe:</strong> <span id="summary-group-size"></span></p>
+                    <p><strong>Tura:</strong> <span id="summary-tour"></span></p>
+                    <p><strong>Datum rezervacije:</strong> <span id="summary-date"></span></p>
+                    <p><strong>Vodic:</strong> <span id="summary-guide"></span></p>
+                    <p><strong>Životinja:</strong> <span id="summary-animal"></span></p>
+                </div>
+                <button class="save-btn" id="save-btn" onclick="saveReservation()">Save Reservation</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import service from './scripts/service.js';
+
+        window.currentStep = 1;
+        const totalSteps = 8;
+        window.selectedOption = '';
+        window.groupSize = '';
+        window.tourLength = '';
+        window.tourId = 0;
+        window.selectedDate = ''; 
+        window.selectedGuide = ''; 
+        window.selectedPet = ''; 
+        window.selectedAnimal = '';
+
+        function showButtons(step) {
+            const optionButtons = document.querySelectorAll('.option-btn');
+            optionButtons.forEach(button => button.classList.remove('visible')); // Hide all buttons initially
+
+            switch (step) {
+                case 1:
+                    setTimeout(() => document.getElementById('parovi').classList.add('visible'), 1000);
+                    setTimeout(() => document.getElementById('grupa').classList.add('visible'), 2000);
+                    setTimeout(() => document.getElementById('teambuilding').classList.add('visible'), 3000);
+                    break;
+                case 2:
+                    setTimeout(() => document.getElementById('kratka').classList.add('visible'), 1000);
+                    setTimeout(() => document.getElementById('srednja').classList.add('visible'), 2000);
+                    setTimeout(() => document.getElementById('duga').classList.add('visible'), 3000);
+                    break;
+                case 3:
+                    fetchTours();
+                    break;
+                case 5:
+                    fetchVodici();
+                    break;
+                case 6:
+                    setTimeout(() => document.getElementById('pas').classList.add('visible'), 1000);
+                    setTimeout(() => document.getElementById('svinja').classList.add('visible'), 2000);
+                    break;
+                case 7:
+                    fetchZivotinje();
+                    break;
+            }
+        }
+
+        function selectOption(option) {
+            document.querySelectorAll('.option-btn').forEach(function(button) {
+                button.classList.remove('selected');
+            });
+            document.querySelector(`.option-btn[onclick="selectOption('${option}')"]`).classList.add('selected');
+
+            window.selectedOption = option;
+            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        }
+
+        function nextStep() {
+            if (window.selectedOption || window.currentStep === 4 || window.currentStep === 5 || window.currentStep === 6) {
+                document.getElementById('next-btn').style.display = 'none';
+
+                switch (window.currentStep) {
+                    case 1:
+                        window.groupSize = window.selectedOption;
+                        break;
+                    case 2:
+                        window.tourLength = window.selectedOption;
+                        break;
+                    case 3:
+                        window.tourId = window.selectedOption.id;
+                        break;
+                    case 4:
+                        window.selectedDate = document.getElementById('reservation-date').value;
+                        break;
+                    case 5:
+                        window.selectedGuide = window.selectedOption;
+                        break;
+                    case 6:
+                        window.selectedPet = window.selectedOption;
+                        break;
+                    case 7:
+                        window.selectedAnimal = window.selectedOption;
+                        break;
+                    case 8:
+                        document.getElementById('summary-group-size').innerText = window.groupSize;
+                        document.getElementById('summary-tour').innerText = window.selectedOption ? window.selectedOption.ime : ''; 
+                        document.getElementById('summary-date').innerText = window.selectedDate;
+                        document.getElementById('summary-guide').innerText = window.selectedGuide ? window.selectedGuide.imePrezime : '';
+                        document.getElementById('summary-animal').innerText = window.selectedAnimal ? window.selectedAnimal.ime : '';
+                        break;
+                    default:
+                        console.log("Error");
+                }
+
+                console.log(window.selectedOption);
+                window.selectedOption = '';
+
+                const currentStepElement = document.getElementById(`step${window.currentStep}`);
+                currentStepElement.classList.remove('active');
+
+                window.currentStep++;
+                const nextStepElement = document.getElementById(`step${window.currentStep}`);
+                nextStepElement.classList.add('active');
+
+                document.getElementById('step-info').innerText = `Step ${window.currentStep}/${totalSteps}`;
+
+                showButtons(window.currentStep);
+            }
+        }
+
+        function selectDate() {
+            window.selectedDate = document.getElementById('reservation-date').value;
+            document.getElementById('selected-date').innerText = `Selected date: ${window.selectedDate}`;
+            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        }
+
+        function fetchTours() {
+            // This function should fetch tours and dynamically add buttons to #tura-buttons
+            const tours = service.tours; // Assuming service.tours returns a list of tours
+            const turaButtons = document.getElementById('tura-buttons');
+            turaButtons.innerHTML = '';
+
+            tours.forEach(tour => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.innerText = tour.ime; // Assuming each tour has a name property
+                button.onclick = () => selectTour(tour);
+                turaButtons.appendChild(button);
+            });
+
+            showButtons(3); // Show buttons for tours
+        }
+
+        function selectTour(tour) {
+            window.selectedOption = tour;
+            document.getElementById('tura-description').innerText = tour.opis; // Assuming each tour has a description property
+            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        }
+
+        function fetchVodici() {
+            // This function should fetch guides and dynamically add buttons to #vodic-buttons
+            const vodici = service.vodici; // Assuming service.vodici returns a list of guides
+            const vodicButtons = document.getElementById('vodic-buttons');
+            vodicButtons.innerHTML = '';
+
+            vodici.forEach(vodic => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.innerText = vodic.imePrezime; // Assuming each guide has a name property
+                button.onclick = () => selectGuide(vodic);
+                vodicButtons.appendChild(button);
+            });
+
+            showButtons(5); // Show buttons for guides
+        }
+
+        function selectGuide(vodic) {
+            window.selectedOption = vodic;
+            document.getElementById('vodic-description').innerText = vodic.opis; // Assuming each guide has a description property
+            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        }
+
+        function fetchZivotinje() {
+            // This function should fetch animals and dynamically add buttons to #zivotinja-buttons
+            const zivotinje = service.zivotinje; // Assuming service.zivotinje returns a list of animals
+            const zivotinjaButtons = document.getElementById('zivotinja-buttons');
+            zivotinjaButtons.innerHTML = '';
+
+            zivotinje.forEach(zivotinja => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.innerText = zivotinja.ime; // Assuming each animal has a name property
+                button.onclick = () => selectAnimal(zivotinja);
+                zivotinjaButtons.appendChild(button);
+            });
+
+            showButtons(7); // Show buttons for animals
+        }
+
+        function selectAnimal(zivotinja) {
+            window.selectedOption = zivotinja;
+            document.getElementById('zivotinja-description').innerText = zivotinja.opis; // Assuming each animal has a description property
+            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        }
+
+        function saveReservation() {
+            // Logic to save the reservation
+            const reservationData = {
+                groupSize: window.groupSize,
+                tour: window.selectedOption,
+                date: window.selectedDate,
+                guide: window.selectedGuide,
+                pet: window.selectedPet,
+                animal: window.selectedAnimal,
+            };
+
+            console.log("Reservation saved:", reservationData);
+            alert('Reservation saved successfully!');
+        }
+
+        // Initialize the first step
+        window.selectOption = selectOption;
+        window.nextStep = nextStep;
+        window.selectDate = selectDate;
+        showButtons(window.currentStep);
+    </script>
+</body>
+</html>

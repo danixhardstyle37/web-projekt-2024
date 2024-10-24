@@ -54,6 +54,7 @@ public class ZakazaneTureController {
             zakazanaTura.setDateTime_Do(updatedZakazanaTura.getDateTime_Do());
             zakazanaTura.setKorisnik(updatedZakazanaTura.getKorisnik());
             zakazanaTura.setTura(updatedZakazanaTura.getTura());
+            zakazanaTura.setVelicina_grupe(updatedZakazanaTura.getVelicina_grupe());
 
             ZakazaneTure savedZakazanaTura = zakazaneTureService.save(zakazanaTura);  // `save()` will perform the update
             return ResponseEntity.ok(savedZakazanaTura);  // Return the updated ZakazanaTura

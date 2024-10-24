@@ -25,7 +25,4 @@ public class Duljina {
     @Column(name = "Duljina")
     private String duljina;
 
-    @Column(name = "Velicina_grupe")
-    private Integer velicina_grupe;
-
 }

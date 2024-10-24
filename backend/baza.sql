@@ -24,14 +24,15 @@ CREATE TABLE `duljina` (
   `Id` int(255) NOT NULL AUTO_INCREMENT,
   `Cijena` float DEFAULT NULL,
   `Duljina` varchar(255) DEFAULT NULL,
-  `Velicina_grupe` int(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `duljina` */
 
-insert  into `duljina`(`Id`,`Cijena`,`Duljina`,`Velicina_grupe`) values 
-(1,100,'2 hours',10);
+insert  into `duljina`(`Id`,`Cijena`,`Duljina`) values 
+(1,100,'Kratka'),
+(2,150,'Srednja'),
+(3,200,'Duga');
 
 /*Table structure for table `korisnik` */
 
@@ -80,7 +81,7 @@ CREATE TABLE `tura` (
   PRIMARY KEY (`Id`),
   KEY `fk_tura_duljina` (`Id_duljine`),
   CONSTRAINT `fk_tura_duljina` FOREIGN KEY (`Id_duljine`) REFERENCES `duljina` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `tura` */
 
@@ -89,7 +90,8 @@ insert  into `tura`(`Id`,`Id_duljine`,`Ime`,`Opis`) values
 (3,1,'Safari Adventure','An exciting safari tour through the national park.'),
 (5,1,'Safari Adventure','An exciting safari tour through the national park.'),
 (6,1,'updated tura name','updated tura opis'),
-(7,1,'New Tura','Opis');
+(7,1,'New Tura','Opis'),
+(8,2,'test','test opis');
 
 /*Table structure for table `vodic` */
 
@@ -121,6 +123,7 @@ CREATE TABLE `zakazane_ture` (
   `Id_zivotinja` int(255) NOT NULL,
   `date_time_od` datetime(6) DEFAULT NULL,
   `date_time_do` datetime(6) DEFAULT NULL,
+  `velicina_grupe` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_zakazane_ture_tura` (`Id_tura`),
   KEY `fk_zakazane_ture_korisnik` (`Id_korisnik`),
@@ -134,8 +137,8 @@ CREATE TABLE `zakazane_ture` (
 
 /*Data for the table `zakazane_ture` */
 
-insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`date_time_od`,`date_time_do`) values 
-(2,1,1,1,1,'2024-10-25 09:00:00.000000','2024-10-25 12:00:00.000000');
+insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`date_time_od`,`date_time_do`,`velicina_grupe`) values 
+(2,1,1,1,1,'2024-10-25 09:00:00.000000','2024-10-25 12:00:00.000000','2');
 
 /*Table structure for table `zivotinja` */
 
@@ -152,7 +155,7 @@ CREATE TABLE `zivotinja` (
 /*Data for the table `zivotinja` */
 
 insert  into `zivotinja`(`Id`,`Ime`,`Vrsta`,`Opis`) values 
-(1,'Rex','Dog','Truffle hunting dog');
+(1,'Rex','Pas','Truffle hunting dog');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

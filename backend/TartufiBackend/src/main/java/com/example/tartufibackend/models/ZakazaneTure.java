@@ -43,4 +43,7 @@ public class ZakazaneTure {
     @Column(name = "date_time_do")
     private LocalDateTime dateTime_Do;
 
+    @Column(name = "Velicina_grupe")
+    private String velicina_grupe;
+
 }

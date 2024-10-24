@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    height: 90vh;
+    border: 2px solid #000;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.step-info {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+}
+
+.next-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #000;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.next-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.steps {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.step {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.step.active {
+    display: block; /* Change from flex to block for correct showing */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.option-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid #000;
+    background-color: #fff;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    outline: none;
+    visibility: hidden;
+    opacity: 0;
+    margin: 20px;
+}
+
+.option-btn.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.option-btn.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.next-btn {
+    display: none;
+}
+
+/* Existing styles remain unchanged */
+
+/* Styles for Step 3 */
+.left, .right {
+    flex: 1; /* Equal space distribution */
+    padding: 20px; /* Added padding for spacing */
+    display: flex; /* Ensure content can use flexbox layout */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align items to start */
+}
+
+
+/* Adjust .steps to use flexbox for Step 3 */
+.steps {
+    display: flex;
+    flex-direction: row; /* Align left and right sections side by side */
+}
+
+/* Add this to .tura-description for better visibility */
+.tura-description {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 10px; /* Add padding for better readability */
+    border: 1px solid #ccc; /* Optional: add border for emphasis */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.option-btn, .tura-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none; /* Remove the default border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #007bff; /* Primary color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Space between buttons */
+}
+
+/* Hover effect for buttons */
+.option-btn:hover, .tura-btn:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Active state for buttons */
+.option-btn.selected, .tura-btn.selected {
+    background-color: #0056b3; /* Same darker shade for active */
+    color: #ffffff; /* Keep text color white */
+}
+
+.date-input {
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    width: 250px; /* Fixed width for consistency */
+    margin-top: 20px; /* Space above the input */
+    display: block; /* Make input a block element */
+}
+
+.selected-date {
+    margin-top: 15px; /* Space above selected date text */
+    font-size: 1.2rem;
+    color: #333; /* Darker color for contrast */
+}
