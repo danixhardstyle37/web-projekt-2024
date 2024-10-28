@@ -2,10 +2,14 @@ body {
     font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
+    color: #2E3A59; 
+    overflow-x: hidden;
+}
+
+.background-slika{
     background-image: url('../imgs/bamboo.jpg'); 
     background-repeat: repeat;
     background-size: cover;
-    color: #2E3A59; 
 }
 
 .custom-container{
@@ -44,7 +48,7 @@ body {
     gap: 40px;
     float:right;
     margin-right:10%;
-    padding-top:8%;
+    padding-top:6%;
 }
 
 .navbar .nav-links li a {
@@ -63,7 +67,7 @@ body {
 }
 
 #pomak{
-    padding-top:5%;
+    padding-top:4%;
 }
 
 .content {
@@ -137,6 +141,19 @@ body {
     margin-left:5%;
 }
 
+.vise-onama{
+    border:1px solid #FF5B5B;
+    color:#2E3A59;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:19px;
+    padding:10px;
+}
+
+#margina-pomak{
+    margin-top:5%;
+}
+
 a:hover{
     text-decoration: none;
 }
@@ -173,6 +190,7 @@ a:hover{
     width: 35%; 
     height: auto;
     padding:2%;
+    max-width:500px;
 }
 
 .arrow {
@@ -194,3 +212,238 @@ a:hover{
 .right {
     right: 10px;
 }
+
+
+/** tilt na kraju **/
+.kraj-galerije {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.kraj-galerije svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 140px;
+    transform: rotateY(180deg);
+}
+
+.kraj-galerije .shape-fill {
+    fill: #112530;
+}
+
+.about{
+    padding-top:150px;
+}
+
+.point-arrow {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.point-arrow svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.point-arrow .shape-fill {
+    fill: #112530;
+}
+
+.meet{
+    padding-top:300px;
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    padding: 0;
+    color: #2E3A59; 
+}
+
+.meet img{
+    width:110%;
+    max-width:1000px;
+}
+
+.meet h2{
+    font-weight: bold;
+}
+
+#meet-tekst{
+    padding-top:3%;
+}
+
+.meet h4,h2{
+    line-height: 1.6;
+}
+
+.meet h4{
+    padding-top:2%;
+}
+
+.subscribe{
+    background-color: #112530; 
+    color: white;
+    height:100%;
+    padding-bottom: 5%;
+}
+
+.subscribe h2{
+    margin:0;
+    padding:0;
+    font-weight: bold;
+    padding: 2%;
+    padding-top:4%;
+}
+
+.subscribe h4{
+    line-height:1.6;
+    padding:2%;
+}
+
+.subscribe img{
+    width:190%;
+    position:absolute;
+    margin-top:-70%;
+    margin-left:-20%;
+    max-width:1000px;
+}
+
+.custom-container2{
+    width:70%;
+    margin: 0 auto;
+}
+
+input[type="email"] {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width:70%;
+    padding: 12px 20px;
+    color:black;
+}
+
+.pretplatime{
+    padding-left:2%;
+    padding-top:1%;
+}
+
+.pretplatime-button{
+    background-color: #FF5B5B; 
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:19px;
+}
+
+
+.merch{
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    padding: 0;
+    color: #2E3A59; 
+    line-height: 1.6;
+    padding:5%;
+    padding-top:8%;
+    padding-bottom:8%;
+}
+
+.merch img{
+    width:100%;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(70px 10px 20px rgb(206, 202, 202));
+}
+
+.merch h4, h3{
+    line-height: 1.6;
+}
+
+.merch h1{
+    font-weight: bold;
+}
+
+.merch h3{
+    padding-top:3%;
+}
+
+.merch h4{
+    padding-top:5%;
+}
+
+.custom-container3{
+    width:80%;
+    margin: 0 auto;
+}
+
+#merch-info{
+    padding-top:1%;
+}
+
+.box {
+    background-color: #fff;
+    min-height: 160px;
+    --shadow: 1px 1px 1px 1px rgb(0 0 0 / 0.25);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1200px) {
+    #subscribe-dog {
+      display: none;
+    }
+
+    .navbar .nav-links {
+        list-style: none;
+        float:right;
+        gap: 10px;
+        padding-top:8%;
+    }
+
+    .navbar .nav-links li a {
+        text-decoration: none;
+        color: #2E3A59;
+        font-size:18px;
+    }
+
+    .connect-button {
+        background-color: #FF5B5B; 
+        color: white;
+        padding: 8px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size:18px;
+        float:left;
+    }
+
+    .custom-container{
+        max-width: 100%;
+        margin:0 auto;
+    }
+
+    .custom-container3{
+        max-width: 100%;
+        margin:0 auto;
+    }
+
+    .box {
+        background-color: #fff;
+        border-radius: 6px;
+        min-height: 160px;
+        --shadow: 1px 1px 1px 1px rgb(0 0 0 / 0.25);
+        box-shadow: var(--shadow);
+        display:block;
+    }
+
+    .subscribe{
+        background-color: #112530; 
+        color: white;
+        height:100%;
+    }
+
+}   
