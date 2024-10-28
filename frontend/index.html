@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartufi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+  <script src="galerija.js"></script>
+
+  <div class="custom-container">
+    <nav class="navbar">
+        <div class="row" >
+          <div class="col col-lg-3">
+            <div class="logo">
+              <img src="imgs/logo.png" alt="Tartuf Logo">
+              <span>TARTUF HUNT</span>
+            </div>
+          </div>
+          <div class="col col-lg-8">
+            <ul class="nav-links" >
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">ABOUT ME</a></li>
+              <li><a href="#">GALLERY</a></li>
+              <li><a href="#">VIDEOS</a></li>
+              <li><a href="#">STORE</a></li>
+              <li><a href="#">BLOG</a></li>
+            </ul>
+          </div>
+          <div class="col col-lg-1" id="pomak">
+            <a href="#" class="connect-button">LOGIN</a>
+          </div>
+        </div>
+    </nav>
+    
+      <div class="content">
+        <div class="row" >
+          <div class="col col-lg-8" style="text-align: left;" id="lijevi-text">
+            <div class="banner">
+              <h2>Dobrodošli u Tartuf hunt!</h2>
+            </div>
+            <h1>Pridružite se Jedinstvenoj Avanturi: Lov na Tartufe - Zabava za sve uzraste</h1>
+            <p class="intro-text">
+              Dobrodošli u jedinstveni svijet tartufarske avanture! Ovdje imate priliku zakoračiti u netaknutu prirodu i uz stručno vodstvo krenuti u lov na tartufe, jedno od najcjenjenijih i najskrivenijih blaga našeg kraja. Odaberite između različitih ruta i prilagodite svoje iskustvo prema vašim željama – bilo da ste početnik ili tražite ozbiljan izazov. U pratnji posebno obučenih pasa ili svinja, istražit ćete čari prirode dok učite o tartufima, njihovoj povijesti i tehnici pronalaska.
+            </p>
+            <div class="gumbi-content">
+              <a href="#" class="rezerviraj-button">REZERVIRAJ</a>
+              <a href="#" class="vise-button">SAZNAJ VIŠE</a>
+            </div>
+          </div>
+          <div class="col col-lg-4">
+            <div class="animals-image">
+              <img src="imgs/animals.png" alt="Dog and Boar"> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grass-bottom">
+    </div>
+
+    <div class="galerija">
+      <div class="row">
+          <h2>TARTUF GALERIJA:<br>Pogledajte Najljepše Prizore i Zabilježene Uspomene iz Lovova na Tartufe</h2>
+      </div>
+      <div class="row">
+      <div class="col col-lg-1"></div>
+      <div class="col col-lg-10">
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <img src="imgs/galerija_slika1.jpg" alt="Image 1">
+                <img src="imgs/galerija_slika2.jpg" alt="Image 2">
+                <img src="imgs/galerija_slika5.jpg" alt="Image 3">
+                <img src="imgs/galerija_slika4.jpg" alt="Image 4">
+                <img src="imgs/galerija_slika3.jpg" alt="Image 5">
+            </div>
+            <button class="arrow left" onclick="slideLeft()">&#10094;</button>
+            <button class="arrow right" onclick="slideRight()">&#10095;</button>
+          </div>
+        </div>
+        <div class="col col-lg-1"></div>
+      </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
