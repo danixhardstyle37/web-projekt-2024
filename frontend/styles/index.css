@@ -304,9 +304,12 @@ a:hover{
 }
 
 .merch img{
-    width:100%;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(70px 10px 20px rgb(206, 202, 202));
+}
+
+#nesto img{
+    width:100%;
 }
 
 .merch h4, h3{
