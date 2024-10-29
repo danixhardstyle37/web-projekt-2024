@@ -1,5 +1,4 @@
 body {
-    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
     color: #2E3A59; 
@@ -17,54 +16,6 @@ body {
     margin:0 auto;
 }
 
-.navbar {
-    padding: 20px 50px;
-    margin:auto;
-}
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-}
-
-.navbar .logo img {
-    width: 100px;
-    margin-right: 10px;
-}
-
-.navbar .logo span {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.logo{
-    display:flex;
-    flex-direction: column;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    float:right;
-    margin-right:10%;
-    padding-top:6%;
-}
-
-.navbar .nav-links li a {
-    text-decoration: none;
-    color: #2E3A59;
-    font-size:19px;
-}
-
-.connect-button {
-    background-color: #FF5B5B; 
-    color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size:19px;
-}
 
 #pomak{
     padding-top:4%;
@@ -257,7 +208,6 @@ a:hover{
 
 .meet{
     padding-top:300px;
-    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
     color: #2E3A59; 
@@ -282,6 +232,7 @@ a:hover{
 
 .meet h4{
     padding-top:2%;
+    font-size:18px;
 }
 
 .subscribe{
@@ -317,7 +268,7 @@ a:hover{
     margin: 0 auto;
 }
 
-input[type="email"] {
+.subscribe input[type="email"] {
     border: none;
     outline: none;
     font-size: 16px;
@@ -342,7 +293,6 @@ input[type="email"] {
 
 
 .merch{
-    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
     color: #2E3A59; 
@@ -350,6 +300,7 @@ input[type="email"] {
     padding:5%;
     padding-top:8%;
     padding-bottom:8%;
+
 }
 
 .merch img{
@@ -391,6 +342,68 @@ input[type="email"] {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.contact-us{
+    background-color: #1C566A;
+    color: #DFF9FD;
+    height:840px;
+    background-image: url('../imgs/forest-background.png');
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-size:auto; /* Ensures the image fits without stretching */
+    background-position:bottom; /* Aligns the background to the top center */
+    width: 100%; /* Full width of the page */
+}
+
+.custom-container3 img{
+    width:140%;
+    padding-top:14%;
+}
+
+img{
+    max-width: 1000px;
+}
+
+.contact-us h1{
+    font-weight: bold;
+}
+
+.contact-us h4{
+    padding-top:1%;
+    line-height: 1.6;
+}
+
+#forma-input{
+    width:44%;
+    border: 1px solid #1C566A;
+    outline: 1px solid #1C566A;
+    font-size: 18px;
+    color:black;
+    padding: 10px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #DFF8FF;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#forma-poruka{
+    width:90%;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #DFF8FF;
+    font-size: 19px;
+    color:black;
+    border: 1px solid #1C566A;
+    outline: 1px solid #1C566A;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.links{
+    height:100%;
+    background-color:black;
+    padding:0;
+    margin:0;
 }
 
 @media (max-width: 1200px) {
@@ -444,6 +457,10 @@ input[type="email"] {
         background-color: #112530; 
         color: white;
         height:100%;
+    }
+
+    .merch{
+        padding:2%;
     }
 
 }   

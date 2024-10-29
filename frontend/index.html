@@ -9,8 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/navigacija.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 <body>
+
+  <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
 
   <div class="background-slika">
     <div class="custom-container">
@@ -34,7 +38,7 @@
                   </ul>
                 </div>
                 <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak">
-                  <a href="#" class="connect-button">LOGIN</a>
+                  <a href="#" class="login-button">LOGIN</a>
                 </div>
               </div>
           </nav>
@@ -100,11 +104,11 @@
       <div class="point-arrow">
         <div class="custom-container">
           <div class="row" style="padding:100px;">
-            <div class="col col-lg-4">
+            <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
               <img src="imgs/meet.png" alt="Our team">
             </div>
             <div class="col col-lg-2"></div>
-            <div class="col col-lg-6" id="meet-tekst">
+            <div class="col col-lg-6 col-md-8 col-sm-8 col-xs-8" id="meet-tekst">
               <h2>UPOZNAJTE NAŠ TIM:<br> STRASTVENI LJUBITELJI PRIRODE I TARTUFA</h2>
               <h4>Mi smo troje studenata Tehničkog veleučilišta u Zagrebu koji dijele zajedničku strast prema prirodi i tartufima. Ova web stranica rezultat je našeg entuzijazma i želje da drugima omogućimo jedinstveno iskustvo lova na tartufe. Istražili smo i pronašli profesionalne vodiče koji će vas voditi kroz svaki korak ove uzbudljive avanture. Osim toga, surađivali smo s vlasnicima posebno obučenih životinja koje će vam pomoći u potrazi za ovim dragocjenim gljivama. Naš cilj je spojiti ljubitelje prirode sa iskustvima koja će im ostati u trajnom sjećanju.</h4>
               <div id="margina-pomak"></div>
@@ -156,12 +160,146 @@
                       </div>
 
                     <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                      <img src="imgs/plushie-merch.png" alt="Plushie">
+                      <img src="imgs/plushie_v2.png" alt="Plushie">
                     </div>
               </div>
             </div>
         </div>
       </div>
+  </div>
+
+  <div class="contact-us">
+    <div class="custom-container3" style="padding-top:3%;">
+        <div class="row">
+
+          <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1" style="padding-top:4%;">
+            <img src="imgs/bird-contact.png" alt="Contact bird">
+          </div>
+
+            <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <img src="imgs/dog_question.png" alt="Contact dog">
+          </div>
+          
+          <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+          <div class="col col-lg-6 col-md-7 col-sm-7 col-xs-7">
+            <h1>Imate Pitanje? Kontaktirajte Nas!</h1>
+            <h4>Ako imate pitanja, trebate dodatne informacije o turama ili želite prilagoditi svoju avanturu lova na tartufe, slobodno nam se obratite putem naše kontakt forme. Naš tim je ovdje kako bi vam pružio sve potrebne informacije i pomogao vam u planiranju nezaboravnog iskustva. Popunite formu sa svojim upitom i kontakt podacima, a mi ćemo vam se javiti u najkraćem mogućem roku. Radujemo se vašim porukama!</h4>
+            
+            <div style="padding-top:4%;"></div>
+            <input type="text" placeholder="Ime" id="forma-input">
+            <input type="text" placeholder="Organizacija (Opcionalno)" id="forma-input">
+
+            <input type="email" placeholder="Email adresa" id="forma-input">
+            <input type="text" placeholder="Broj telefona" id="forma-input">
+
+            <textarea rows="4" placeholder="Poruka" id="forma-poruka"></textarea>
+
+            <button class="pretplatime-button">Pošalji</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="links">
+    <footer>
+      <div class="container-fluid">
+          <div class="row" style="padding:50px;">
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                  <div class="footer-title"><b>KONTAKT</b></div>
+                  <ul class="footer-list">
+                      <li>Email</li>
+                      <li>Whatsapp</li>
+                      <li>Twitter</li>
+                      <li>Instagram</li>
+                      <li>Facebook</li>
+                  </ul>
+              </div>
+  
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                  <div class="footer-title"><b>INFORMACIJE</b></div>
+                  <ul class="footer-list">
+                      <li>Faq</li>
+                      <li>Vodič za ture</li>
+                      <li>Rezervacije</li>
+                      <li>Dućani</li>
+                      <li>Sponzori</li>
+                      <li>Općenito</li>
+                  </ul>
+              </div>
+  
+              <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                  <div class="footer-title"><b>O NAMA</b></div>
+                  <ul class="footer-list">
+                      <li>Naš tim</li>
+                      <li>Članci</li>
+                      <li>Tradicija</li>
+                      <li>Suradnici</li>
+                  </ul>
+              </div>
+  
+              <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer"> 
+                  <div class="footer-title"><b>RADITE S NAMA</b></div>
+                  <ul class="footer-list">
+                      <li>Karijera</li>
+                      <li>Suradnja</li>
+                  </ul>
+              </div>
+  
+              <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                  <div class="footer-title"><b>ZAJEDNICA</b></div>
+                  <ul class="footer-list">
+                      <li>Instagram</li>
+                      <li>Tiktok</li>
+                      <li>Facebook</li>
+                      <li>Pinterest</li>
+                      <li>Youtube</li>
+                      <li>Linkedin</li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="footer-title"><b>SPREMNI ZA AVANTURU?</b></div>
+                <ul class="footer-list">
+                  <li>Ne propustite priliku za nezaboravno iskustvo u potrazi za tartufima! Rezervirajte svoj termin danas i pridružite se našim vođenim turama.</li>
+                </ul>
+                <button class="pretplatime-button" style="padding:2%; margin-top:5%;">Rezerviraj</button>
+              </div>
+
+          </div>
+
+          <div class="row" style="padding:1%; background-color: #FF5B5B;">
+            <div class="row">
+              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="padding-top:1%; padding-left:2%;">
+                  <p>© 2024 TARTUF HUNT All rights reserved. <u>Privacy Policy</u> | <u>Legal Notice</u> | <u>Terms and Conditions</u></p>
+              </div>
+            
+              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align: right;">
+                  <div class="icon-circle">
+                    <i class="fa-brands fa-twitter" style="color: #e94949;"></i>
+                  </div>
+                  <div class="icon-circle">
+                    <i class="fa-brands fa-instagram" style="color: #e94949;"></i>
+                  </div>
+                  <div class="icon-circle">
+                    <i class="fa-brands fa-facebook-f" style="color: #e94949;"></i>
+                  </div>
+                  <div class="icon-circle">
+                    <i class="fa-brands fa-youtube" style="color: #e94949;"></i>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+
+      </div>
+
+    </footer>
   </div>
 
   <script src="scripts/script.js"></script>

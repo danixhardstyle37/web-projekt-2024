@@ -1,0 +1,55 @@
+footer {
+    background-color: black;
+    color:white;
+    font-size:2.2vh;
+}
+  
+.footer-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    text-align: left;
+    font-size:2.2vh;
+}
+
+.footer-title {
+    margin-bottom: 10px;
+}
+
+.footer-input {
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: #F4F3EF;
+    padding: 10px;
+    width: 100%;
+}
+
+.footer-input:focus {
+    outline: none;
+}
+
+#padding-footer{
+    margin-right:3%;
+}
+
+.icon-circle {
+    display: inline-flex;           /* Centers the icon inside the circle */
+    align-items: center;
+    justify-content: center;
+    width: 60px;                    /* Adjust size for the circle */
+    height: 60px;                   /* Same width and height for a perfect circle */
+    background-color: white;        /* White background for the circle */
+    border-radius: 50%;             /* Makes the div a circle */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for a lifted effect */
+}
+  
+.icon-circle i {
+    font-size: 28px;                /* Adjust icon size */
+}
+
+.icons{
+    float:right;
+}
