@@ -111,11 +111,12 @@
                 </div>
                 <button class="save-btn" id="save-btn" onclick="saveReservation()">Save Reservation</button>
             </div>
+
         </div>
     </div>
 
     <script type="module">
-        import service from './scripts/service.js';
+        import service from './scripts/service.js'; 
 
         window.currentStep = 1;
         const totalSteps = 8;
@@ -123,39 +124,31 @@
         window.groupSize = '';
         window.tourLength = '';
         window.tourId = 0;
-        window.selectedDate = ''; 
-        window.selectedGuide = ''; 
-        window.selectedPet = ''; 
-        window.selectedAnimal = '';
+        window.selectedDate = ''; // Initialize variable to store selected date
+        window.selectedGuide = ''; // Initialize variable to store selected guide
+        window.selectedPet = ''; // Initialize variable to store selected pet
 
         function showButtons(step) {
-            const optionButtons = document.querySelectorAll('.option-btn');
-            optionButtons.forEach(button => button.classList.remove('visible')); // Hide all buttons initially
-
-            switch (step) {
-                case 1:
-                    setTimeout(() => document.getElementById('parovi').classList.add('visible'), 1000);
-                    setTimeout(() => document.getElementById('grupa').classList.add('visible'), 2000);
-                    setTimeout(() => document.getElementById('teambuilding').classList.add('visible'), 3000);
-                    break;
-                case 2:
-                    setTimeout(() => document.getElementById('kratka').classList.add('visible'), 1000);
-                    setTimeout(() => document.getElementById('srednja').classList.add('visible'), 2000);
-                    setTimeout(() => document.getElementById('duga').classList.add('visible'), 3000);
-                    break;
-                case 3:
-                    fetchTours();
-                    break;
-                case 5:
-                    fetchVodici();
-                    break;
-                case 6:
-                    setTimeout(() => document.getElementById('pas').classList.add('visible'), 1000);
-                    setTimeout(() => document.getElementById('svinja').classList.add('visible'), 2000);
-                    break;
-                case 7:
-                    fetchZivotinje();
-                    break;
+            if (step === 1) {
+                setTimeout(() => document.getElementById('parovi').classList.add('visible'), 1000);
+                setTimeout(() => document.getElementById('grupa').classList.add('visible'), 2000);
+                setTimeout(() => document.getElementById('teambuilding').classList.add('visible'), 3000);
+            } else if (step === 2) {
+                setTimeout(() => document.getElementById('kratka').classList.add('visible'), 1000);
+                setTimeout(() => document.getElementById('srednja').classList.add('visible'), 2000);
+                setTimeout(() => document.getElementById('duga').classList.add('visible'), 3000);
+            } else if (step === 3) {
+                fetchTours(); // Call function to fetch tours on step 3
+            } else if (step === 4) {
+                // Any additional logic for step 4 if needed
+            } else if (step === 5) {
+                fetchVodici(); // Fetch guides on step 5
+            } else if (step === 6) {
+                // Show buttons for selecting pets in Step 6
+                setTimeout(() => document.getElementById('pas').classList.add('visible'), 1000);
+                setTimeout(() => document.getElementById('svinja').classList.add('visible'), 2000);
+            }else if (step === 7) {
+                fetchZivotinje(); // Fetch animals on step 7
             }
         }
 
@@ -170,9 +163,10 @@
         }
 
         function nextStep() {
-            if (window.selectedOption || window.currentStep === 4 || window.currentStep === 5 || window.currentStep === 6) {
+            if (window.selectedOption || window.currentStep === 4 || window.currentStep === 5 || window.currentStep === 6) { // Allow moving to step 4, 5, and 6 without selection
                 document.getElementById('next-btn').style.display = 'none';
 
+                
                 switch (window.currentStep) {
                     case 1:
                         window.groupSize = window.selectedOption;
@@ -196,10 +190,11 @@
                         window.selectedAnimal = window.selectedOption;
                         break;
                     case 8:
+                        // Here we update the summary display
                         document.getElementById('summary-group-size').innerText = window.groupSize;
-                        document.getElementById('summary-tour').innerText = window.selectedOption ? window.selectedOption.ime : ''; 
+                        document.getElementById('summary-tour').innerText = window.selectedOption ? window.selectedOption.ime : ''; // Ensure you get the name of the selected tour
                         document.getElementById('summary-date').innerText = window.selectedDate;
-                        document.getElementById('summary-guide').innerText = window.selectedGuide ? window.selectedGuide.imePrezime : '';
+                        document.getElementById('summary-guide').innerText = window.selectedGuide ? window.selectedGuide.imePrezime : ''
                         document.getElementById('summary-animal').innerText = window.selectedAnimal ? window.selectedAnimal.ime : '';
                         break;
                     default:
@@ -209,6 +204,11 @@
                 console.log(window.selectedOption);
                 window.selectedOption = '';
 
+                // Hide all option buttons
+                document.querySelectorAll('.option-btn').forEach(function(button) {
+                    button.classList.remove('visible');
+                });
+
                 const currentStepElement = document.getElementById(`step${window.currentStep}`);
                 currentStepElement.classList.remove('active');
 
@@ -216,107 +216,128 @@
                 const nextStepElement = document.getElementById(`step${window.currentStep}`);
                 nextStepElement.classList.add('active');
 
-                document.getElementById('step-info').innerText = `Step ${window.currentStep}/${totalSteps}`;
+                document.getElementById('step-info').innerText = `Step ${window.currentStep}/8`;
 
+                // Show buttons for the next step
                 showButtons(window.currentStep);
             }
         }
 
-        function selectDate() {
-            window.selectedDate = document.getElementById('reservation-date').value;
-            document.getElementById('selected-date').innerText = `Selected date: ${window.selectedDate}`;
-            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+        function saveReservation() {
+            // Logic to save the reservation can be implemented here
+            alert("Reservation saved successfully!"); // Placeholder alert for now
         }
 
-        function fetchTours() {
-            // This function should fetch tours and dynamically add buttons to #tura-buttons
-            const tours = service.tours; // Assuming service.tours returns a list of tours
-            const turaButtons = document.getElementById('tura-buttons');
-            turaButtons.innerHTML = '';
+        async function fetchTours() {
+            // Fetch tours based on tourLength and populate buttons
+            const tours = await service.getTuraAll(); // Fetch all tours
+            const filteredTours = tours.filter(tour => tour.duljina.duljina === window.tourLength); // Filter by selected length
 
-            tours.forEach(tour => {
+            const turaButtonsDiv = document.getElementById('tura-buttons');
+            turaButtonsDiv.innerHTML = ''; // Clear previous buttons
+
+            filteredTours.forEach(tour => {
                 const button = document.createElement('button');
-                button.className = 'option-btn';
-                button.innerText = tour.ime; // Assuming each tour has a name property
-                button.onclick = () => selectTour(tour);
-                turaButtons.appendChild(button);
+                button.className = 'tura-btn';
+                button.innerText = tour.ime; // Set button text to tour name
+                button.onclick = () => selectTour(tour); // Attach click handler
+                turaButtonsDiv.appendChild(button); // Append button to the div
             });
 
-            showButtons(3); // Show buttons for tours
+            // Check if buttons were added
+            if (filteredTours.length === 0) {
+                turaButtonsDiv.innerHTML = '<p>No tours available for the selected length.</p>';
+            }
         }
 
         function selectTour(tour) {
             window.selectedOption = tour;
-            document.getElementById('tura-description').innerText = tour.opis; // Assuming each tour has a description property
-            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+            const descriptionDiv = document.getElementById('tura-description');
+            descriptionDiv.innerHTML = `<strong>${tour.ime}</strong><p>${tour.opis}</p>`;
+            document.getElementById('next-btn').style.display = 'block'; // Show next button
         }
 
-        function fetchVodici() {
-            // This function should fetch guides and dynamically add buttons to #vodic-buttons
-            const vodici = service.vodici; // Assuming service.vodici returns a list of guides
-            const vodicButtons = document.getElementById('vodic-buttons');
-            vodicButtons.innerHTML = '';
+        async function fetchVodici() {
+            // Fetch guides and populate buttons
+            const vodici = await service.getVodicAll(); // Fetch all guides
+
+            const vodicButtonsDiv = document.getElementById('vodic-buttons');
+            vodicButtonsDiv.innerHTML = ''; // Clear previous buttons
 
             vodici.forEach(vodic => {
                 const button = document.createElement('button');
-                button.className = 'option-btn';
-                button.innerText = vodic.imePrezime; // Assuming each guide has a name property
-                button.onclick = () => selectGuide(vodic);
-                vodicButtons.appendChild(button);
+                button.className = 'vodic-btn';
+                button.innerText = vodic.imePrezime; // Set button text to guide name
+                button.onclick = () => selectVodic(vodic); // Attach click handler
+                vodicButtonsDiv.appendChild(button); // Append button to the div
             });
 
-            showButtons(5); // Show buttons for guides
+            // Check if buttons were added
+            if (vodici.length === 0) {
+                vodicButtonsDiv.innerHTML = '<p>No guides available.</p>';
+            }
         }
 
-        function selectGuide(vodic) {
+        function selectVodic(vodic) {
             window.selectedOption = vodic;
-            document.getElementById('vodic-description').innerText = vodic.opis; // Assuming each guide has a description property
-            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+            const descriptionDiv = document.getElementById('vodic-description');
+            descriptionDiv.innerHTML = `<strong>${vodic.imePrezime}</strong><strong>${vodic.brojTura}</strong><p>${vodic.opis}</p>`;
+            document.getElementById('next-btn').style.display = 'block'; // Show next button
         }
 
-        function fetchZivotinje() {
-            // This function should fetch animals and dynamically add buttons to #zivotinja-buttons
-            const zivotinje = service.zivotinje; // Assuming service.zivotinje returns a list of animals
-            const zivotinjaButtons = document.getElementById('zivotinja-buttons');
-            zivotinjaButtons.innerHTML = '';
+        async function fetchZivotinje() {
+            // Fetch animals based on the selected pet type and populate buttons
+            const zivotinje = await service.getZivotinjaAll(); // Fetch all animals
+            const filteredZivotinje = zivotinje.filter(zivotinja => zivotinja.vrsta === window.selectedPet); // Filter by selected type
 
-            zivotinje.forEach(zivotinja => {
+            const zivotinjaButtonsDiv = document.getElementById('zivotinja-buttons');
+            zivotinjaButtonsDiv.innerHTML = ''; // Clear previous buttons
+
+            filteredZivotinje.forEach(zivotinja => {
                 const button = document.createElement('button');
-                button.className = 'option-btn';
-                button.innerText = zivotinja.ime; // Assuming each animal has a name property
-                button.onclick = () => selectAnimal(zivotinja);
-                zivotinjaButtons.appendChild(button);
+                button.className = 'zivotinja-btn';
+                button.innerText = zivotinja.ime; // Set button text to animal name
+                button.onclick = () => selectZivotinja(zivotinja); // Attach click handler
+                zivotinjaButtonsDiv.appendChild(button); // Append button to the div
             });
 
-            showButtons(7); // Show buttons for animals
+            // Check if buttons were added
+            if (filteredZivotinje.length === 0) {
+                zivotinjaButtonsDiv.innerHTML = '<p>No animals available for the selected type.</p>';
+            }
         }
 
-        function selectAnimal(zivotinja) {
+        function selectZivotinja(zivotinja) {
             window.selectedOption = zivotinja;
-            document.getElementById('zivotinja-description').innerText = zivotinja.opis; // Assuming each animal has a description property
-            document.getElementById('next-btn').style.display = 'block'; // Show Next button
+            const descriptionDiv = document.getElementById('zivotinja-description');
+            descriptionDiv.innerHTML = `<strong>${zivotinja.ime}</strong><p>${zivotinja.opis}</p>`;
+            document.getElementById('next-btn').style.display = 'block'; // Show next button
         }
 
-        function saveReservation() {
-            // Logic to save the reservation
-            const reservationData = {
-                groupSize: window.groupSize,
-                tour: window.selectedOption,
-                date: window.selectedDate,
-                guide: window.selectedGuide,
-                pet: window.selectedPet,
-                animal: window.selectedAnimal,
-            };
-
-            console.log("Reservation saved:", reservationData);
-            alert('Reservation saved successfully!');
+        function selectDate() {
+            const dateInput = document.getElementById('reservation-date');
+            const selectedDateDiv = document.getElementById('selected-date');
+            
+            const date = new Date(dateInput.value);
+            if (!isNaN(date)) {
+                const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                selectedDateDiv.innerText = `Odabrani datum: ${date.toLocaleDateString('en-US', options)}`;
+                document.getElementById('next-btn').style.display = 'block'; // Show next button
+            } else {
+                selectedDateDiv.innerText = '';
+            }
         }
 
-        // Initialize the first step
+        document.addEventListener('DOMContentLoaded', function() {
+            showButtons(1);
+        });
+
+        // Make functions available globally
         window.selectOption = selectOption;
         window.nextStep = nextStep;
         window.selectDate = selectDate;
-        showButtons(window.currentStep);
+
     </script>
+
 </body>
 </html>

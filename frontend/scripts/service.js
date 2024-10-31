@@ -9,6 +9,12 @@ const service = {
     getKorisnikById: async function (id) {
         return await db.getDataById('korisnici', id);
     },
+    getKorisnikByUsername: async function(username){
+        return await db.getDataById('korisnici/username', username);
+    },
+    getKorisnikByEmail: async function(email){
+        return await db.getDataById('korisnici/email', email);
+    },
     addKorisnik: async function (data) {
         return await db.addData('korisnici', data);
     },
@@ -119,7 +125,13 @@ const service = {
     },
     deleteZakazaneTureById: async function (id) {
         return await db.deleteDataById('zakazane_ture', id);
-    }
+    },
+
+    
+    // Token
+    verifyToken: async function (token) {
+        return await db.verifyToken(token); // Call the database function to verify the token
+    },
 }
 
 export default service;

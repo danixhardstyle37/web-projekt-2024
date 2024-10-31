@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles/prijava.css">
+    <title>Prijava</title>
+</head>
+<body>
+    <div class="background-slika">
+        <div class="container">
+            <div class="row center-box">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    <div class="login-box">
+                        <div class="lb-header">
+                            <a href="#" class="active" id="login-box-link">Login</a>
+                            <a href="#" id="signup-box-link">Sign Up</a>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form class="email-login" id="loginForm">
+                            <div class="u-form-group">
+                                <input type="username" id="loginUsername" placeholder="Username" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="password" id="loginPassword" placeholder="Password" />
+                            </div>
+                            <div class="u-form-group">
+                                <button id="loginButton">Log in</button>
+                            </div>
+                            <div class="alert" id="loginAlert" style="display: none;"></div>
+                        </form>
+
+                        <!-- Registration Form -->
+                        <form class="email-signup" action="" method="POST" id="registrationform">
+                            <div class="u-form-group">
+                                <input type="text" name="name" id="name" placeholder="Name" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last name" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="email" name="email" id="email" placeholder="Email" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="text" name="username" id="username" placeholder="Username" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="password" name="password1" id="password1" placeholder="Password" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <input type="password" name="password2" id="password2" placeholder="Confirm Password" maxlength="30" />
+                            </div>
+                            <div class="u-form-group">
+                                <button type="submit" id="signupButton">Sign Up</button>
+                            </div>
+                            <div class="alert" style="display: none;">Data added successfully!</div>
+                            <div class="alert" id="passwordMismatchAlert" style="display: none;">Error: Passwords do not match.</div>
+                        </form>
+
+                        <!-- Token Input Form -->
+                        <form class="token-verification" id="tokenVerificationForm" style="display: none;">
+                            <div class="u-form-group">
+                                <h5>Kako bi se uspješno registrirali molim Vas upišite kod koji Vam je poslan na vaš mail</h5>
+                                <input type="text" id="verificationToken" placeholder="Enter verification token" />
+                            </div>
+                            <div class="u-form-group">
+                                <button type="submit" id="verifyButton">Verify Token</button>
+                            </div>
+                            <div class="alert" id="tokenAlert" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grass-bottom"></div>
+    </div>
+    
+
+    <script>
+         $(".email-signup").hide();
+        $(".token-verification").hide(); // Hide token verification form initially
+
+        $("#signup-box-link").click(function(){
+            $(".email-login").fadeOut(100);
+            $(".email-signup").delay(100).fadeIn(100);
+            $("#login-box-link").removeClass("active");
+            $("#signup-box-link").addClass("active");
+        });
+
+        $("#login-box-link").click(function(){
+            $(".email-login").delay(100).fadeIn(100);
+            $(".email-signup").fadeOut(100);
+            $(".token-verification").fadeOut(100); // Hide token form
+            $("#login-box-link").addClass("active");
+            $("#signup-box-link").removeClass("active");
+        });
+    </script>
+
+    <script type = "module">
+        import service from './scripts/service.js'
+
+        document
+          .getElementById('registrationform')
+          .addEventListener('submit', formSubmit);
+
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+    
+        async function formSubmit(e) {
+            e.preventDefault();
+
+            let fullName = document.querySelector('#name').value + " " + document.querySelector('#lastName').value;
+            let email = document.querySelector('#email').value;
+            let username = document.querySelector('#username').value;
+            let password1 = document.querySelector('#password1').value;
+            let password2 = document.querySelector('#password2').value;
+
+            if (!isValidPassword(password1)) {
+                console.log("Invalid password. Password must have at least 1 uppercase letter and at least 1 number.");
+                document.querySelector('.alert').textContent = 'Error: Password must have at least 1 uppercase letter and at least 1 number.';
+                document.querySelector('.alert').style.display = 'block';
+                return;
+            }
+
+            if (password1 !== password2) {
+                console.log("Passwords do not match.");
+                document.querySelector('.alert').textContent = ''; 
+                document.querySelector('.alert').style.display = 'none'; 
+                document.querySelector('#passwordMismatchAlert').textContent = 'Error: Passwords do not match.';
+                document.querySelector('#passwordMismatchAlert').style.display = 'block';
+                return;
+            }
+
+
+            try {
+                const existingUser = await service.getKorisnikByEmail(email);
+                const existingUsername = await service.getKorisnikByUsername(username);
+
+                if (existingUser || existingUsername) {
+                    console.log("Email or username already exists.");
+                    document.querySelector('.alert').textContent = 'Error: This email or username is already registered.';
+                    document.querySelector('.alert').style.display = 'block';
+                    return;
+                }
+
+                const hashedPassword = await hashPassword(password1);
+                sendMessage(fullName, email, username, hashedPassword);
+            } catch (error) {
+                console.error("Error querying the database:", error);
+            }
+        }
+
+        function isValidPassword(password) {
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+            return passwordRegex.test(password);
+        }
+
+        async function sendMessage(fullName, email, username, hashedPassword) {
+            const data = {
+                username: username,
+                password: hashedPassword,
+                ime_prezime: fullName,
+                email: email
+            };
+
+            const response = await service.addKorisnik(data);
+            // After successful registration, show token verification form
+            if (response) {
+                $(".email-signup").fadeOut(100);
+                $(".lb-header").fadeOut(100);
+                $(".token-verification").fadeIn(100);
+            }
+        }
+
+        document.getElementById('tokenVerificationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const token = document.getElementById('verificationToken').value;
+            await verifyToken(token);
+        });
+
+        async function verifyToken(token){
+            const response = await service.verifyToken(token);
+            if (response) {
+                document.querySelector('#tokenAlert').textContent = 'Token verified successfully!';
+                document.querySelector('#tokenAlert').style.display = 'block';
+            } else {
+                document.querySelector('#tokenAlert').textContent = 'Error: Invalid token.';
+                document.querySelector('#tokenAlert').style.display = 'block';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
+                signIn(username, password);
+        });
+
+        async function signIn(username, password) {
+            try {
+                const existingUser = await service.getKorisnikByUsername(username);
+                if (existingUser) {
+                        const hashedPassword = existingUser.password;
+                        const providedPasswordHash = await hashPassword(password);
+
+                        if (hashedPassword === providedPasswordHash) {
+                            console.log("Login successful.");
+                            handleSuccessfulLogin(existingUser.KorisnickoIme);
+                            //redirectToHomePage();
+                            window.location.href = "index.html";
+                        } else {
+                            console.log("Incorrect password.");
+                            document.querySelector('#loginAlert').textContent = 'Error: Incorrect username or password.';
+                            document.querySelector('#loginAlert').style.display = 'block';
+                        }
+                    } else {
+                        console.log("Username not found.");
+                        document.querySelector('#loginAlert').textContent = 'Error: Incorrect username or password.';
+                        document.querySelector('#loginAlert').style.display = 'block';
+                    }
+            } catch (error) {
+                console.error("Error querying the database:", error);
+            }
+        }
+
+        function handleSuccessfulLogin(username) {
+            localStorage.setItem('username', username);
+          }
+
+          function handleLogout() {
+            localStorage.removeItem('username');
+            window.location.href = 'logout.html';
+          }
+    </script>
+</body>
+</html>

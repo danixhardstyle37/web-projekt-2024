@@ -78,7 +78,27 @@ const db = {
         } catch (error) {
             console.error('There has been a problem with your fetch operation:', error);
         }
-    }
+    },
+
+    // Token verify
+    verifyToken: async function (token) {
+        try {
+            const response = await fetch(url + "verifyToken", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: token }), // Send the token in the request body
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return await response.json(); // Expecting a boolean response
+        } catch (error) {
+            console.error('There has been a problem with your token verification operation:', error);
+        }
+    },
 }
 
 export default db;

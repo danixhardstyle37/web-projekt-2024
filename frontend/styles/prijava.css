@@ -1,0 +1,91 @@
+.login-box {
+    background-color: #FFFFFF;
+    padding: 120px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lb-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lb-header a {
+    color: #FF5B5B;
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: xx-large;
+}
+
+.lb-header a.active,
+.lb-header a:hover {
+    color: #421A00;
+}
+
+.u-form-group {
+    margin-bottom: 20px;
+}
+
+.u-form-group input,
+.u-form-group select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.u-form-group button {
+    width: 100%;
+    padding: 15px;
+    background-color: #FF5B5B;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: large;
+}
+
+.u-form-group button:hover {
+    background-color: #421A00;
+}
+
+.alert {
+    background-color: #FF5B5B;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:-2%;
+}
+
+.background-slika {
+    background-image: url('../imgs/bamboo.jpg'); 
+    background-repeat: repeat;
+    background-size: cover;
+    min-height: calc(100vh); /* Full viewport height minus grass height */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    position: relative; /* Required for child positioning */
+}
+
+.grass-bottom {
+    height: 120px;
+    position: absolute; /* Positioned relative to the viewport */
+    bottom: 0; /* Sticks to the bottom of the screen */
+    width: 100%; /* Full width */
+    background-position: bottom left;
+    background-repeat: repeat-x; 
+    background-image: url('../imgs/grass.png');
+    background-size: auto 150px;
+}

@@ -33,6 +33,16 @@ public class KorisnikController {
         return korisnikService.findById(id);
     }
 
+    @GetMapping(value = "/korisnici/username/{username}")
+    public Korisnik getKorisnikByUsername(@PathVariable String username) {
+        return korisnikService.findByUsername(username);
+    }
+
+    @GetMapping(value = "/korisnici/email/{email}")
+    public Korisnik getKorisnikByEmail(@PathVariable String email) {
+        return korisnikService.findByEmail(email);
+    }
+
     // POST metoda (dodaj novo)
     @PostMapping(value = "/korisnici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> addKorisnik(@RequestBody Korisnik korisnik) {

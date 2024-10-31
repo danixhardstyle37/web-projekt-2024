@@ -16,6 +16,8 @@ public class KorisnikService {
 
     public List<Korisnik> findAll() { return korisnikRepo.findAll(); }
     public Korisnik findById(Integer id) { return korisnikRepo.findById(id).orElse(null); }
+    public Korisnik findByUsername(String username) { return korisnikRepo.findByUsername(username).orElse(null); }
+    public Korisnik findByEmail(String email) { return korisnikRepo.findByEmail(email).orElse(null); }
     public void deleteById(Integer id) { korisnikRepo.deleteById(id); }
     public Korisnik save(Korisnik korisnik) { return korisnikRepo.save(korisnik); }
     public Optional<Korisnik> updateById(Integer id) { return korisnikRepo.findById(id); }
