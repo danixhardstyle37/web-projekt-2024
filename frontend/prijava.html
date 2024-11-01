@@ -215,7 +215,7 @@
 
                         if (hashedPassword === providedPasswordHash) {
                             console.log("Login successful.");
-                            handleSuccessfulLogin(existingUser.KorisnickoIme);
+                            handleSuccessfulLogin(existingUser.username);
                             //redirectToHomePage();
                             window.location.href = "index.html";
                         } else {
@@ -235,7 +235,9 @@
 
         function handleSuccessfulLogin(username) {
             localStorage.setItem('username', username);
-          }
+        }
+
+
 
           function handleLogout() {
             localStorage.removeItem('username');

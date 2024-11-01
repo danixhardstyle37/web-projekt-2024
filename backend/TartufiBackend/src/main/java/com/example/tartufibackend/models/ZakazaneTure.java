@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -37,13 +38,15 @@ public class ZakazaneTure {
     @JoinColumn(name = "Id_zivotinja", referencedColumnName = "Id")
     private Zivotinja zivotinja;
 
-    @Column(name = "date_time_od")
-    private LocalDateTime dateTime_Od;
+    @Column(name = "datum")
+    private LocalDate datum;
 
-    @Column(name = "date_time_do")
-    private LocalDateTime dateTime_Do;
+    @Column(name = "vrijeme_ture")
+    private Integer vrijeme_ture;
 
     @Column(name = "Velicina_grupe")
     private String velicina_grupe;
 
+    @Column(name = "cijena_ture")
+    private Integer cijena_ture;
 }

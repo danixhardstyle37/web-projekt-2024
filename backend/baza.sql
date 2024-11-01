@@ -45,12 +45,16 @@ CREATE TABLE `korisnik` (
   `ime_prezime` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `korisnik` */
 
 insert  into `korisnik`(`Id`,`username`,`password`,`ime_prezime`,`email`) values 
-(1,'admin','admin','admin','dario.boc37@gmail.com');
+(1,'admin','admin','admin','dario.boc37@gmail.com'),
+(2,'test','test','test','test@test'),
+(3,'a','16a36e86f6fed5d465ff332511a0ce1a863b55d364b25a7cdaa25db19abf9648','a a','a@a'),
+(4,'aa','16a36e86f6fed5d465ff332511a0ce1a863b55d364b25a7cdaa25db19abf9648','a a','a1@a'),
+(8,'marko123','b46ea4ca5b6cb70b2965d8483a1ba85b92644fe9f9e04a860c891d92589a1cf4','marko marko','abramovi.marko@gmail.com');
 
 /*Table structure for table `merch` */
 
@@ -121,9 +125,10 @@ CREATE TABLE `zakazane_ture` (
   `Id_korisnik` int(255) NOT NULL,
   `Id_vodic` int(255) NOT NULL,
   `Id_zivotinja` int(255) NOT NULL,
-  `date_time_od` datetime(6) DEFAULT NULL,
-  `date_time_do` datetime(6) DEFAULT NULL,
+  `datum` date DEFAULT NULL,
+  `vrijeme_ture` int(11) DEFAULT NULL,
   `velicina_grupe` varchar(255) DEFAULT NULL,
+  `cijena_ture` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_zakazane_ture_tura` (`Id_tura`),
   KEY `fk_zakazane_ture_korisnik` (`Id_korisnik`),
@@ -133,12 +138,14 @@ CREATE TABLE `zakazane_ture` (
   CONSTRAINT `fk_zakazane_ture_tura` FOREIGN KEY (`Id_tura`) REFERENCES `tura` (`Id`),
   CONSTRAINT `fk_zakazane_ture_vodic` FOREIGN KEY (`Id_vodic`) REFERENCES `vodic` (`Id`),
   CONSTRAINT `fk_zakazane_ture_zivotinja` FOREIGN KEY (`Id_zivotinja`) REFERENCES `zivotinja` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zakazane_ture` */
 
-insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`date_time_od`,`date_time_do`,`velicina_grupe`) values 
-(2,1,1,1,1,'2024-10-25 09:00:00.000000','2024-10-25 12:00:00.000000','2');
+insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`datum`,`vrijeme_ture`,`velicina_grupe`,`cijena_ture`) values 
+(2,1,1,1,1,'2024-10-25',9,'2',NULL),
+(3,3,1,1,1,NULL,9,'Za parove',120),
+(4,1,8,1,1,'2024-11-21',10,'Za parove',120);
 
 /*Table structure for table `zivotinja` */
 

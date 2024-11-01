@@ -228,6 +228,8 @@
                 `;
                 tbody.appendChild(row);
             });
+
+            console.log(turaList);
         }
 
         async function populateVodicTable() {
@@ -304,22 +306,21 @@
 
             zakazaneTureList.forEach(tura => {
 
-                const datumOd = new Date(tura.dateTime_Od + 'Z');
-                const datumDo = new Date(tura.dateTime_Do + 'Z');
-
-                console.log("Od: " + datumDo + "\nDo: " + datumDo);
-
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${tura.id}</td>
                     <td>${tura.korisnik.id}</td> <!-- Adjust based on your model -->
                     <td>${tura.tura.id}</td>
-                    <td>${datumOd}</td> <!-- Adjust based on your model -->
-                    <td>${datumDo}</td> <!-- Adjust based on your model -->
+                    <td>${tura.datum}</td> <!-- Adjust based on your model -->
+                    <td>${tura.vrijeme_ture}</td> <!-- Adjust based on your model -->
                     <td>${tura.velicina_grupe}</td>
+                    <td>${tura.cijena_ture}</td>
                 `;
                 tbody.appendChild(row);
             });
+
+            console.log(zakazaneTureList);
+
         }
 
         console.log(await service.getTuraById(3));

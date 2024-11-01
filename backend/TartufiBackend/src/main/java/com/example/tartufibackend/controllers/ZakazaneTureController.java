@@ -50,11 +50,12 @@ public class ZakazaneTureController {
         if (existingZakazanaTura.isPresent()) {
             ZakazaneTure zakazanaTura = existingZakazanaTura.get();
             // Update fields
-            zakazanaTura.setDateTime_Od(updatedZakazanaTura.getDateTime_Od());
-            zakazanaTura.setDateTime_Do(updatedZakazanaTura.getDateTime_Do());
+            zakazanaTura.setDatum(updatedZakazanaTura.getDatum());
+            zakazanaTura.setVrijeme_ture(updatedZakazanaTura.getVrijeme_ture());
             zakazanaTura.setKorisnik(updatedZakazanaTura.getKorisnik());
             zakazanaTura.setTura(updatedZakazanaTura.getTura());
             zakazanaTura.setVelicina_grupe(updatedZakazanaTura.getVelicina_grupe());
+            zakazanaTura.setCijena_ture(updatedZakazanaTura.getCijena_ture());
 
             ZakazaneTure savedZakazanaTura = zakazaneTureService.save(zakazanaTura);  // `save()` will perform the update
             return ResponseEntity.ok(savedZakazanaTura);  // Return the updated ZakazanaTura

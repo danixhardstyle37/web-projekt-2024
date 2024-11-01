@@ -184,3 +184,22 @@ body {
     font-size: 1.2rem;
     color: #333; /* Darker color for contrast */
 }
+
+.time-selection {
+    margin-top: 10px;
+}
+
+.time-button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.time-button:hover {
+    background-color: #45a049;
+}
+
