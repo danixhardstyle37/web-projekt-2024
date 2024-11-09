@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartufi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/navigacija.css">
+    <link rel="stylesheet" href="styles/forum.css">
+    <link rel="stylesheet" href="styles/footer.css">
+</head>
+<body>
+
+  <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
+
+  <div class="background-slika">
+    <div class="custom-container">
+      <header>
+          <nav class="navbar">
+              <div class="row" >
+                <div class="col col-lg-3 col-md-1 col-sm-1 col-xs-12">
+                  <div class="logo">
+                    <img src="imgs/logo.png" alt="Tartuf Logo">
+                    <span>TARTUF HUNT</span>
+                  </div>
+                </div>
+                <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
+                  <ul class="nav-links" >
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT ME</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="#">VIDEOS</a></li>
+                    <li><a href="#">STORE</a></li>
+                    <li><a href="#">BLOG</a></li>
+                  </ul>
+                </div>
+                <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak">
+                  <a href="prijava.html" class="login-button">LOGIN</a>
+                </div>
+              </div>
+          </nav>
+      </header>
+
+    <div class="content">
+        <div class="row" >
+          <div class="col col-lg-7" style="text-align: left;" id="lijevi-text" >
+            <h1>VAŠA ISKUSTVA & <br> <b style="color: #FF5B5B;"><i>PRIČE</i></b></h1>
+            <p class="intro-text">
+                Dobrodošli na naš forum! Ovdje možete podijeliti svoje iskustvo i pročitati recenzije drugih članova. Pridružite se zajednici i sudjelujte u raznim temama. Slobodno dodajte svoje mišljenje klikom na "DODAJ SVOJU PRIČU"!
+            </p>
+            <div class="gumbi-content">
+              <a href="#" class="recenzija-button" id="openPopup">DODAJ SVOJU PRIČU</a>
+            </div>
+          </div>
+          <div class="col col-lg-4" >
+            <div class="animals-image">
+              <img src="imgs/forum.png" alt="Dog and Boar"> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="row" id="forum-reviews">
+        <div class="col-lg-6 col-md-6">
+            <div class="review-card">
+                <div class="row">
+                    <div class="col-sm-5 review-image">
+                        <img src="imgs/review1.jpg" alt="Review Image">
+                    </div>
+                    <div class="col-sm-7 review-content">
+                        <h3 class="user-name">Ivan01</h3>
+                        <p class="review-text">Ovo je fantastično iskustvo! Preporučujem svima.</p>
+                    </div>
+                </div>
+                <img src="imgs/dog-icon.png" alt="Dog Icon" class="animal-icon">
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="review-card">
+                <div class="row">
+                    <div class="col-sm-5 review-image">
+                        <img src="imgs/review2.jpg" alt="Review Image">
+                    </div>
+                    <div class="col-sm-7 review-content">
+                        <h3 class="user-name">AnaAnic</h3>
+                        <p class="review-text">Zabava i iznenađenja na svakom koraku, a pas je stvarno znao gdje tražiti!</p>
+                    </div>
+                </div>
+                <img src="imgs/dog-icon.png" alt="Dog Icon" class="animal-icon">
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="review-card">
+                <div class="row">
+                    <div class="col-sm-5 review-image">
+                        <img src="imgs/review3.jpg" alt="Review Image">
+                    </div>
+                    <div class="col-sm-7 review-content">
+                        <h3 class="user-name">MMarkić123</h3>
+                        <p class="review-text">Traženje tartufa sa svinjom Rudolfom bilo je iskustvo koje ću dugo pamtiti. Njena sposobnost da pronađe tartufe je impresivna, a cijeli proces je bio zabavan i pun smijeha.</p>
+                    </div>
+                </div>
+                <img src="imgs/pig-icon.png" alt="Pig Icon" class="animal-icon">
+            </div>
+        </div>
+
+    </div>
+    
+    </div>
+
+
+    <!-- Pop-up (Modalni prozor) -->
+    <div class="popup" id="reviewPopup">
+        <div class="popup-content">
+          <span class="close-btn" id="closePopup">&times;</span>
+          <h2>Podijelite svoju priču</h2>
+      
+          <!-- Forma za dodavanje recenzije -->
+          <form id="reviewForm">
+            <div class="popup-image">
+              <input type="file" id="reviewImage" accept="image/*">
+            </div>
+      
+            <div class="popup-textarea">
+              <textarea id="reviewText" placeholder="Opišite svoje iskustvo..." required></textarea>
+            </div>
+      
+            <div class="popup-icons">
+              <label for="animalIcon">Izaberite ikonu:</label>
+              <input type="radio" id="dog" name="animalIcon" value="dog" checked>
+              <label for="dog"><img src="imgs/dog-icon.png" alt="Pas"></label>
+              <input type="radio" id="pig" name="animalIcon" value="pig">
+              <label for="pig"><img src="imgs/pig-icon.png" alt="Svinja"></label>
+            </div>
+      
+            <button type="submit" class="recenzija-button">Pošaljite recenziju</button>
+          </form>
+        </div>
+      </div>
+
+
+    <div class="links">
+        <footer>
+          <div class="container-fluid">
+              <div class="row" style="padding:50px;">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>KONTAKT</b></div>
+                      <ul class="footer-list">
+                          <li>Email</li>
+                          <li>Whatsapp</li>
+                          <li>Twitter</li>
+                          <li>Instagram</li>
+                          <li>Facebook</li>
+                      </ul>
+                  </div>
+      
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>INFORMACIJE</b></div>
+                      <ul class="footer-list">
+                          <li>Faq</li>
+                          <li>Vodič za ture</li>
+                          <li>Rezervacije</li>
+                          <li>Dućani</li>
+                          <li>Sponzori</li>
+                          <li>Općenito</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>O NAMA</b></div>
+                      <ul class="footer-list">
+                          <li>Naš tim</li>
+                          <li>Članci</li>
+                          <li>Tradicija</li>
+                          <li>Suradnici</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer"> 
+                      <div class="footer-title"><b>RADITE S NAMA</b></div>
+                      <ul class="footer-list">
+                          <li>Karijera</li>
+                          <li>Suradnja</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>ZAJEDNICA</b></div>
+                      <ul class="footer-list">
+                          <li>Instagram</li>
+                          <li>Tiktok</li>
+                          <li>Facebook</li>
+                          <li>Pinterest</li>
+                          <li>Youtube</li>
+                          <li>Linkedin</li>
+                      </ul>
+                  </div>
+    
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    
+                  </div>
+    
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="footer-title"><b>SPREMNI ZA AVANTURU?</b></div>
+                    <ul class="footer-list">
+                      <li>Ne propustite priliku za nezaboravno iskustvo u potrazi za tartufima! Rezervirajte svoj termin danas i pridružite se našim vođenim turama.</li>
+                    </ul>
+                    <button class="pretplatime-button" style="padding:2%; margin-top:5%;">Rezerviraj</button>
+                  </div>
+    
+              </div>
+    
+              <div class="row" style="padding:1%; background-color: #FF5B5B;">
+                <div class="row">
+                  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="padding-top:1%; padding-left:2%;">
+                      <p>© 2024 TARTUF HUNT All rights reserved. <u>Privacy Policy</u> | <u>Legal Notice</u> | <u>Terms and Conditions</u></p>
+                  </div>
+                
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align: right;">
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-twitter" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-instagram" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-facebook-f" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-youtube" style="color: #e94949;"></i>
+                      </div>
+                  </div>
+    
+                </div>
+              </div>
+    
+          </div>
+    
+        </footer>
+      </div>
+
+      <script src="scripts/popup-forma.js"></script>
+
+    </body>
+</html>
