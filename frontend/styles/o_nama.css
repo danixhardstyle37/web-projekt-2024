@@ -1,0 +1,56 @@
+.about-section {
+    background-color: #FF5B5B;
+    padding: 6%;
+}
+
+.naslov {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.slike img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.slike img:hover {
+    transform: scale(1.05);
+}
+
+.pomak_slike{
+    padding-top: 50%;
+}
+
+.slike{
+    padding-top: 5%;
+}
+
+.custom-shape-divider-bottom-1731140757 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1731140757 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1731140757 .shape-fill {
+    fill: #FFFFFF;
+}
