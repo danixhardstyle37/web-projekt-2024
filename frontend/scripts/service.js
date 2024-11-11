@@ -127,6 +127,22 @@ const service = {
         return await db.deleteDataById('zakazane_ture', id);
     },
 
+    // Forum
+    getForumAll: async function () {
+        return await db.getData('forums');
+    },
+    getForumAllById: async function (id) {
+        return await db.getDataById('forums', id);
+    },
+    addForum: async function (data) {
+        return await db.addData('forums', data);
+    },
+    updateForum: async function (id, data) {
+        return await db.updateData('forums', id, data);  
+    },
+    deleteForumById: async function (id) {
+        return await db.deleteDataById('forums', id);
+    },
     
     // Token
     verifyToken: async function (token) {

@@ -34,6 +34,26 @@ insert  into `duljina`(`Id`,`Cijena`,`Duljina`) values
 (2,150,'Srednja'),
 (3,200,'Duga');
 
+/*Table structure for table `forum` */
+
+DROP TABLE IF EXISTS `forum`;
+
+CREATE TABLE `forum` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_korisnik` int(11) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `animal` char(1) DEFAULT NULL,
+  `img_pth` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_korisnik` (`id_korisnik`),
+  CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`id_korisnik`) REFERENCES `korisnik` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `forum` */
+
+insert  into `forum`(`id`,`id_korisnik`,`message`,`animal`,`img_pth`) values 
+(1,1,'a','a','a');
+
 /*Table structure for table `korisnik` */
 
 DROP TABLE IF EXISTS `korisnik`;
