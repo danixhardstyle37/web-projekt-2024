@@ -60,7 +60,7 @@
                             <div class="alert" id="passwordMismatchAlert" style="display: none;">Error: Passwords do not match.</div>
                         </form>
 
-                        <!-- Token Input Form -->
+                        <!-- Token Input Form -
                         <form class="token-verification" id="tokenVerificationForm" style="display: none;">
                             <div class="u-form-group">
                                 <h5>Kako bi se uspješno registrirali molim Vas upišite kod koji Vam je poslan na vaš mail</h5>
@@ -70,7 +70,7 @@
                                 <button type="submit" id="verifyButton">Verify Token</button>
                             </div>
                             <div class="alert" id="tokenAlert" style="display: none;"></div>
-                        </form>
+                        </form>-->
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
 
     <script>
          $(".email-signup").hide();
-        $(".token-verification").hide(); // Hide token verification form initially
+        //$(".token-verification").hide(); // Hide token verification form initially
 
         $("#signup-box-link").click(function(){
             $(".email-login").fadeOut(100);
@@ -176,9 +176,10 @@
             const response = await service.addKorisnik(data);
             // After successful registration, show token verification form
             if (response) {
-                $(".email-signup").fadeOut(100);
+                /*$(".email-signup").fadeOut(100);
                 $(".lb-header").fadeOut(100);
-                $(".token-verification").fadeIn(100);
+                $(".token-verification").fadeIn(100);*/
+                handleSuccessfulLogin(username);
             }
         }
 
@@ -216,8 +217,7 @@
                         if (hashedPassword === providedPasswordHash) {
                             console.log("Login successful.");
                             handleSuccessfulLogin(existingUser.username);
-                            //redirectToHomePage();
-                            window.location.href = "index.html";
+                            redirectToHomePage();
                         } else {
                             console.log("Incorrect password.");
                             document.querySelector('#loginAlert').textContent = 'Error: Incorrect username or password.';
@@ -237,6 +237,9 @@
             localStorage.setItem('username', username);
         }
 
+        function redirectToHomePage(){
+            window.location.href = "index.html";
+        }
 
 
           function handleLogout() {
