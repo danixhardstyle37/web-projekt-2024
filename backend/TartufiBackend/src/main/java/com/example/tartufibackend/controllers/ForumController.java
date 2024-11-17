@@ -4,11 +4,18 @@ package com.example.tartufibackend.controllers;
 import com.example.tartufibackend.models.Forum;
 import com.example.tartufibackend.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +26,8 @@ public class ForumController {
 
     @Autowired
     private ForumService forumService;
+
+    private String uploadDir = "../frontend/imgs/";
 
     // GET methods (get all or by id)
     @GetMapping(value = "/forums")
@@ -71,5 +80,29 @@ public class ForumController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/image")
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("File is empty.");
+        }
+
+        try {
+            // Spremanje slike u folder imgs/
+            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+            Path targetLocation = Paths.get(uploadDir + fileName);
+
+            // Provjera i stvaranje direktorija ako ne postoji
+            Files.createDirectories(targetLocation.getParent());
+
+            // Kopiraj sadržaj iz multipart file u odredište
+            Files.copy(file.getInputStream(), targetLocation);
+
+            return ResponseEntity.ok("File uploaded successfully: " + fileName);
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Failed to store file: " + e.getMessage());
+        }
+    }
+
 }
 

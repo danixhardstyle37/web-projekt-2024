@@ -17,15 +17,31 @@ document.getElementById('closePopup').addEventListener('click', function() {
     document.getElementById('reviewPopup').style.display = 'none';
 });
 
+// Dohvat korisničkog imena
+const username = localStorage.getItem('username') || 'admin';
 
 // Funkcija za dodavanje recenzije
-document.getElementById('reviewForm').addEventListener('submit', function(e) {
+document.getElementById('reviewForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-
+    
     // Dohvat podataka iz forme
     const imageFile = document.getElementById('reviewImage').files[0];
     const reviewText = document.getElementById('reviewText').value;
     const selectedIcon = document.querySelector('input[name="animalIcon"]:checked').value;
+
+    const formData = new FormData();
+    formData.append('file', imageFile);  // 'file' je ime parametra u backendu
+
+    const response = await fetch('http://localhost:8080/api/image', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'multipart/form-data'  // Set the Content-Type header to application/json
+        },
+        body: formData
+    });
+
+    const result = await response.json();
+    console.log(result);
 
     // Kreiramo novi div za recenziju
     const reviewDiv = document.createElement('div');
@@ -83,10 +99,26 @@ document.getElementById('reviewForm').addEventListener('submit', function(e) {
 
     // Zatvaranje pop-up-a nakon dodavanja
     document.getElementById('reviewPopup').style.display = 'none';
+
+
+    const reviewsContainer = document.getElementById('forum-reviews');
+    const existingReviews = reviewsContainer.getElementsByClassName('review-card');
+    const nextReviewNumber = existingReviews.length + 1;
+    const imagePath = `imgs/review${nextReviewNumber}.jpg`;
+
+    const user = await service.getKorisnikByUsername(username);
+
+    const reviewData = {
+        korisnik: {id: user.id},
+        message: reviewText,
+        imgPth: imagePath,  // URL slike koja je uploadana
+        animal: selectedIcon === 'dog' ? 'p' : 's'  // Dodajemo 'p' ili 's' prema ikoni
+    };
+
+    // Dodavanje recenzije u bazu
+    await service.addForum(reviewData);
 });
 
-// Dohvat korisničkog imena
-const username = localStorage.getItem('username') || 'admin';
 
 // Prikaz korisničkog imena u pregledu
 document.querySelector('.user-name').textContent = username;
@@ -119,11 +151,10 @@ async function loadForumReviews() {
         // Dohvati recenzije s API-a (pretpostavljamo da je endpoint 'forum')
         const reviews = await service.getForumAll();
 
+        console.log(reviews)
+
         // Pronađi div gdje će recenzije biti prikazane
         const reviewsContainer = document.getElementById('forum-reviews');
-        
-        // Očisti postojeće recenzije (ako ih ima)
-        reviewsContainer.innerHTML = '';
 
         // Provjeri ima li recenzija
         if (reviews && reviews.length > 0) {
@@ -136,22 +167,20 @@ async function loadForumReviews() {
                     <div class="review-card">
                         <div class="row">
                             <div class="col-sm-5 review-image">
-                                <img src="${review.imageUrl}" alt="Review Image">
+                                <img src="${review.imgPth}" alt="Review Image">
                             </div>
                             <div class="col-sm-7 review-content">
-                                <h3 class="user-name">${review.userName}</h3>
-                                <p class="review-text">${review.text}</p>
+                                <h3 class="user-name">${review.korisnik.username}</h3>
+                                <p class="review-text">${review.message}</p>
                             </div>
                         </div>
-                        <img src="${review.iconUrl || 'imgs/dog-icon.png'}" alt="Animal Icon" class="animal-icon">
+                        <img src="${review.animal === 'p' ? 'imgs/dog-icon.png' : 'imgs/pig-icon.png'}" alt="Animal Icon" class="animal-icon">
                     </div>
                 `;
                 // Dodaj novu recenziju u container
                 reviewsContainer.appendChild(reviewCard);
             });
-        } else {
-            reviewsContainer.innerHTML = '<p>No reviews found.</p>';
-        }
+        } 
     } catch (error) {
         console.error('Error loading forum reviews:', error);
     }
