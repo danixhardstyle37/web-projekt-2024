@@ -148,6 +148,11 @@ const service = {
     verifyToken: async function (token) {
         return await db.verifyToken(token); // Call the database function to verify the token
     },
+
+    // Image 
+    saveImage: async function (img, num){
+        return await db.sendMultipartFile(img, num);
+    }
 }
 
 export default service;

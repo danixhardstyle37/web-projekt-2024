@@ -99,6 +99,29 @@ const db = {
             console.error('There has been a problem with your token verification operation:', error);
         }
     },
+
+    // Image
+    sendMultipartFile: async function (file, fileNum) {
+        try {
+            const formData = new FormData();
+            formData.append('file', file);  // Append the file to the form data
+            formData.append('fileNum', fileNum);
+
+            const response = await fetch(url + "image", {
+                method: 'POST',
+                body: formData,  // Send form data with the file
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            return await response.json();  // Expecting a response indicating success
+        } catch (error) {
+            console.error('There has been a problem with the file upload operation:', error);
+        }
+    }
+    
 }
 
 export default db;

@@ -1,6 +1,7 @@
 package com.example.tartufibackend.controllers;
 
 
+import com.example.tartufibackend.exceptions.ResponseMessage;
 import com.example.tartufibackend.models.Forum;
 import com.example.tartufibackend.services.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,6 @@ public class ForumController {
     @Autowired
     private ForumService forumService;
 
-    private String uploadDir = "../frontend/imgs/";
 
     // GET methods (get all or by id)
     @GetMapping(value = "/forums")
@@ -82,27 +82,16 @@ public class ForumController {
     }
 
     @PostMapping("/image")
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return ResponseEntity.badRequest().body("File is empty.");
+    public ResponseEntity<ResponseMessage> uploadImage(@RequestParam("file") MultipartFile file, @RequestParam("fileNum") int fileNum) {
+        String result = forumService.saveImage(file, fileNum);
+
+        if (result.startsWith("Failed")) {
+            return ResponseEntity.status(500).body(new ResponseMessage(result));
         }
 
-        try {
-            // Spremanje slike u folder imgs/
-            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-            Path targetLocation = Paths.get(uploadDir + fileName);
-
-            // Provjera i stvaranje direktorija ako ne postoji
-            Files.createDirectories(targetLocation.getParent());
-
-            // Kopiraj sadržaj iz multipart file u odredište
-            Files.copy(file.getInputStream(), targetLocation);
-
-            return ResponseEntity.ok("File uploaded successfully: " + fileName);
-        } catch (IOException e) {
-            return ResponseEntity.status(500).body("Failed to store file: " + e.getMessage());
-        }
+        return ResponseEntity.ok(new ResponseMessage("File uploaded successfully", result));
     }
+
 
 }
 

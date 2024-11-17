@@ -29,20 +29,6 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const reviewText = document.getElementById('reviewText').value;
     const selectedIcon = document.querySelector('input[name="animalIcon"]:checked').value;
 
-    const formData = new FormData();
-    formData.append('file', imageFile);  // 'file' je ime parametra u backendu
-
-    const response = await fetch('http://localhost:8080/api/image', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'multipart/form-data'  // Set the Content-Type header to application/json
-        },
-        body: formData
-    });
-
-    const result = await response.json();
-    console.log(result);
-
     // Kreiramo novi div za recenziju
     const reviewDiv = document.createElement('div');
     reviewDiv.classList.add('col-lg-6', 'col-md-6');
@@ -104,7 +90,7 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const reviewsContainer = document.getElementById('forum-reviews');
     const existingReviews = reviewsContainer.getElementsByClassName('review-card');
     const nextReviewNumber = existingReviews.length + 1;
-    const imagePath = `imgs/review${nextReviewNumber}.jpg`;
+    const imagePath = `imgs/reviews/review${nextReviewNumber}.jpg`;
 
     const user = await service.getKorisnikByUsername(username);
 
@@ -117,6 +103,7 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
 
     // Dodavanje recenzije u bazu
     await service.addForum(reviewData);
+    await service.saveImage(imageFile, nextReviewNumber);
 });
 
 
