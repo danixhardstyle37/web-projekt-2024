@@ -124,7 +124,7 @@ a:hover{
 
 
 /*Stil za popup*/
-/* Stiliziranje popup-a */
+
 .popup {
     display: none; /* Na početku je popup sakriven */
     position: fixed;
@@ -202,4 +202,165 @@ button[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    width: auto;
+}
+
+button[type="submit"].recenzija-button {
+    display: block;
+    margin: 0 auto; /* Centriranje */
+}
+
+.review-preview {
+    margin-top: 20px;
+}
+
+.review-card {
+    background-color: #F2EFEA;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.review-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.review-content {
+    padding: 15px;
+}
+
+.user-name {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.8em;
+    color: #FF5B5B;
+    margin: 0;
+}
+
+.review-text {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 10px;
+}
+
+.animal-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.popup-content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-family: 'Patrick Hand', sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    display: inline-block;
+    background-color: #ff5b5b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-btn:hover {
+    background-color: #ff7878;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: #ff5b5b;
+}
+
+.textarea-field {
+    height: 100px;
+    resize: none;
+}
+
+.icon-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.icon-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.icon-wrapper input {
+    display: none;
+}
+
+.icon-wrapper input:checked + .icon-circle {
+    border-color: #ff5b5b;
+    transform: scale(1.1);
+}
+
+.animal-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5b5b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background-color: #ff7878;
 }

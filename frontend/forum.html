@@ -118,34 +118,60 @@
     </div>
 
 
-    <!-- Pop-up (Modalni prozor) -->
+    <!-- Pop-up-->
     <div class="popup" id="reviewPopup">
-        <div class="popup-content">
+      <div class="popup-content">
           <span class="close-btn" id="closePopup">&times;</span>
           <h2>Podijelite svoju priču</h2>
-      
-          <!-- Forma za dodavanje recenzije -->
+  
           <form id="reviewForm">
-            <div class="popup-image">
-              <input type="file" id="reviewImage" accept="image/*">
+              <div class="upload-section">
+                  <label for="reviewImage" class="upload-btn">
+                      <span>Dodaj sliku</span>
+                  </label>
+                  <input type="file" id="reviewImage" accept="image/*" style="display: none;">
+              </div>
+  
+              <div class="popup-textarea">
+                  <textarea id="reviewText" placeholder="Opišite svoje iskustvo..." required></textarea>
+              </div>
+  
+              <div class="icon-selector">
+                <label class="icon-wrapper">
+                    <input type="radio" name="animalIcon" value="dog" checked>
+                    <div class="icon-circle">
+                        <img src="imgs/dog-icon.png" alt="Dog Icon" class="animal-icon">
+                    </div>
+                </label>
+                <label class="icon-wrapper">
+                    <input type="radio" name="animalIcon" value="pig">
+                    <div class="icon-circle">
+                        <img src="imgs/pig-icon.png" alt="Pig Icon" class="animal-icon">
+                    </div>
+                </label>
             </div>
-      
-            <div class="popup-textarea">
-              <textarea id="reviewText" placeholder="Opišite svoje iskustvo..." required></textarea>
-            </div>
-      
-            <div class="popup-icons">
-              <label for="animalIcon">Izaberite ikonu:</label>
-              <input type="radio" id="dog" name="animalIcon" value="dog" checked>
-              <label for="dog"><img src="imgs/dog-icon.png" alt="Pas"></label>
-              <input type="radio" id="pig" name="animalIcon" value="pig">
-              <label for="pig"><img src="imgs/pig-icon.png" alt="Svinja"></label>
-            </div>
-      
-            <button type="submit" class="recenzija-button">Pošaljite recenziju</button>
+
+              <button type="submit" class="recenzija-button">Pošaljite recenziju</button>
+              
           </form>
-        </div>
+  
+          <!-- Preview Section -->
+          <div class="review-preview">
+              <div class="review-card">
+                  <div class="row">
+                      <div class="col-sm-5 review-image">
+                          <img src="imgs/placeholder-image.jpg" alt="Vaša slika" id="previewImage">
+                      </div>
+                      <div class="col-sm-7 review-content">
+                          <h3 class="user-name">Vaše korisničko ime</h3>
+                          <p class="review-text" id="previewText">Ovdje će se prikazati vaš tekst recenzije.</p>
+                      </div>
+                  </div>
+                  <img src="imgs/dog-icon.png" alt="Animal Icon" class="animal-icon" id="previewIcon">
+              </div>
+          </div>
       </div>
+  </div>
 
 
     <div class="links">
@@ -248,7 +274,7 @@
         </footer>
       </div>
 
-      <script src="scripts/popup-forma.js"></script>
+      <script type="module" src="scripts/popup-forma.js"></script>
 
     </body>
 </html>
