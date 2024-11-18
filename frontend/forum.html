@@ -280,7 +280,8 @@
             const username = localStorage.getItem('username');
             const loginSignupLink = document.getElementById('loginSignupLink');
             const rezervirajLink = document.getElementById('rezervirajLink');
-  
+            const dodajPricuLink = document.getElementById('openPopup');
+            
             if (username) {
               const icon = document.createElement('i');
               icon.classList.add('fa', 'fa-user');  
@@ -295,6 +296,11 @@
                 loginSignupLink.textContent = 'Login'; 
                 loginSignupLink.href = 'prijava.html'; 
                 rezervirajLink.href = 'prijava.html';
+
+                dodajPricuLink.addEventListener('click', function (e) {
+                    e.preventDefault(); 
+                    window.location.href = 'prijava.html'; 
+                });
             }
         });
     </script>
