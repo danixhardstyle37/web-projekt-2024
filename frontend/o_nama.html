@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="styles/o_nama.css">
     <link rel="stylesheet" href="styles/navigacija.css">
     <link rel="stylesheet" href="styles/footer.css">
+
 </head>
 <body>
 
     <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
 
     <header>
-        <nav class="navbar" style="background-color: #FF5B5B;">
+        <nav class="navbar" style="background-color: #2E3A59; color:white;">
             <div class="row" >
               <div class="col col-lg-3 col-md-1 col-sm-1 col-xs-12">
                 <div class="logo">
@@ -25,17 +26,17 @@
                 </div>
               </div>
               <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
-                <ul class="nav-links" >
-                  <li><a href="#">HOME</a></li>
-                  <li><a href="#">ABOUT ME</a></li>
-                  <li><a href="#">GALLERY</a></li>
-                  <li><a href="#">VIDEOS</a></li>
-                  <li><a href="#">STORE</a></li>
-                  <li><a href="#">BLOG</a></li>
+                <ul class="nav-links">
+                  <li><a style="color:white;" href="#">HOME</a></li>
+                  <li><a style="color:white;" href="#">ABOUT ME</a></li>
+                  <li><a style="color:white;" href="#">GALLERY</a></li>
+                  <li><a style="color:white;" href="#">VIDEOS</a></li>
+                  <li><a style="color:white;" href="#">STORE</a></li>
+                  <li><a style="color:white;" href="#">BLOG</a></li>
                 </ul>
               </div>
               <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak" style="color: #ffffff;">
-                <a href="prijava.html" class="login-button" style="background-color: black;">LOGIN</a>
+                <a href="prijava.html" class="login-button">LOGIN</a>
               </div>
             </div>
         </nav>
@@ -44,9 +45,9 @@
 
     <div class="container-fluid about-section">
         <div class="row text-center">
-            <div class="col-lg-12">
-                <h1 class="naslov">About Us</h1>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            <div class="col-lg-12" id="pocetak">
+                <h1 class="naslov"><img src="./imgs/O_nama.png" width="12%"></img> NAMA</h1>
+                <p>Naš tim čine iskusni vodiči i njihovi vjerni četveronožni partneri, psi posebno obučeni za pronalazak tartufa (a ponekad i svinje, za one koji vole retro šarm). Ako želite upoznati naše dlakave eksperte i osjetiti čaroliju tartufarskog lova, pridružite nam se!</p>
             </div>
         </div>
     
@@ -68,17 +69,89 @@
         </div>
     </div>
     
+    <div style="position:relative; margin-top:-10%;">
+      <div class="custom-shape-divider-bottom-1731942402">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+          </svg>
+      </div>
+    </div>
 
-    <div class="custom-shape-divider-bottom-1731140757">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
-        </svg>
-    </div> 
+    <div class="tradicija">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h1 style="margin-top:5%;">Pratimo <span style="color:#e94949">tradiciju</span>, otkrivamo blago <br><span style="color:#e94949">Istre</span></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="padding-top:1%;">
+            <p>Mi smo ekipa zaljubljenika u prirodu i istarsku tradiciju, a tartufi su naša strast i svakodnevica. Već godinama istražujemo skrivene šumske staze s našim vjernim četveronožnim partnerima – psima koji su pravi tartufarski stručnjaci. Naš cilj je podijeliti s vama ljepotu ovog jedinstvenog doživljaja i pokazati vam zašto je lov na tartufe toliko važan dio istarskog nasljeđa. Kod nas je sve opušteno i ležerno – puno smijeha, priča o tartufima i, naravno, druženja s najboljim vodičima koje možete zamisliti (i njihovim repovima koji veselo mašu)!</p>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align: center; margin-top:-5%;">
+            <img src="./imgs/O_nama_pigs.png" alt="about pigs" width="65%"></img>
+          </div>
+        </div>
+    </div>
 
+    <div class="statistika">
+       <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 style="margin-top:5%;">Naši Uspjesi Kroz <span style="color:#e94949">Brojeve</span></h1>
+            <h4>Otkrijte koliko puta smo zajedno lovili na tartufe, koliko je pasa sudjelovalo i koliko je tartufa pronađeno na našim turama!</h4>
+        </div>
+      </div>
+      <div class="row" id="ikonice">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="icon-onama" style="background-color: #e94949;">
+              <i class="fa-solid fa-route"  style="color: white;"></i>
+            </div>
+            <h2><b>1500+ odrađenih tura</b></h2>
+            <p>Svaka tura prilika je za nezaboravan doživljaj. Naše tura nisu samo lov na tartufe, već pravo iskustvo prirode!</p>
+        </div>
 
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="icon-onama" style="background-color: #e94949;">
+              <i class="fa-solid fa-dog"  style="color: white;"></i>
+            </div>
+            <h2><b>10 iskusnih vodiča</b></h2>
+            <p>Stručnjaci koji ljubav prema tartufima dijele s Vama! Spremni su podijeliti svaku tajnu tartufarskog svijeta..</p>
+        </div>
 
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="icon-onama" style="background-color: #e94949;">
+            <i class="fa-solid fa-magnifying-glass-location"  style="color: white;"></i>
+          </div>
+          <h2><b>500+ pronađenih tartufa</b></h2>
+          <p>Svaki je otkriće pravo blago, a naši vjerni psi i svinje nikad ne razočaraju.</p>
+        </div>
+      </div>
+    </div>
 
- <div class="links">
+    <div class="kraj">
+      <div class="row">
+
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+          <video width="80%" controls poster="./imgs/thumbnail.jpg" class="styled-video">
+            <source src="./vids/onama-vid.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+          <h2><b>Trening naših pasa za lov na tartufe</b></h2>
+          <p>Trening pasa za lov na tartufe je pravi izazov koji zahtijeva strpljenje, preciznost i puno ljubavi prema prirodi. Naši psi prolaze specijalizirane treninge kako bi postali vrhunski tartufari, sposobni pronaći ovo skupo i dragocjeno podzemno blago. Kroz pažljiv odabir i trening, svaki pas postaje stručnjak u prepoznavanju mirisa tartufa i njihovu preciznom lociranju u šumama i maslinicima.</p>
+          <p>Trening započinje od najmlađih dana, kad psi uče osnovne komande i postupno se uvode u svijet tartufa. Svaki pas ima svoj ritam, ali svi oni dijele zajednički cilj – postati vrsni lovci na tartufe.</p>
+          
+          <ul>
+            <li><strong>Prepoznavanje mirisa:</strong> Psi su obučeni da prepoznaju specifičan miris tartufa, čak i pod zemljom.</li>
+            <li><strong>Poslušnost i suradnja:</strong> Kroz trening, psi nauče slušati komande i raditi u savršenoj suradnji s vodičem.</li>
+            <li><strong>Brzina i preciznost:</strong> Trening osigurava da psi brzo i precizno lociraju tartufe, čime ubrzavaju cijeli proces lova.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="links">
         <footer>
           <div class="container-fluid">
               <div class="row" style="padding:50px;">

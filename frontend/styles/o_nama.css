@@ -1,6 +1,16 @@
+@font-face {
+    font-family: 'MojBubbleFont'; /* Choose a name for your font */
+    src: url('./fonts/onama.ttf') format('truetype'); /* Path to the font file */
+}
+
+body{
+    overflow-x: hidden;
+}
+
 .about-section {
-    background-color: #FF5B5B;
-    padding: 6%;
+    background-color: #2E3A59;
+    padding: 5%;
+    color: white;
 }
 
 .naslov {
@@ -12,6 +22,12 @@
 .about-section p {
     font-size: 1.2em;
     margin-bottom: 40px;
+}
+
+.text-center{
+    max-width: 80%;
+    margin:0 auto;
+    margin-top:-4%;
 }
 
 .slike img {
@@ -27,14 +43,32 @@
 }
 
 .pomak_slike{
-    padding-top: 50%;
+    padding-top: 30%;
 }
 
 .slike{
     padding-top: 5%;
 }
 
-.custom-shape-divider-bottom-1731140757 {
+.slike img{
+    z-index: 1;
+}
+
+h1 img{
+    margin-bottom:4%;
+}
+
+#pocetak h1{
+    font-size: 5.5em;
+    font-family: 'MojBubbleFont', sans-serif;
+}
+
+#pocetak p{
+    line-height:2;
+    font-size:1.5em;
+}
+
+.custom-shape-divider-bottom-1731942402 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -42,15 +76,152 @@
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    z-index:0;
 }
 
-.custom-shape-divider-bottom-1731140757 svg {
+.custom-shape-divider-bottom-1731942402 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 150px;
+    height: 58px;
 }
 
-.custom-shape-divider-bottom-1731140757 .shape-fill {
+.custom-shape-divider-bottom-1731942402 .shape-fill {
     fill: #FFFFFF;
+}
+
+.tradicija{
+    background-color: white;
+    margin:0;
+    padding:0;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+.tradicija h1{
+    font-family: 'MojBubbleFont', sans-serif;
+    margin:0;
+    padding:0;
+    padding-top:3%;
+    font-size:2.5em;
+    font-weight: bold;
+    width:50%;
+    line-height: 1.6;
+}
+
+.tradicija p{
+    padding-top:5%;
+    line-height:2;
+    font-size:1.4em;
+}
+
+.statistika h1{
+    font-family: 'MojBubbleFont', sans-serif;
+    font-size:2.5em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.statistika h4{
+    width:50%; 
+    margin:0 auto; 
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.4em;
+}
+
+
+.icon-onama {
+    display: inline-flex;          
+    align-items: center;
+    justify-content: center;
+    width: 60px;                    
+    height: 60px;                   
+    background-color: white;        
+    border-radius: 50%;             
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    padding:9%;
+}
+  
+.icon-onama i {
+    font-size: 3.2em;                
+}
+
+#ikonice{
+    text-align: center;
+    width:80%;
+    margin:0 auto;
+    padding-top:3%;
+}
+
+#ikonice p{
+    font-size: 1.4em;
+    line-height:1.6;
+    padding:2%;
+}
+
+.kraj{
+    width:90%;
+    margin:0 auto;
+    padding-top:6%;
+    padding-bottom:8%;
+}
+
+.styled-video {
+    border-radius: 15px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
+    margin-top:5%;
+}
+  
+.styled-video:hover {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease; 
+}
+
+.kraj .row{
+    text-align: center;
+}
+
+.kraj ul li {
+    position: relative;
+    padding-left: 20px; 
+    font-size: 1.5em;
+    color: black; 
+    margin-bottom: 10px; 
+    text-align: left;
+}
+  
+.kraj ul li:before {
+    content: '•'; 
+    position: absolute;
+    left: 0;
+    color: #e94949; 
+    font-size: 20px; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+  
+.kraj ul{
+    list-style-type: none;
+    padding:0;
+    padding-top:1%;
+}
+
+.kraj ul li strong {
+    font-weight: bold;
+}
+
+.kraj p{
+    text-align: left; 
+    font-size:1.4em;
+    line-height:1.6;
+    padding-top:2%;
+}
+
+.kraj h2{
+    font-family: 'MojBubbleFont', sans-serif;
+    text-align: left;
+    font-size:1.8em;
 }

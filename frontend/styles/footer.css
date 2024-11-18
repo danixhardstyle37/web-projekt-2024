@@ -36,20 +36,29 @@ footer {
 }
 
 .icon-circle {
-    display: inline-flex;           /* Centers the icon inside the circle */
+    display: inline-flex;          
     align-items: center;
     justify-content: center;
-    width: 60px;                    /* Adjust size for the circle */
-    height: 60px;                   /* Same width and height for a perfect circle */
-    background-color: white;        /* White background for the circle */
-    border-radius: 50%;             /* Makes the div a circle */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for a lifted effect */
+    width: 60px;                    
+    height: 60px;                   
+    background-color: white;        
+    border-radius: 50%;             
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
 }
   
 .icon-circle i {
-    font-size: 28px;                /* Adjust icon size */
+    font-size: 28px;                
 }
 
 .icons{
     float:right;
+}
+
+.pretplatime-button{
+    background-color: #FF5B5B; 
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:19px;
 }
