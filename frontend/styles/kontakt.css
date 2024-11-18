@@ -1,0 +1,15 @@
+.background-slika{
+    background-image: url('../imgs/bamboo.jpg'); 
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.kontakt{
+    background-color: white;
+    margin: 10%;
+}
+
+#slikaSume {
+    width: 90%;
+    height: 70%;
+}
