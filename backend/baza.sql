@@ -106,17 +106,26 @@ CREATE TABLE `tura` (
   PRIMARY KEY (`Id`),
   KEY `fk_tura_duljina` (`Id_duljine`),
   CONSTRAINT `fk_tura_duljina` FOREIGN KEY (`Id_duljine`) REFERENCES `duljina` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `tura` */
 
 insert  into `tura`(`Id`,`Id_duljine`,`Ime`,`Opis`) values 
-(1,1,'Truffle Hunt Adventure','A fun truffle hunting tour'),
-(3,1,'Safari Adventure','An exciting safari tour through the national park.'),
-(5,1,'Safari Adventure','An exciting safari tour through the national park.'),
-(6,1,'updated tura name','updated tura opis'),
-(7,1,'New Tura','Opis'),
-(8,2,'test','test opis');
+(9,1,'Brza Oaza','Ova tura traje samo jedan sat i idealna je za sve koji žele uživati u prirodi bez dugih šetnji. Uživajte u ljepotama prirode u kratkom vremenskom periodu, s vodičem koji će vam otkriti sve tajne okolnih predjela.'),
+(10,1,'Zeleni Pobjeg','Pogodna za one koji žele brzo obići najvažnije znamenitosti u okolici. Tura traje samo 1,5 sata, ali ćete imati priliku upoznati lokalnu povijest i kulturu uz zanimljive priče vodiča.'),
+(11,1,'Brzi Vodič','Brza tura koja traje do sat vremena i pruža vam najbitnije informacije o prirodnim ljepotama našeg kraja. Savršeno za one koji nemaju puno vremena, ali žele osjetiti duh mjesta.'),
+(12,1,'Tajna Prirode','Ova tura traje samo 45 minuta i uključuje šetnju kroz najljepše dijelove parka. Uživajte u jednostavnoj, ali informativnoj vožnji kroz prirodu s vodičem koji će vas upoznati s florom i faunom.'),
+(13,1,'Zlatna Šetnja','Savršen izbor za one koji žele brzo upoznati najpoznatije lokalne znamenitosti. Tura traje samo jedan sat, a vodič će vas uputiti na najvažnije točke koje morate vidjeti u ovom području.'),
+(14,2,'Kultura i Priroda','Tura koja traje oko 2 sata i vodi vas kroz povijesne i kulturne znamenitosti grada. Upoznat ćete se s lokalnom tradicijom, arhitekturom i uživati u prirodnim ljepotama koje okružuju grad.'),
+(15,2,'Tajanstveni Grad','Ova tura traje oko 2 sata i vodi vas kroz najpoznatije parkove i muzeje grada. Kroz interaktivne aktivnosti s vodičem, imat ćete priliku naučiti puno o povijesti i kulturi regije.'),
+(16,2,'Putovanje Kroz Vrijeme','Za sve ljubitelje prirode, ova tura traje 2 sata i uključuje laganu šetnju kroz šumu s vodičem. Saznat ćete više o biljkama, životinjama i povijesti ovog prostora.'),
+(17,2,'Lokalni Šarm','Pružite sebi uživanje u 2 sata istraživanja grada i njegovih tajni. Na ovoj turi dobit ćete detaljan pregled povijesti, kulture i znamenitosti s stručnim vodičem.'),
+(18,2,'Tajne Galerija','Tura koja traje 2 sata, uključuje posjet lokalnim muzeju i umjetničkoj galeriji. Upoznajte se s poviješću i kulturom ovog grada kroz impresivne kolekcije umjetničkih djela i izložbi.'),
+(19,3,'Cjelodnevni Raj','Ova tura traje 3 sata i vodi vas kroz najveće atrakcije regije, uključujući povijesna mjesta, muzeje i prekrasne prirodne lokacije. Uživajte u opuštajućem danu s vodičem koji će vas educirati o svemu što posjećujete.'),
+(20,3,'Vrhunski Doživljaj','Za sve koji žele potpuno istražiti grad i okolna područja, ova tura traje 3 sata i uključuje posjet svim važnim znamenitostima, povijesnim spomenicima i kulturnim točkama.'),
+(21,3,'Izgubljeni Svjetovi','Ova tura traje 3 sata i pruža detaljan obilazak parka prirode s vodičem. Uz opuštajuću šetnju, naučit ćete sve o ekosustavima i specifičnostima ove jedinstvene prirodne sredine.'),
+(22,3,'Tajna Gradskih Ulica','Savršen način za upoznavanje lokalne povijesti kroz obilazak znamenitosti koje datiraju iz srednjeg vijeka. Tura traje 3 sata i uključuje stručnu pratnju kroz stare ulice i gradsku jezgru.'),
+(23,3,'Povijest i Priroda','Za ljubitelje prirode i povijesti, ova 3-satna tura vodi vas kroz najljepše prirodne krajolike i arheološke lokalitete. Otkrijte skrivene ljepote našeg kraja i uživajte u svakom trenutku ove ture.');
 
 /*Table structure for table `vodic` */
 
@@ -129,12 +138,16 @@ CREATE TABLE `vodic` (
   `opis` varchar(255) DEFAULT NULL,
   `Broj_telefona` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `vodic` */
 
 insert  into `vodic`(`Id`,`Ime_prezime`,`Broj_tura`,`opis`,`Broj_telefona`) values 
-(1,'Marko Kovac',5,'Experienced truffle hunting guide','123-456-789');
+(2,'Marko Marković',40,'Marko Marković je iskusan vodič sa više od 10 godina iskustva u organiziranju tura širom Hrvatske. Posjeduje široko znanje o kulturnoj baštini, povijesti i prirodnim ljepotama zemlje. Kroz svoj rad, Marko se ističe svojim pristupom koji je uvijek personal','0912345678'),
+(3,'Ana Anić',42,'Ana Anić je certificirani vodič s dubokim razumijevanjem hrvatske povijesti i tradicije. Osim što vodi obilazak kulturnih znamenitosti, Ana se specijalizirala za turističke ture po nacionalnim parkovima. Njezina strast prema prirodi i povijesti čini svaki','0987654321'),
+(4,'Ivan Ivanić',45,'Ivan Ivanić je vodič koji se specijalizirao za povijesne ture po Dubrovniku i okolici. Sa velikim iskustvom i stručnošću u povijesti, Ivan vodi turiste kroz uske ulice starog grada, objašnjavajući najvažnije trenutke iz prošlosti. Njegova ljubav prema ovo','0911122334'),
+(5,'Petra Petrović',48,'Petra Petrović je vodič koji vodi ture širom Hrvatske, od Zagreba do Istre. S posebnim naglaskom na kulturnu baštinu, Petra je specijalizirana za vodičke ture po muzeju, galerijama, te kulturnim i povijesnim znamenitostima. Njena ljubav prema umjetnosti i','0922334455'),
+(6,'Jure Jurić',50,'Jure Jurić je iskusni vodič s fokusom na avanturističke ture, posebno one vezane uz planinarenje i biciklizam. S više od 15 godina iskustva, Jure je najbolji izbor za one koji žele istražiti netaknutu prirodu Hrvatske. Bilo da se radi o planiranim izletim','0953345566');
 
 /*Table structure for table `zakazane_ture` */
 
@@ -159,16 +172,14 @@ CREATE TABLE `zakazane_ture` (
   CONSTRAINT `fk_zakazane_ture_tura` FOREIGN KEY (`Id_tura`) REFERENCES `tura` (`Id`),
   CONSTRAINT `fk_zakazane_ture_vodic` FOREIGN KEY (`Id_vodic`) REFERENCES `vodic` (`Id`),
   CONSTRAINT `fk_zakazane_ture_zivotinja` FOREIGN KEY (`Id_zivotinja`) REFERENCES `zivotinja` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zakazane_ture` */
 
 insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`datum`,`vrijeme_ture`,`velicina_grupe`,`cijena_ture`) values 
-(2,1,1,1,1,'2024-10-25',9,'2',NULL),
-(3,3,1,1,1,NULL,9,'Za parove',120),
-(4,1,8,1,1,'2024-11-21',10,'Za parove',120),
-(5,1,8,1,1,'2024-11-13',10,'Za parove',120),
-(6,1,8,1,1,'2024-11-13',11,'Za parove',120);
+(7,16,8,3,4,'2024-11-22',15,'Za parove',170),
+(8,16,8,4,4,'2024-11-21',9,'Za parove',170),
+(9,16,8,5,9,'2024-11-28',9,'Grupa 3-5',200);
 
 /*Table structure for table `zivotinja` */
 
@@ -180,12 +191,21 @@ CREATE TABLE `zivotinja` (
   `Vrsta` varchar(255) DEFAULT NULL,
   `Opis` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zivotinja` */
 
 insert  into `zivotinja`(`Id`,`Ime`,`Vrsta`,`Opis`) values 
-(1,'Rex','Pas','Truffle hunting dog');
+(2,'Maks','Pas','Maks je veseli pas koji voli igrati lopticu i trčati po parku.'),
+(3,'Nina','Pas','Nina je inteligentna i odana, uvijek uz svoju obitelj.'),
+(4,'Reks','Pas','Reks je snažan pas čuvar, poznat po svojoj hrabrosti i zaštitničkoj prirodi.'),
+(5,'Luna','Pas','Luna je mala i razigrana, obožava duge šetnje i pseće poslastice.'),
+(6,'Karlo','Pas','Karlo je prijateljski raspoložen pas koji se dobro slaže s djecom.'),
+(7,'Rudolf','Svinja','Rudolf je neobična svinja koja voli društvo i obožava jesti jabuke.'),
+(8,'Pepica','Svinja','Pepica je znatiželjna svinja koja uživa kopati po zemlji u potrazi za poslasticama.'),
+(9,'Dunja','Svinja','Dunja je ljubazna svinja koja voli sunčanje i spavanje u sjenama.'),
+(10,'Oskar','Svinja','Oskar je mladunče svinje koje je uvijek u pokretu i istražuje svoju okolinu.'),
+(11,'Lijana','Svinja','Lijana je mala svinja koja uživa u blatu i igri s ostalim svinjama.');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -22,7 +22,6 @@ public class ForumService {
     @Autowired
     private ForumRepo forumRepo;
 
-    //private String uploadDir = "D:/Programiranje/PHPDipl/TartufiProjekt/web-projekt-2024/frontend/imgs/reviews";
 
     public List<Forum> findAll(){ return forumRepo.findAll(); }
     public Forum findById(Integer id) {return forumRepo.findById(id).orElse(null); }
@@ -42,8 +41,6 @@ public class ForumService {
         // Construct a relative path based on the project root
         String uploadDir = projectRoot.replace("\\backend\\TartufiBackend", "");
         uploadDir = uploadDir + "\\frontend\\imgs\\reviews\\";
-
-        System.out.println("Ovo je putanja: " + uploadDir);
 
         try {
             // Generate the new file name based on fileNum (e.g., review1.jpg)

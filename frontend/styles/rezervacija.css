@@ -2,11 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: #2E3A59;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-image: url('../imgs/bamboo.jpg'); 
+    font-family:Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,9 +17,9 @@ body {
 .container {
     width: 80%;
     height: 90vh;
-    border: 2px solid #000;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(242, 239, 234, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -32,27 +33,34 @@ body {
 }
 
 .step-info {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #FF5B5B;
     text-align: center;
-    width: 100%;
+    width: 97%;
     position: absolute;
     top: 20px;
 }
 
+
 .next-btn {
-    padding: 10px 20px;
+    padding: 20px 20px;
     font-size: 1rem;
     cursor: pointer;
-    border: 2px solid #000;
-    background-color: #fff;
+    border: 0px;
+    background-color: #FF5B5B;
+    border-radius: 5px;
+    color: white;
     transition: background-color 0.3s ease;
     position: absolute;
-    top: 10px;
+    top: 8px;
     right: 20px;
 }
 
 .next-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #e54d4d; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .steps {
@@ -75,6 +83,57 @@ body {
     opacity: 0;
 }
 
+
+
+#step1{
+    margin-top: 8%;
+}
+
+#step1Title{
+    margin-bottom: 5%;
+}
+
+#step2{
+    margin-top: 8%;
+}
+
+#step2Title{
+    margin-bottom: 5%;
+}
+
+#step3{
+    margin-top: 2%;
+}
+
+#step4{
+    margin-top: 8%;
+}
+
+#step4Title{
+    margin-bottom: 2%;
+}
+
+#step5{
+    margin-top: 2%;
+}
+
+#step6{
+    margin-top: 8%;
+}
+
+
+#step6Title{
+    margin-bottom: 5%;
+}
+
+#step7{
+    margin-top: 2%;
+}
+
+#step8{
+    margin-top: 8%;
+}
+
 .step.active {
     display: block; /* Change from flex to block for correct showing */
     opacity: 1;
@@ -89,31 +148,60 @@ body {
 }
 
 .option-btn {
-    padding: 15px 30px;
+    width: 250px;
+    height: 250px;
     font-size: 1.2rem;
     cursor: pointer;
-    border: 2px solid #000;
-    background-color: #fff;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    /*background-color: #FF5B5B; /* Default background color when visible */
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease; /* Smooth transition */
     outline: none;
-    visibility: hidden;
-    opacity: 0;
+    opacity: 0; /* Initially hidden */
     margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+.option-btn img {
+    width: 100%; /* Image fills the button */
+    height: 100%;
+    object-fit: cover; /* Ensures the image scales proportionally */
+    position: absolute; /* Layer the image on top of the button */
+    top: 0;
+    left: 0;
 }
 
 .option-btn.visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.8s ease; /* Fade-in effect when visible */
 }
 
 .option-btn.selected {
-    background-color: #007bff;
-    color: white;
+    border: 2px solid #FF5B5B; /* Set the border color when selected */
+    background-color: transparent; /* Ensure the background is transparent */
+    color: #FF5B5B; /* Optional: Make the text color match the border */
+    box-shadow: 0 0 5px #FF5B5B;
 }
+
+.option-btn:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
 
 .next-btn {
     display: none;
+}
+
+.next-btn.visibleN{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.8s ease;
 }
 
 /* Existing styles remain unchanged */
@@ -134,22 +222,14 @@ body {
     flex-direction: row; /* Align left and right sections side by side */
 }
 
-/* Add this to .tura-description for better visibility */
-.tura-description {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    padding: 10px; /* Add padding for better readability */
-    border: 1px solid #ccc; /* Optional: add border for emphasis */
-    border-radius: 5px; /* Optional: rounded corners */
-}
 
-.option-btn, .tura-btn {
+.tura-btn {
     padding: 15px 30px;
     font-size: 1.2rem;
     cursor: pointer;
     border: none; /* Remove the default border */
     border-radius: 8px; /* Rounded corners */
-    background-color: #007bff; /* Primary color */
+    background-color: #FF5B5B; /* Primary color */
     color: white; /* Text color */
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -157,16 +237,94 @@ body {
 }
 
 /* Hover effect for buttons */
-.option-btn:hover, .tura-btn:hover {
-    background-color: #0056b3; /* Darker shade for hover */
+.tura-btn:hover {
+    background-color: #e54d4d; /* Darker shade for hover */
     transform: translateY(-2px); /* Slight lift effect on hover */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 /* Active state for buttons */
-.option-btn.selected, .tura-btn.selected {
+.tura-btn.selected {
     background-color: #0056b3; /* Same darker shade for active */
     color: #ffffff; /* Keep text color white */
+}
+
+.tura-description {
+    margin-top: 5px;
+    height: 35rem;
+    font-size: 1.2rem;
+    padding: 10px; /* Add padding for better readability */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    height: 100%; /* Ensure this container takes the full height */
+}
+
+.tura-info-container {
+    display: flex;
+    align-items: stretch; /* Stretch children to fill the container's height */
+    justify-content: flex-start; /* Align content to the left */
+    gap: 20px; /* Space between image and details */
+    height: 30rem; /* Make the container stretch to take full height */
+}
+
+.tura-image, .tura-details {
+    flex: 1; /* Both image and details take equal space */
+    height: 100%; /* Ensure both take up full height of the container */
+    min-width: 0; /* Prevent shrinking of flex items */
+    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
+}
+
+.tura-image {
+    height: 100%; /* Adjust height of the image to fill the parent */
+    overflow: hidden; /* Hide anything outside the box */
+}
+
+.tura-image img {
+    display: none;
+    border-radius: 5px;
+    width: 100%; /* Make the image fill the container */
+    height: 100%;
+    object-fit: cover; /* Make the image cover the container without distortion */
+}
+
+.tura-details {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
+    text-align: left; /* Align text to the left */
+    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
+    padding: 0; /* Remove any padding */
+    height: 100%; /* Make sure details take full height */
+}
+
+.tura-details strong {
+    font-size: 3.5rem;
+    display: block; /* Make the title block-level for better spacing */
+    margin-bottom: 5px; /* Add small margin at the bottom */
+}
+
+.tura-details p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px; /* Add margin-top to push the paragraph down */
+}
+
+
+
+/* Flexbox layout for date-time-picker */
+.date-time-picker {
+    display: flex;
+    gap: 20px; /* Space between date and time selection */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows elements to wrap to the next line if needed */
+    max-width: 800px; /* Optional: Adds a max-width for the entire date-time-picker container */
+    margin: 0 auto; /* Centers the content */
+}
+
+/* Date Selection Styling */
+.date-selection {
+    flex: 1; /* Takes up equal space */
 }
 
 .date-input {
@@ -185,11 +343,22 @@ body {
     color: #333; /* Darker color for contrast */
 }
 
+/* Time Selection Styling (initially hidden) */
 .time-selection {
+    display: none;
+    flex: 1; /* Takes up equal space */
     margin-top: 10px;
 }
 
+.time-selection h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
 .time-button {
+    width: 100%;
+    text-align: left;
+    font-size: large;
     padding: 10px 20px;
     margin: 5px;
     background-color: #4CAF50;
@@ -203,3 +372,265 @@ body {
     background-color: #45a049;
 }
 
+
+.vodic-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none; /* Remove the default border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #FF5B5B; /* Primary color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Space between buttons */
+}
+
+/* Hover effect for buttons */
+.vodic-btn:hover {
+    background-color: #e54d4d; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Active state for buttons */
+.vodic-btn.selected {
+    background-color: #0056b3; /* Same darker shade for active */
+    color: #ffffff; /* Keep text color white */
+}
+
+.vodic-description {
+    margin-top: 5px;
+    height: 35rem;
+    font-size: 1.2rem;
+    padding: 10px; /* Add padding for better readability */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    height: 100%; /* Ensure this container takes the full height */
+}
+
+.vodic-info-container {
+    display: flex;
+    align-items: stretch; /* Stretch children to fill the container's height */
+    justify-content: flex-start; /* Align content to the left */
+    gap: 20px; /* Space between image and details */
+    height: 30rem; /* Make the container stretch to take full height */
+}
+
+.vodic-image, .vodic-details {
+    flex: 1; /* Both image and details take equal space */
+    height: 100%; /* Ensure both take up full height of the container */
+    min-width: 0; /* Prevent shrinking of flex items */
+    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
+}
+
+.vodic-image {
+    height: 100%; /* Adjust height of the image to fill the parent */
+    overflow: hidden; /* Hide anything outside the box */
+}
+
+.vodic-image img {
+    display: none;
+    border-radius: 5px;
+    width: 100%; /* Make the image fill the container */
+    height: 100%;
+    object-fit: cover; /* Make the image cover the container without distortion */
+}
+
+.vodic-details {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
+    text-align: left; /* Align text to the left */
+    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
+    padding: 0; /* Remove any padding */
+    height: 100%; /* Make sure details take full height */
+}
+
+.vodic-details strong {
+    font-size: 3.5rem;
+    display: block; /* Make the title block-level for better spacing */
+    margin-bottom: 5px; /* Add small margin at the bottom */
+}
+
+#vodic-br-tura{
+    font-size: 1rem;
+    color: #475a8a;
+    opacity: 80%;
+    font-weight: normal;
+}
+
+.vodic-details p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px; /* Add margin-top to push the paragraph down */
+}
+
+
+.zivotinja-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none; /* Remove the default border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #FF5B5B; /* Primary color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Space between buttons */
+}
+
+/* Hover effect for buttons */
+.zivotinja-btn:hover {
+    background-color: #e54d4d; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Active state for buttons */
+.zivotinja-btn.selected {
+    background-color: #0056b3; /* Same darker shade for active */
+    color: #ffffff; /* Keep text color white */
+}
+
+.zivotinja-description {
+    margin-top: 5px;
+    height: 35rem;
+    font-size: 1.2rem;
+    padding: 10px; /* Add padding for better readability */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    height: 100%; /* Ensure this container takes the full height */
+}
+
+.zivotinja-info-container {
+    display: flex;
+    align-items: stretch; /* Stretch children to fill the container's height */
+    justify-content: flex-start; /* Align content to the left */
+    gap: 20px; /* Space between image and details */
+    height: 30rem; /* Make the container stretch to take full height */
+}
+
+.zivotinja-image, .zivotinja-details {
+    flex: 1; /* Both image and details take equal space */
+    height: 100%; /* Ensure both take up full height of the container */
+    min-width: 0; /* Prevent shrinking of flex items */
+    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
+}
+
+.zivotinja-image {
+    height: 100%; /* Adjust height of the image to fill the parent */
+    overflow: hidden; /* Hide anything outside the box */
+}
+
+.zivotinja-image img {
+    display: none;
+    border-radius: 5px;
+    width: 100%; /* Make the image fill the container */
+    height: 100%;
+    object-fit: cover; /* Make the image cover the container without distortion */
+}
+
+.zivotinja-details {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
+    text-align: left; /* Align text to the left */
+    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
+    padding: 0; /* Remove any padding */
+    height: 100%; /* Make sure details take full height */
+}
+
+.zivotinja-details strong {
+    font-size: 3.5rem;
+    display: block; /* Make the title block-level for better spacing */
+    margin-bottom: 5px; /* Add small margin at the bottom */
+}
+
+.zivotinja-details p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px; /* Add margin-top to push the paragraph down */
+}
+
+.summary{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+    margin: 30px auto;
+    padding: 30px;
+    min-width: 700px;
+    align-items: center;
+}
+
+.allItems{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 50vh; 
+    text-align: center;
+}
+
+.save-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none; /* Remove the default border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #FF5B5B; /* Primary color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Space between buttons */
+}
+
+/* Hover effect for buttons */
+.save-btn:hover {
+    background-color: #e54d4d; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Active state for buttons */
+.save-btn.selected {
+    background-color: #0056b3; /* Same darker shade for active */
+    color: #ffffff; /* Keep text color white */
+}
+
+
+.restart-btn{
+    border:1px solid #FF5B5B;
+    color:#2E3A59;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:19px;
+}
+
+.restart-btn:hover{
+    color: white;
+}
+
+#top-left-gif {
+    position: fixed; /* Fixes the image to the viewport */
+    top: 3%; /* Distance from the top edge */
+    left: 7%; /* Distance from the left edge */
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 9999; /* Make sure it stays on top of other elements */
+}
+
+
+#bottom-right-gif {
+    position: fixed; /* Fixes the image to the viewport */
+    bottom: 3%; /* Distance from the bottom edge */
+    right: 7%; /* Distance from the right edge */
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 9999; /* Make sure it stays on top of other elements */
+}
