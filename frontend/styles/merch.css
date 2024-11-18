@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  
+  .proizvod-img {
+    width: 100%;
+    height: 580px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .responsive-img {
+    max-width: 100%; 
+    height: auto;    
+    display: block;  
+    margin: 0 auto;  
+}
+
+  
+  .proizvod1 {
+    background-image: url("../imgs/merch2.jpg");
+  }
+  .proizvod1:hover {
+    background-image: url("../imgs/merch22.jpeg");
+  }
+  
+  .proizvod2 {
+    background-image: url("../imgs/merch3.jpg");
+  }
+  .proizvod2:hover {
+    background-image: url("../imgs/merch33.jpg");
+  }
+  
+  .proizvod3 {
+    background-image: url("../imgs/merch4.jpg");
+  }
+  .proizvod3:hover {
+    background-image: url("../imgs/merch44.jpg");
+  }
+  
+  .proizvod4 {
+    background-image: url("../imgs/merch5.jpg");
+  }
+  .proizvod4:hover {
+    background-image: url("../imgs/merch55.jpeg");
+  }/*# sourceMappingURL=pocetna.css.map */
