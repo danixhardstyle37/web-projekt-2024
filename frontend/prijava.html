@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles/prijava.css">
+    <link rel="stylesheet" href="styles/navigacija.css">
     <title>Prijava</title>
 </head>
 <body>
@@ -180,23 +181,6 @@
                 $(".lb-header").fadeOut(100);
                 $(".token-verification").fadeIn(100);*/
                 handleSuccessfulLogin(username);
-            }
-        }
-
-        document.getElementById('tokenVerificationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const token = document.getElementById('verificationToken').value;
-            await verifyToken(token);
-        });
-
-        async function verifyToken(token){
-            const response = await service.verifyToken(token);
-            if (response) {
-                document.querySelector('#tokenAlert').textContent = 'Token verified successfully!';
-                document.querySelector('#tokenAlert').style.display = 'block';
-            } else {
-                document.querySelector('#tokenAlert').textContent = 'Error: Invalid token.';
-                document.querySelector('#tokenAlert').style.display = 'block';
             }
         }
 

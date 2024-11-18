@@ -29,16 +29,16 @@
                 </div>
                 <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
                   <ul class="nav-links" >
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT ME</a></li>
-                    <li><a href="#">GALLERY</a></li>
-                    <li><a href="#">VIDEOS</a></li>
-                    <li><a href="#">STORE</a></li>
-                    <li><a href="forum.html">BLOG</a></li>
+                    <li><a href="#">POČETNA</a></li>
+                    <li><a href="o_nama.html">O NAMA</a></li>
+                    <li><a id="rezervirajLink" href="rezervacija.html">REZERVACIJA</a></li>
+                    <li><a href="merch.html">PROIZVODI</a></li>
+                    <li><a href="kontakt.html">KONTAKT</a></li>
+                    <li><a href="forum.html">FORUM</a></li>
                   </ul>
                 </div>
                 <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak">
-                  <a href="prijava.html" class="login-button">LOGIN</a>
+                  <a href="prijava.html" class="login-button" id="loginSignupLink">LOGIN</a>
                 </div>
               </div>
           </nav>
@@ -55,8 +55,8 @@
                 Dobrodošli u jedinstveni svijet tartufarske avanture! Ovdje imate priliku zakoračiti u netaknutu prirodu i uz stručno vodstvo krenuti u lov na tartufe, jedno od najcjenjenijih i najskrivenijih blaga našeg kraja. Odaberite između različitih ruta i prilagodite svoje iskustvo prema vašim željama – bilo da ste početnik ili tražite ozbiljan izazov. U pratnji posebno obučenih pasa ili svinja, istražit ćete čari prirode dok učite o tartufima, njihovoj povijesti i tehnici pronalaska.
               </p>
               <div class="gumbi-content">
-                <a href="rezervacija.html" class="rezerviraj-button">REZERVIRAJ</a>
-                <a href="#" class="vise-button">SAZNAJ VIŠE</a>
+                <a id="rezervirajLink" href="rezervacija.html" class="rezerviraj-button">REZERVIRAJ</a>
+                <a href="o_nama.html" class="vise-button">SAZNAJ VIŠE</a>
               </div>
             </div>
             <div class="col col-lg-4">
@@ -112,7 +112,7 @@
               <h2>UPOZNAJTE NAŠ TIM:<br> STRASTVENI LJUBITELJI PRIRODE I TARTUFA</h2>
               <h4>Mi smo troje studenata Tehničkog veleučilišta u Zagrebu koji dijele zajedničku strast prema prirodi i tartufima. Ova web stranica rezultat je našeg entuzijazma i želje da drugima omogućimo jedinstveno iskustvo lova na tartufe. Istražili smo i pronašli profesionalne vodiče koji će vas voditi kroz svaki korak ove uzbudljive avanture. Osim toga, surađivali smo s vlasnicima posebno obučenih životinja koje će vam pomoći u potrazi za ovim dragocjenim gljivama. Naš cilj je spojiti ljubitelje prirode sa iskustvima koja će im ostati u trajnom sjećanju.</h4>
               <div id="margina-pomak"></div>
-              <a href="#" class="vise-onama">SAZNAJ VIŠE</a>
+              <a href="o_nama.html" class="vise-onama">SAZNAJ VIŠE</a>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@
                 <ul class="footer-list">
                   <li>Ne propustite priliku za nezaboravno iskustvo u potrazi za tartufima! Rezervirajte svoj termin danas i pridružite se našim vođenim turama.</li>
                 </ul>
-                <button class="pretplatime-button" style="padding:2%; margin-top:5%;">Rezerviraj</button>
+                <button id="rezervirajLink" class="pretplatime-button" style="padding:2%; margin-top:5%;">Rezerviraj</button>
               </div>
 
           </div>
@@ -303,6 +303,30 @@
   </div>
 
   <script src="scripts/script.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const username = localStorage.getItem('username');
+          const loginSignupLink = document.getElementById('loginSignupLink');
+          const rezervirajLink = document.getElementById('rezervirajLink');
+
+          if (username) {
+            const icon = document.createElement('i');
+            icon.classList.add('fa', 'fa-user');  
+
+            loginSignupLink.innerHTML = '';  
+            loginSignupLink.appendChild(icon);  
+            loginSignupLink.append(' ' + username);  
+
+            loginSignupLink.href = 'profile.html'; 
+            rezervirajLink.href = 'rezervacija.html';
+          } else {
+              loginSignupLink.textContent = 'Login'; 
+              loginSignupLink.href = 'prijava.html'; 
+              rezervirajLink.href = 'prijava.html';
+          }
+      });
+  </script>
 
 </body>
 </html>

@@ -65,25 +65,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:-2%;
+    margin-top:-15%;
 }
 
-.background-slika {
+body{
     background-image: url('../imgs/bamboo.jpg'); 
     background-repeat: repeat;
     background-size: cover;
-    min-height: calc(100vh); /* Full viewport height minus grass height */
+}
+
+.background-slika {
+    
+    min-height: calc(100vh); 
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    position: relative; /* Required for child positioning */
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
 }
 
 .grass-bottom {
     height: 120px;
-    position: absolute; /* Positioned relative to the viewport */
-    bottom: 0; /* Sticks to the bottom of the screen */
-    width: 100%; /* Full width */
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
     background-position: bottom left;
     background-repeat: repeat-x; 
     background-image: url('../imgs/grass.png');

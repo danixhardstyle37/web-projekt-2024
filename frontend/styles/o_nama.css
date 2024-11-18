@@ -3,8 +3,14 @@
     src: url('./fonts/onama.ttf') format('truetype'); /* Path to the font file */
 }
 
+header{
+    width:80%;
+    margin:0 auto;
+}
+
 body{
     overflow-x: hidden;
+    background-color: #2E3A59;
 }
 
 .about-section {
@@ -115,6 +121,10 @@ h1 img{
     font-size:1.4em;
 }
 
+.statistika{
+    background-color: white;
+}
+
 .statistika h1{
     font-family: 'MojBubbleFont', sans-serif;
     font-size:2.5em;
@@ -130,7 +140,6 @@ h1 img{
     line-height: 1.6;
     font-size: 1.4em;
 }
-
 
 .icon-onama {
     display: inline-flex;          
@@ -159,6 +168,10 @@ h1 img{
     font-size: 1.4em;
     line-height:1.6;
     padding:2%;
+}
+
+.bg-color{
+    background-color: white;
 }
 
 .kraj{

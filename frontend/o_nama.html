@@ -27,16 +27,16 @@
               </div>
               <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
                 <ul class="nav-links">
-                  <li><a style="color:white;" href="#">HOME</a></li>
-                  <li><a style="color:white;" href="#">ABOUT ME</a></li>
-                  <li><a style="color:white;" href="#">GALLERY</a></li>
-                  <li><a style="color:white;" href="#">VIDEOS</a></li>
-                  <li><a style="color:white;" href="#">STORE</a></li>
-                  <li><a style="color:white;" href="#">BLOG</a></li>
+                  <li><a style="color:white;" href="index.html">POČETNA</a></li>
+                  <li><a style="color:white;" href="#">O NAMA</a></li>
+                  <li><a style="color:white;" id="rezervirajLink" href="rezervacija.html">REZERVACIJA</a></li>
+                  <li><a style="color:white;" href="merch.html">PROIZVODI</a></li>
+                  <li><a style="color:white;" href="kontakt.html">KONTAKT</a></li>
+                  <li><a style="color:white;" href="forum.html">FORUM</a></li>
                 </ul>
               </div>
               <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak" style="color: #ffffff;">
-                <a href="prijava.html" class="login-button">LOGIN</a>
+                <a href="prijava.html" class="login-button" id="loginSignupLink">LOGIN</a>
               </div>
             </div>
         </nav>
@@ -127,28 +127,30 @@
       </div>
     </div>
 
-    <div class="kraj">
-      <div class="row">
+    <div class="bg-color">
+        <div class="kraj">
+          <div class="row">
 
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-          <video width="80%" controls poster="./imgs/thumbnail.jpg" class="styled-video">
-            <source src="./vids/onama-vid.mp4" type="video/mp4">
-          </video>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+              <video width="80%" controls poster="./imgs/thumbnail.jpg" class="styled-video">
+                <source src="./vids/onama-vid.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+              <h2><b>Trening naših pasa za lov na tartufe</b></h2>
+              <p>Trening pasa za lov na tartufe je pravi izazov koji zahtijeva strpljenje, preciznost i puno ljubavi prema prirodi. Naši psi prolaze specijalizirane treninge kako bi postali vrhunski tartufari, sposobni pronaći ovo skupo i dragocjeno podzemno blago. Kroz pažljiv odabir i trening, svaki pas postaje stručnjak u prepoznavanju mirisa tartufa i njihovu preciznom lociranju u šumama i maslinicima.</p>
+              <p>Trening započinje od najmlađih dana, kad psi uče osnovne komande i postupno se uvode u svijet tartufa. Svaki pas ima svoj ritam, ali svi oni dijele zajednički cilj – postati vrsni lovci na tartufe.</p>
+              
+              <ul>
+                <li><strong>Prepoznavanje mirisa:</strong> Psi su obučeni da prepoznaju specifičan miris tartufa, čak i pod zemljom.</li>
+                <li><strong>Poslušnost i suradnja:</strong> Kroz trening, psi nauče slušati komande i raditi u savršenoj suradnji s vodičem.</li>
+                <li><strong>Brzina i preciznost:</strong> Trening osigurava da psi brzo i precizno lociraju tartufe, čime ubrzavaju cijeli proces lova.</li>
+              </ul>
+            </div>
+
+          </div>
         </div>
-
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-          <h2><b>Trening naših pasa za lov na tartufe</b></h2>
-          <p>Trening pasa za lov na tartufe je pravi izazov koji zahtijeva strpljenje, preciznost i puno ljubavi prema prirodi. Naši psi prolaze specijalizirane treninge kako bi postali vrhunski tartufari, sposobni pronaći ovo skupo i dragocjeno podzemno blago. Kroz pažljiv odabir i trening, svaki pas postaje stručnjak u prepoznavanju mirisa tartufa i njihovu preciznom lociranju u šumama i maslinicima.</p>
-          <p>Trening započinje od najmlađih dana, kad psi uče osnovne komande i postupno se uvode u svijet tartufa. Svaki pas ima svoj ritam, ali svi oni dijele zajednički cilj – postati vrsni lovci na tartufe.</p>
-          
-          <ul>
-            <li><strong>Prepoznavanje mirisa:</strong> Psi su obučeni da prepoznaju specifičan miris tartufa, čak i pod zemljom.</li>
-            <li><strong>Poslušnost i suradnja:</strong> Kroz trening, psi nauče slušati komande i raditi u savršenoj suradnji s vodičem.</li>
-            <li><strong>Brzina i preciznost:</strong> Trening osigurava da psi brzo i precizno lociraju tartufe, čime ubrzavaju cijeli proces lova.</li>
-          </ul>
-        </div>
-
-      </div>
     </div>
 
     <div class="links">
@@ -250,5 +252,30 @@
     
         </footer>
       </div> 
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const username = localStorage.getItem('username');
+            const loginSignupLink = document.getElementById('loginSignupLink');
+            const rezervirajLink = document.getElementById('rezervirajLink');
+  
+            if (username) {
+              const icon = document.createElement('i');
+              icon.classList.add('fa', 'fa-user');  
+  
+              loginSignupLink.innerHTML = '';  
+              loginSignupLink.appendChild(icon);  
+              loginSignupLink.append(' ' + username);  
+  
+              loginSignupLink.href = 'profile.html'; 
+              rezervirajLink.href = 'rezervacija.html';
+            } else {
+                loginSignupLink.textContent = 'Login'; 
+                loginSignupLink.href = 'prijava.html'; 
+                rezervirajLink.href = 'prijava.html';
+            }
+        });
+    </script>
+    
 </body>
 </html>

@@ -19,6 +19,10 @@
     font-size: 18px;
 }
 
+a:hover{
+    text-decoration: none;
+}
+
 .logo{
     display:flex;
     flex-direction: column;
@@ -46,9 +50,20 @@
     border-radius: 5px;
     text-decoration: none;
     font-size:19px;
+    margin-top:-10%;
 }
 
 
 #pomak{
     padding-top:4%;
+}
+
+#loginSignupLink {
+    display: inline-flex;       
+    align-items: center;     
+}
+
+#loginSignupLink i {
+    margin-right: 8px;          
+    font-size: 18px;            
 }

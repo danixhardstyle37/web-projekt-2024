@@ -14,10 +14,9 @@
 <body>
 
     <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
 
     <header>
-        <nav class="navbar" color: #ffffff;">
+        <nav class="navbar">
             <div class="row" >
               <div class="col col-lg-3 col-md-1 col-sm-1 col-xs-12">
                 <div class="logo">
@@ -27,16 +26,16 @@
               </div>
               <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
                 <ul class="nav-links" >
-                  <li><a href="index.html">HOME</a></li>
-                  <li><a href="#">ABOUT ME</a></li>
-                  <li><a href="#">GALLERY</a></li>
-                  <li><a href="#">VIDEOS</a></li>
-                  <li><a href="#">STORE</a></li>
-                  <li><a href="#">BLOG</a></li>
+                    <li><a href="index.html">POČETNA</a></li>
+                    <li><a href="o_nama.html">O NAMA</a></li>
+                    <li><a id="rezervirajLink" href="rezervacija.html">REZERVACIJA</a></li>
+                    <li><a href="#">PROIZVODI</a></li>
+                    <li><a href="kontakt.html">KONTAKT</a></li>
+                    <li><a href="forum.html">FORUM</a></li>
                 </ul>
               </div>
               <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak">
-                <a href="prijava.html" class="login-button">LOGIN</a>
+                <a href="prijava.html" class="login-button" id="loginSignupLink">LOGIN</a>
               </div>
             </div>
         </nav>
@@ -48,7 +47,7 @@
         <div class="row">
           <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
           <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <img src="../frontend/imgs/merchpopup.jpg" alt="Christmas Sale">
+            <img src="./imgs/merchpopup.jpg" alt="Christmas Sale">
           </div>
           <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <h3>Božićna rasprodaja dolazi!!</h3>
@@ -66,7 +65,7 @@
     <div class="container-fluid" style="padding-top:10px;">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <img src="../frontend/imgs/merch1.jpg" alt="coming soon" class="responsive-img">
+                <img src="./imgs/merch1.jpg" alt="coming soon" class="responsive-img">
             </div>
         </div>
     </div>
@@ -146,12 +145,12 @@
   <div class="container-fluid" style="padding-top:10px;">
       <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
-              <img src="../frontend/imgs/merch10.jpg" alt="Vrste proizvoda" class="responsive-img">
+              <img src="./imgs/merch10.jpg" alt="Vrste proizvoda" class="responsive-img">
           </div>
       </div>
   </div>
   
-  <div class="container-fluid" style="padding-top:30px;">
+  <div class="container-fluid" style="padding-top:30px; padding-bottom:8%;">
       <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="proizvod-img proizvod9"></div>
@@ -326,7 +325,6 @@
         </footer>
       </div>
     
-      <script src="scripts/script.js"></script>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
             const popup = document.getElementById("popup");
@@ -346,6 +344,26 @@
                 });
             } else {
                 console.error("Nisu pronađeni popup ili dugme za zatvaranje!");
+            }
+
+            const username = localStorage.getItem('username');
+            const loginSignupLink = document.getElementById('loginSignupLink');
+            const rezervirajLink = document.getElementById('rezervirajLink');
+
+            if (username) {
+                const icon = document.createElement('i');
+                icon.classList.add('fa', 'fa-user');  
+
+                loginSignupLink.innerHTML = '';  
+                loginSignupLink.appendChild(icon);  
+                loginSignupLink.append(' ' + username);  
+
+                loginSignupLink.href = 'profile.html'; 
+                rezervirajLink.href = 'rezervacija.html';
+            } else {
+                loginSignupLink.textContent = 'Login'; 
+                loginSignupLink.href = 'prijava.html'; 
+                rezervirajLink.href = 'prijava.html';
             }
         });
       </script>
