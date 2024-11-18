@@ -30,7 +30,7 @@ body {
     background-image: url("../imgs/merch2.jpg");
   }
   .proizvod1:hover {
-    background-image: url("../imgs/merch22.jpeg");
+    background-image: url("../imgs/merch22.jpg");
   }
   
   .proizvod2 {
@@ -52,4 +52,174 @@ body {
   }
   .proizvod4:hover {
     background-image: url("../imgs/merch55.jpeg");
-  }/*# sourceMappingURL=pocetna.css.map */
+  }
+
+  .proizvod5 {
+    background-image: url("../imgs/merch6.jpg");
+  }
+  .proizvod5:hover {
+    background-image: url("../imgs/merch66.jpg");
+  }
+  
+  .proizvod6 {
+    background-image: url("../imgs/merch7.jpg");
+  }
+  .proizvod6:hover {
+    background-image: url("../imgs/merch7.jpg");
+  }
+  
+  .proizvod7 {
+    background-image: url("../imgs/merch8.png");
+  }
+  .proizvod7:hover {
+    background-image: url("../imgs/merch88.jpg");
+  }
+  
+  .proizvod8 {
+    background-image: url("../imgs/merch9.png");
+  }
+  .proizvod8:hover {
+    background-image: url("../imgs/merch99.jpg");
+  }
+
+  .proizvod9 {
+    background-image: url("../imgs/merchB1.png");
+  }
+  .proizvod9:hover {
+    background-image: url("../imgs/merchB11.png");
+  }
+  
+  .proizvod10 {
+    background-image: url("../imgs/merchB2.png");
+  }
+  .proizvod10:hover {
+    background-image: url("../imgs/merchB22.png");
+  }
+  
+  .proizvod11 {
+    background-image: url("../imgs/merchB3.png");
+  }
+  .proizvod11:hover {
+    background-image: url("../imgs/merchB33.png");
+  }
+  
+  .proizvod12 {
+    background-image: url("../imgs/merchB4.png");
+  }
+  .proizvod12:hover {
+    background-image: url("../imgs/merchB44.png");
+  }
+
+  .proizvod13 {
+    background-image: url("../imgs/merchB5.png");
+  }
+  .proizvod13:hover {
+    background-image: url("../imgs/merchB55.png");
+  }
+  
+  .proizvod14 {
+    background-image: url("../imgs/merchB6.png");
+  }
+  .proizvod14:hover {
+    background-image: url("../imgs/merchB66.png");
+  }
+  
+  .proizvod15 {
+    background-image: url("../imgs/merchB7.png");
+  }
+  .proizvod15:hover {
+    background-image: url("../imgs/merchB77.jpg");
+  }
+  
+  .proizvod16 {
+    background-image: url("../imgs/merchB8.png");
+  }
+  .proizvod16:hover {
+    background-image: url("../imgs/merchB88.png");
+  }
+
+  #popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    margin: 0 auto;
+    bottom: 0%;
+  }
+  
+  #popup-content {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    width: 50%;  
+    max-width: 600px;  
+    padding: 20px;
+    border-radius: 12px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+    overflow: hidden;
+    transition: transform 0.3s ease;  
+    margin: 0 auto;
+    margin-top: 15%;
+  }
+  
+  #closePopup {
+    position: absolute; 
+    top: 31%;
+    right: 31%;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #000000;
+    cursor: pointer;
+    font-weight: bolder;
+    z-index: 9999;
+  }
+  
+  #popup .row {
+    display: flex;
+    align-items: center;
+  }
+  
+  #popup .col {
+    padding: 10px;
+  }
+  
+  #popup .col img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 8px;
+  }
+  
+  #popup .col h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+  }
+  
+  #popup .col p {
+    font-size: 1em;
+    color: #666;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    #popup-content {
+      width: 80%;
+      max-height: 50%;
+    }
+  
+    .col {
+      text-align: center;
+    }
+  
+    .col img {
+      max-width: 100%;
+    }
+  }
+  
+

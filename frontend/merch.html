@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/merch.css">
     <link rel="stylesheet" href="styles/navigacija.css">
-    <title>Merch</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Store</title>
 </head>
 <body>
 
@@ -41,6 +42,26 @@
         </nav>
     </header>
    
+    <div id="popup">
+      <button id="closePopup">X</button>
+      <div id="popup-content">
+        <div class="row">
+          <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+          <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <img src="../frontend/imgs/merchpopup.jpg" alt="Christmas Sale">
+          </div>
+          <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h3>Božićna rasprodaja dolazi!!</h3>
+            <p>Iskoristite popust od 20% na sav naš asortiman od 1. prosinca 2024. do 31. prosinca 2024.</p>
+            <p>Proslavite blagdansku sezonu uz izvanredne popuste na našim najpopularnijim proizvodima. Bilo da tražite poklone za najmilije ili želite razveseliti sebe, naša ponuda je prava stvar za vas.</p>
+            <p>Ne propustite priliku i obavite kupovinu na vrijeme! </p>
+          </div>
+          <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        </div>
+      </div>
+    </div>
+    
+
 
     <div class="container-fluid" style="padding-top:10px;">
         <div class="row">
@@ -51,43 +72,160 @@
     </div>
 
     <div class="container-fluid" style="padding-top:30px;">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="proizvod-img proizvod1"></div>
-                    <div style="padding:15px;">
-                        <div><b>WATER BOTTLE</b></div>
-                        <div>Playful Dog with Mushroom bottle</div>
-                        <div>39.00 €</div>
-                    </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="proizvod-img proizvod2"></div>
-                <div style="padding:15px;">
-                    <div><b>POLO-STYLE CAP</b></div>
-                    <div>Playful Dog with Mushroom Cap</div>
-                    <div>29.00 €</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="proizvod-img proizvod3"></div>
-                <div style="padding:15px;">
-                    <div><b>LIGHTWEIGHT SWEATSHIRT</b></div>
-                    <div>Playful Dog with Mushroom Lightweight Sweatshirt</div>
-                    <div>50.00 €</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="proizvod-img proizvod4"></div>
-                <div style="padding:15px;">
-                    <div><b>PIG T-SHIRT</b></div>  
-                    <div>Truffle maker pig t-shirt</div>
-                    <div>39.00 €</div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod1"></div>
+              <div style="padding:15px;">
+                  <div><b>TOTE TORBA</b></div>
+                  <div>Lovac na tartufe torba za nošenje</div>
+                  <div>29,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod2"></div>
+              <div style="padding:15px;">
+                  <div><b>POLO-STIL KAPA</b></div>
+                  <div>Kapa s motivom razigranog psa i gljive</div>
+                  <div>29,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod3"></div>
+              <div style="padding:15px;">
+                  <div><b>MAJICA</b></div>
+                  <div>Zaigrani pas s gljivom</div>
+                  <div>50,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod4"></div>
+              <div style="padding:15px;">
+                  <div><b>MAJICA</b></div>
+                  <div>Majica s motivom svinje truflaša</div>
+                  <div>39,00 €</div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod5"></div>
+              <div style="padding:15px;">
+                  <div><b>REZAČ TARTUFA</b></div>
+                  <div>Alat koji vam pomaže u pripremi jela s tartufima, izvrstan poklon i uspomena</div>
+                  <div>29,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod6"></div>
+              <div style="padding:15px;">
+                  <div><b>POKLON-KUTIJA TARTUF</b></div>
+                  <div>Najbolji poklon paket za ljubitelje tartufa</div>
+                  <div>29,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod7"></div>
+              <div style="padding:15px;">
+                  <div><b>KUHINJSKE RUKAVICE</b></div>
+                  <div>Zaštitne rukavice za rukovanje vrućim predmetima u kuhinji</div>
+                  <div>33,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod8"></div>
+              <div style="padding:15px;">
+                  <div><b>TOTE TORBA</b></div>
+                  <div>Torba savršena za sakupljanje tartufa</div>
+                  <div>19,00 €</div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="container-fluid" style="padding-top:10px;">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+              <img src="../frontend/imgs/merch10.jpg" alt="Vrste proizvoda" class="responsive-img">
+          </div>
+      </div>
+  </div>
+  
+  <div class="container-fluid" style="padding-top:30px;">
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod9"></div>
+              <div style="padding:15px;">
+                  <div><b>KREMA OD PORCINI GLJIVA S BIJELIM TARTUFIMA</b></div>
+                  <div>Krema od porcini gljiva s bijelim tartufima prava je simfonija šumskih okusa</div>
+                  <div>8,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod10"></div>
+              <div style="padding:15px;">
+                  <div><b>KREMA S BIJELIM TARTUFIMA</b></div>
+                  <div>Bijeli tartufi i Grana Padano sir čine ovu kremu intenzivnim dodatkom za pripremu složenih umaka i namaza</div>
+                  <div>8,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod11"></div>
+              <div style="padding:15px;">
+                  <div><b>MASLINE S CRNIM TARTUFIMA</b></div>
+                  <div>Pesto od crnih i zelenih maslina, obogaćen crnim ljetnim tartufom, obogatit će tijesto za domaće tjestenine, kruh ili krumpirove njoke</div>
+                  <div>9,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod12"></div>
+              <div style="padding:15px;">
+                  <div><b>SOL S BIJELIM TARTUFOM</b></div>
+                  <div>Sol iz Jadranskog mora s dodatkom bijelog tartufa jedinstveni je začin za sva jela</div>
+                  <div>12,00 €</div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod13"></div>
+              <div style="padding:15px;">
+                  <div><b>SOL S CRNIM TARTUFOM</b></div>
+                  <div>Sol iz Jadranskog mora s dodatkom crnog tartufa jedinstveni je začin za sva jela</div>
+                  <div>12,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod14"></div>
+              <div style="padding:15px;">
+                  <div><b>UMAK OD RAJČICE S CRNIM TARTUFIMA</b></div>
+                  <div>Proizvedeno od rajčica s dodatkom crnog tartufa</div>
+                  <div>7,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod15"></div>
+              <div style="padding:15px;">
+                  <div><b>ZAČIN S TARTUFIMA</b></div>
+                  <div>Začini s tartufima dodati će savršen završni dodir svim vašim jelima; mala količina dovoljna je da obogati vaše jelo</div>
+                  <div>18,00 €</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="proizvod-img proizvod16"></div>
+              <div style="padding:15px;">
+                  <div><b>PREMIUM TARTUFATA</b></div>
+                  <div>Bijeli tartufi i gljive nude veliku svestranost u pripremi umaka, namaza i raznih umaka koji se poslužuju s peradi ili divljači</div>
+                  <div>12,00 €</div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
 
 
+  
     <div class="links">
         <footer>
           <div class="container-fluid">
@@ -189,7 +327,28 @@
       </div>
     
       <script src="scripts/script.js"></script>
-
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popup = document.getElementById("popup");
+            const closeButton = document.getElementById("closePopup");
+    
+            // Provjera da li su elemente ispravno dohvaćeni
+            if (popup && closeButton) {
+                console.log("Popup i dugme za zatvaranje su pronađeni.");
+    
+                // Otvori popup na učitavanje stranice
+                popup.style.display = "block";
+    
+                // Event listener za zatvaranje popupa
+                closeButton.addEventListener("click", function() {
+                    console.log("Popup zatvoren");
+                    popup.style.display = "none";
+                });
+            } else {
+                console.error("Nisu pronađeni popup ili dugme za zatvaranje!");
+            }
+        });
+      </script>
 
 </body>
 </html>
