@@ -47,13 +47,13 @@ CREATE TABLE `forum` (
   PRIMARY KEY (`id`),
   KEY `id_korisnik` (`id_korisnik`),
   CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`id_korisnik`) REFERENCES `korisnik` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `forum` */
 
 insert  into `forum`(`id`,`id_korisnik`,`message`,`animal`,`img_pth`) values 
-(1,1,'Imali smo fantastično vrijeme na ovoj turi! Ne samo da smo pronašli tartufe, već smo uživali i u prirodi i zabavi. Toplo preporučujem!','p','imgs/review4.jpg'),
-(27,8,'sasa','p','imgs/reviews/review7.jpg');
+(1,1,'Imali smo fantastično vrijeme na ovoj turi! Ne samo da smo pronašli tartufe, već smo uživali i u prirodi i zabavi. Toplo preporučujem!','p','imgs/reviews/review4.jpg'),
+(30,16,'Ovo je bilo super iskustvo i preporučamo svima!!!','s','imgs/reviews/review6.jpg');
 
 /*Table structure for table `korisnik` */
 
@@ -66,7 +66,7 @@ CREATE TABLE `korisnik` (
   `ime_prezime` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `korisnik` */
 
@@ -75,7 +75,15 @@ insert  into `korisnik`(`Id`,`username`,`password`,`ime_prezime`,`email`) values
 (2,'test','test','test','test@test'),
 (3,'a','16a36e86f6fed5d465ff332511a0ce1a863b55d364b25a7cdaa25db19abf9648','a a','a@a'),
 (4,'aa','16a36e86f6fed5d465ff332511a0ce1a863b55d364b25a7cdaa25db19abf9648','a a','a1@a'),
-(8,'marko123','b46ea4ca5b6cb70b2965d8483a1ba85b92644fe9f9e04a860c891d92589a1cf4','marko marko','abramovi.marko@gmail.com');
+(8,'marko12','b46ea4ca5b6cb70b2965d8483a1ba85b92644fe9f9e04a860c891d92589a1cf4','Darko marko','abramovi.marko@gmail.com'),
+(9,'dario123','36d086f3102b2e9d04877d2dd05b49322dd701b8cbed7f0374be64fe1d220a01','d d','d@d'),
+(10,'dario234','36d086f3102b2e9d04877d2dd05b49322dd701b8cbed7f0374be64fe1d220a01','dario234 d','sadas@asdasd'),
+(11,'test1','8a863b145dc6e4ed7ac41c08f7536c476ebac7509e028ed2b49f8bd5a3562b9f','t t','t1@t'),
+(12,'test2','32e6e1e134f9cc8f14b05925667c118d19244aebce442d6fecd2ac38cdc97649','t t','t2@t'),
+(13,'test3','68235f4551b9c6423df2af7ead63c90cdd4201ac08525bc3a41cd4755c6c86cb','t t','t3@t'),
+(14,'test4','b9cca56a720f2beee61f2e744ab3d20a95772a4315d18c5eee251a465f078012','t t','t4@t'),
+(15,'marko123','b46ea4ca5b6cb70b2965d8483a1ba85b92644fe9f9e04a860c891d92589a1cf4','Marko Rajić','rajic.marko@gmail.com'),
+(16,'mmmmarko123','b46ea4ca5b6cb70b2965d8483a1ba85b92644fe9f9e04a860c891d92589a1cf4','Darko Abrahimović','abramovicc@gmail.com');
 
 /*Table structure for table `merch` */
 
@@ -172,14 +180,15 @@ CREATE TABLE `zakazane_ture` (
   CONSTRAINT `fk_zakazane_ture_tura` FOREIGN KEY (`Id_tura`) REFERENCES `tura` (`Id`),
   CONSTRAINT `fk_zakazane_ture_vodic` FOREIGN KEY (`Id_vodic`) REFERENCES `vodic` (`Id`),
   CONSTRAINT `fk_zakazane_ture_zivotinja` FOREIGN KEY (`Id_zivotinja`) REFERENCES `zivotinja` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_croatian_ci;
 
 /*Data for the table `zakazane_ture` */
 
 insert  into `zakazane_ture`(`Id`,`Id_tura`,`Id_korisnik`,`Id_vodic`,`Id_zivotinja`,`datum`,`vrijeme_ture`,`velicina_grupe`,`cijena_ture`) values 
 (7,16,8,3,4,'2024-11-22',15,'Za parove',170),
 (8,16,8,4,4,'2024-11-21',9,'Za parove',170),
-(9,16,8,5,9,'2024-11-28',9,'Grupa 3-5',200);
+(9,16,8,5,9,'2024-11-28',9,'Grupa 3-5',200),
+(10,16,16,6,7,'2024-11-22',11,'Teambuilding',250);
 
 /*Table structure for table `zivotinja` */
 
