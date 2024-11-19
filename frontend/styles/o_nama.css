@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'MojBubbleFont'; /* Choose a name for your font */
-    src: url('./fonts/onama.ttf') format('truetype'); /* Path to the font file */
+    font-family: 'MojBubbleFont'; 
+    src: url('./fonts/onama.ttf') format('truetype'); 
 }
 
 header{

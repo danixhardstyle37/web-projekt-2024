@@ -2,7 +2,7 @@ import service from './service.js'
 
 
 $(".email-signup").hide();
-//$(".token-verification").hide(); // Hide token verification form initially
+//$(".token-verification").hide(); 
 
 $("#signup-box-link").click(function(){
     $(".email-login").fadeOut(100);
@@ -14,7 +14,7 @@ $("#signup-box-link").click(function(){
 $("#login-box-link").click(function(){
     $(".email-login").delay(100).fadeIn(100);
     $(".email-signup").fadeOut(100);
-    $(".token-verification").fadeOut(100); // Hide token form
+    $(".token-verification").fadeOut(100); 
     $("#login-box-link").addClass("active");
     $("#signup-box-link").removeClass("active");
 });
@@ -92,7 +92,7 @@ async function sendMessage(fullName, email, username, hashedPassword) {
 
     const response = await service.addKorisnik(data);
     console.log(response);
-    // After successful registration, show token verification form
+    
     if (response) {
         console.log("Yes we here");
         /*$(".email-signup").fadeOut(100);

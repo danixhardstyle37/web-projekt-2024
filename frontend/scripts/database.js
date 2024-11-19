@@ -6,15 +6,15 @@ const db = {
             const response = await fetch(`${url}${endpoint}/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'  // Set the Content-Type header to application/json
+                    'Content-Type': 'application/json'  
                 },
-                body: JSON.stringify(data)  // Send the updated data as JSON
+                body: JSON.stringify(data)  
             });
     
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return await response.json();  // Return the updated object as JSON
+            return await response.json();  
         } catch (error) {
             console.error('There has been a problem with your update operation:', error);
         }
@@ -28,7 +28,7 @@ const db = {
             const response = await fetch(url + endpoint, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'  // Set the Content-Type header to application/json
+                    'Content-Type': 'application/json'  
                 },
                 body: JSON.stringify(data)  
             });
@@ -37,9 +37,9 @@ const db = {
                 throw new Error('Network response was not ok');
             }
             
-            /*const rawResponse = await response.text();  // Get the raw response as text
-            console.log("Raw response:", rawResponse);   // Check the raw response
-            const data = JSON.parse(rawResponse);        // Manually parse the response if needed
+            /*const rawResponse = await response.text();  
+            console.log("Raw response:", rawResponse);   
+            const data = JSON.parse(rawResponse);        
             return data;*/
 
             
@@ -58,13 +58,13 @@ const db = {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json(); // Return the response as JSON if needed
+            return response.json(); 
         } catch (error) {
             console.error('There has been a problem with your delete operation:', error);
         }
     },
 
-    // Generic method for fetching data
+ 
     getData: async function (endpoint) {
         try {
             const response = await fetch(url + endpoint);
@@ -96,13 +96,13 @@ const db = {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ token: token }), // Send the token in the request body
+                body: JSON.stringify({ token: token }), 
             });
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return await response.json(); // Expecting a boolean response
+            return await response.json(); 
         } catch (error) {
             console.error('There has been a problem with your token verification operation:', error);
         }
@@ -112,19 +112,19 @@ const db = {
     sendMultipartFile: async function (file, fileNum) {
         try {
             const formData = new FormData();
-            formData.append('file', file);  // Append the file to the form data
+            formData.append('file', file);  
             formData.append('fileNum', fileNum);
 
             const response = await fetch(url + "image", {
                 method: 'POST',
-                body: formData,  // Send form data with the file
+                body: formData,  
             });
     
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
     
-            return await response.json();  // Expecting a response indicating success
+            return await response.json();  
         } catch (error) {
             console.error('There has been a problem with the file upload operation:', error);
         }

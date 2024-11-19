@@ -146,7 +146,7 @@ const service = {
     
     // Token
     verifyToken: async function (token) {
-        return await db.verifyToken(token); // Call the database function to verify the token
+        return await db.verifyToken(token); 
     },
 
     // Image 

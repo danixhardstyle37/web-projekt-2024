@@ -69,7 +69,6 @@ a:hover{
 
 
 
-/* Stil za recenzije */
 .review-card {
     background-color: #F2EFEA;
     padding: 15px;
@@ -81,7 +80,6 @@ a:hover{
     height:250px;
 }
 
-/* Stil za veliku sliku na vrhu kartice */
 .review-image img {
     width: 100%;
     height: auto;
@@ -91,12 +89,12 @@ a:hover{
     object-fit: cover;
 }
 
-/* Stil za sadržaj recenzije */
+
 .review-content {
     padding: 15px;
 }
 
-/* Stil za ime korisnika */
+
 .user-name {
     font-family: 'Patrick Hand', sans-serif;
     font-size: 2.4em;
@@ -105,7 +103,7 @@ a:hover{
     color: #FF5B5B;
 }
 
-/* Stil za tekst recenzije (izgleda kao da je pisan rukom) */
+
 .review-text {
     font-family: 'Patrick Hand', sans-serif;
     font-size: 1.8em;
@@ -114,7 +112,7 @@ a:hover{
     font-weight: bold;
 }
 
-/* Stil za ikonu psa */
+
 .animal-icon {
     width: 5%;
     position: absolute;
@@ -124,16 +122,16 @@ a:hover{
 }
 
 
-/*Stil za popup*/
+
 
 .popup {
-    display: none; /* Na početku je popup sakriven */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Poluprozirna pozadina */
+    background: rgba(0, 0, 0, 0.5); 
     justify-content: center;
     align-items: center;
     z-index:1;
@@ -209,7 +207,7 @@ button[type="submit"] {
 
 button[type="submit"].recenzija-button {
     display: block;
-    margin: 0 auto; /* Centriranje */
+    margin: 0 auto; 
 }
 
 .review-preview {

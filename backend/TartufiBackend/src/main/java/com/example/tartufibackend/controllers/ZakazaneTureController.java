@@ -49,7 +49,6 @@ public class ZakazaneTureController {
 
         if (existingZakazanaTura.isPresent()) {
             ZakazaneTure zakazanaTura = existingZakazanaTura.get();
-            // Update fields
             zakazanaTura.setDatum(updatedZakazanaTura.getDatum());
             zakazanaTura.setVrijeme_ture(updatedZakazanaTura.getVrijeme_ture());
             zakazanaTura.setKorisnik(updatedZakazanaTura.getKorisnik());
@@ -57,10 +56,10 @@ public class ZakazaneTureController {
             zakazanaTura.setVelicina_grupe(updatedZakazanaTura.getVelicina_grupe());
             zakazanaTura.setCijena_ture(updatedZakazanaTura.getCijena_ture());
 
-            ZakazaneTure savedZakazanaTura = zakazaneTureService.save(zakazanaTura);  // `save()` will perform the update
-            return ResponseEntity.ok(savedZakazanaTura);  // Return the updated ZakazanaTura
+            ZakazaneTure savedZakazanaTura = zakazaneTureService.save(zakazanaTura);
+            return ResponseEntity.ok(savedZakazanaTura);
         } else {
-            return ResponseEntity.notFound().build();  // Return 404 if not found
+            return ResponseEntity.notFound().build();
         }
     }
 

@@ -8,34 +8,34 @@
         body {
             display: flex;
             flex-direction: column;
-            margin: 20px; /* Add margin to the body */
+            margin: 20px; 
         }
         
         table {
-            width: 80%; /* Set table width to 80% of the screen */
-            max-width: 1000px; /* Set a max width for larger screens */
+            width: 80%; 
+            max-width: 1000px; 
             border-collapse: collapse;
-            margin-bottom: 20px; /* Space between tables */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
         
         th, td {
             border: 1px solid #ddd;
-            padding: 12px; /* Add padding to table cells */
-            text-align: left; /* Align text to the left */
+            padding: 12px; 
+            text-align: left; 
         }
         
         th {
             background-color: #f2f2f2;
-            font-weight: bold; /* Make header bold */
+            font-weight: bold; 
         }
         
         tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping for rows */
+            background-color: #f9f9f9; 
         }
         
         tr:hover {
-            background-color: #f1f1f1; /* Highlight row on hover */
+            background-color: #f1f1f1; 
         }
 
         button{
@@ -75,7 +75,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -92,7 +92,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -109,7 +109,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -126,7 +126,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -142,7 +142,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -159,7 +159,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
 
@@ -178,7 +178,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Data will be populated here -->
+            
         </tbody>
     </table>
     <section id = "metodeSection"></section>
@@ -198,7 +198,7 @@
         async function populateKorisnikTable() {
             const korisnikList = await service.getKorisnikAll(); 
             const tbody = document.getElementById('korisnikTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             korisnikList.forEach(korisnik => {
                 const row = document.createElement('tr');
@@ -215,7 +215,7 @@
         async function populateTuraTable() {
             const turaList = await service.getTuraAll(); 
             const tbody = document.getElementById('turaTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             turaList.forEach(tura => {
     
@@ -235,7 +235,7 @@
         async function populateVodicTable() {
             const vodicList = await service.getVodicAll(); 
             const tbody = document.getElementById('vodicTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             vodicList.forEach(vodic => {
                 const row = document.createElement('tr');
@@ -252,7 +252,7 @@
         async function populateMerchTable() {
             const merchList = await service.getMerchAll();
             const tbody = document.getElementById('merchTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             merchList.forEach(merch => {
                 const row = document.createElement('tr');
@@ -269,13 +269,13 @@
         async function populateDuljineTable() {
             const duljineList = await service.getDuljinaAll();
             const tbody = document.getElementById('duljineTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             duljineList.forEach(duljina => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${duljina.id}</td>
-                    <td>${duljina.duljina}</td> <!-- Adjust based on your model -->
+                    <td>${duljina.duljina}</td> 
                     <td>${duljina.cijena}</td>
                 `;
                 tbody.appendChild(row);
@@ -285,7 +285,7 @@
         async function populateZivotinjeTable() {
             const zivotinjeList = await service.getZivotinjaAll(); 
             const tbody = document.getElementById('zivotinjeTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             zivotinjeList.forEach(zivotinja => {
                 const row = document.createElement('tr');
@@ -302,17 +302,17 @@
         async function populateZakazaneTureTable() {
             const zakazaneTureList = await service.getZakazaneTureAll();
             const tbody = document.getElementById('zakazaneTureTable').querySelector('tbody');
-            tbody.innerHTML = ''; // Clear previous data
+            tbody.innerHTML = ''; 
 
             zakazaneTureList.forEach(tura => {
 
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${tura.id}</td>
-                    <td>${tura.korisnik.id}</td> <!-- Adjust based on your model -->
+                    <td>${tura.korisnik.id}</td> 
                     <td>${tura.tura.id}</td>
-                    <td>${tura.datum}</td> <!-- Adjust based on your model -->
-                    <td>${tura.vrijeme_ture}</td> <!-- Adjust based on your model -->
+                    <td>${tura.datum}</td> 
+                    <td>${tura.vrijeme_ture}</td> 
                     <td>${tura.velicina_grupe}</td>
                     <td>${tura.cijena_ture}</td>
                 `;
@@ -334,7 +334,7 @@
         document.getElementById('addButton').addEventListener('click', async () => {
             const data = {
                 duljina: {
-                    id: 1  // Send only the ID of the Duljina entity
+                    id: 1  
                 },
                 ime: "New Tura",
                 opis: "Opis"
@@ -346,7 +346,7 @@
         document.getElementById('updateButton').addEventListener('click', async () => {
             const data = {
                 duljina: {
-                    id: 1  // Send only the ID of the Duljina entity
+                    id: 1  
                 },
                 ime: "updated tura name",
                 opis: "updated tura opis"

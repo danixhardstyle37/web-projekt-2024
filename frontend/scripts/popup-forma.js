@@ -1,11 +1,8 @@
 import service from './service.js';
 
 document.getElementById('openPopup').addEventListener('click', function(e) {
-
-    // Dohvat korisničkog imena iz localStorage ili postavljanje defaultnog
     const username = localStorage.getItem('username') || 'admin';
 
-    // Prikaz korisničkog imena odmah u pregledu recenzije
     document.querySelector('.review-preview .user-name').textContent = username;
 
     e.preventDefault();
@@ -17,19 +14,15 @@ document.getElementById('closePopup').addEventListener('click', function() {
     document.getElementById('reviewPopup').style.display = 'none';
 });
 
-// Dohvat korisničkog imena
 const username = localStorage.getItem('username') || 'admin';
 
-// Funkcija za dodavanje recenzije
 document.getElementById('reviewForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Dohvat podataka iz forme
     const imageFile = document.getElementById('reviewImage').files[0];
     const reviewText = document.getElementById('reviewText').value;
     const selectedIcon = document.querySelector('input[name="animalIcon"]:checked').value;
 
-    // Kreiramo novi div za recenziju
     const reviewDiv = document.createElement('div');
     reviewDiv.classList.add('col-lg-6', 'col-md-6');
 
@@ -42,7 +35,6 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const imageDiv = document.createElement('div');
     imageDiv.classList.add('col-sm-5', 'review-image');
     
-    // Dodavanje slike (ako postoji)
     const imgElement = document.createElement('img');
     imgElement.src = URL.createObjectURL(imageFile);
     imgElement.alt = 'Review Image';
@@ -51,13 +43,11 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const contentDiv = document.createElement('div');
     contentDiv.classList.add('col-sm-7', 'review-content');
     
-    // Dodavanje imena korisnika (ovo možemo zamijeniti sa stvarnim imenom korisnika kasnije)
     const userName = document.createElement('h3');
     userName.classList.add('user-name');
     const username = localStorage.getItem('username') || 'admin';
     userName.innerText = username;
 
-    // Dodavanje teksta recenzije
     const reviewTextElement = document.createElement('p');
     reviewTextElement.classList.add('review-text');
     reviewTextElement.innerText = reviewText;
@@ -65,7 +55,6 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     contentDiv.appendChild(userName);
     contentDiv.appendChild(reviewTextElement);
 
-    // Dodavanje ikone
     const animalIcon = document.createElement('img');
     animalIcon.classList.add('animal-icon');
     if (selectedIcon === 'dog') {
@@ -80,10 +69,8 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     reviewCard.appendChild(animalIcon);
     reviewDiv.appendChild(reviewCard);
 
-    // Dodavanje novog review div-a na stranicu
     document.getElementById('forum-reviews').appendChild(reviewDiv);
 
-    // Zatvaranje pop-up-a nakon dodavanja
     document.getElementById('reviewPopup').style.display = 'none';
 
 
@@ -97,20 +84,18 @@ document.getElementById('reviewForm').addEventListener('submit', async function(
     const reviewData = {
         korisnik: {id: user.id},
         message: reviewText,
-        imgPth: imagePath,  // URL slike koja je uploadana
-        animal: selectedIcon === 'dog' ? 'p' : 's'  // Dodajemo 'p' ili 's' prema ikoni
+        imgPth: imagePath,  
+        animal: selectedIcon === 'dog' ? 'p' : 's'  
     };
 
-    // Dodavanje recenzije u bazu
     await service.addForum(reviewData);
     await service.saveImage(imageFile, nextReviewNumber);
 });
 
 
-// Prikaz korisničkog imena u pregledu
 document.querySelector('.user-name').textContent = username;
 
-// Dinamičko ažuriranje slike
+
 document.getElementById('reviewImage').addEventListener('change', function (event) {
     const reader = new FileReader();
     reader.onload = function (e) {
@@ -119,12 +104,10 @@ document.getElementById('reviewImage').addEventListener('change', function (even
     reader.readAsDataURL(event.target.files[0]);
 });
 
-// Dinamičko ažuriranje teksta
 document.getElementById('reviewText').addEventListener('input', function () {
     document.getElementById('previewText').innerText = this.value || 'Ovdje će se prikazati vaš tekst recenzije.';
 });
 
-// Dinamičko ažuriranje ikone
 document.querySelectorAll('input[name="animalIcon"]').forEach(icon => {
     icon.addEventListener('change', function () {
         const selectedIcon = this.value === 'dog' ? 'imgs/dog-icon.png' : 'imgs/pig-icon.png';
@@ -135,19 +118,14 @@ document.querySelectorAll('input[name="animalIcon"]').forEach(icon => {
 
 async function loadForumReviews() {
     try {
-        // Dohvati recenzije s API-a (pretpostavljamo da je endpoint 'forum')
         const reviews = await service.getForumAll();
 
         console.log(reviews)
 
-        // Pronađi div gdje će recenzije biti prikazane
         const reviewsContainer = document.getElementById('forum-reviews');
 
-        // Provjeri ima li recenzija
         if (reviews && reviews.length > 0) {
-            // Iteriraj kroz recenzije i dodaj HTML za svaku
             reviews.forEach(review => {
-                // Kreiraj HTML za svaku recenziju
                 const reviewCard = document.createElement('div');
                 reviewCard.classList.add('col-lg-6', 'col-md-6');
                 reviewCard.innerHTML = `
@@ -164,7 +142,7 @@ async function loadForumReviews() {
                         <img src="${review.animal === 'p' ? 'imgs/dog-icon.png' : 'imgs/pig-icon.png'}" alt="Animal Icon" class="animal-icon">
                     </div>
                 `;
-                // Dodaj novu recenziju u container
+
                 reviewsContainer.appendChild(reviewCard);
             });
         } 
@@ -173,5 +151,4 @@ async function loadForumReviews() {
     }
 }
 
-// Pozovi funkciju za učitavanje recenzija
 loadForumReviews();

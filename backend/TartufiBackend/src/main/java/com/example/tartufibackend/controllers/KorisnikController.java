@@ -47,7 +47,7 @@ public class KorisnikController {
     @PostMapping(value = "/korisnici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> addKorisnik(@RequestBody Korisnik korisnik) {
         if (korisnik == null) {
-            return ResponseEntity.badRequest().build(); // Ensure korisnik is not null
+            return ResponseEntity.badRequest().build();
         }
         Korisnik savedKorisnik = korisnikService.save(korisnik);
         return ResponseEntity.ok(savedKorisnik);
@@ -60,15 +60,14 @@ public class KorisnikController {
 
         if (existingKorisnik.isPresent()) {
             Korisnik korisnik = existingKorisnik.get();
-            // Update fields
             korisnik.setUsername(updatedKorisnik.getUsername());
             korisnik.setIme_prezime(updatedKorisnik.getIme_prezime());
             korisnik.setEmail(updatedKorisnik.getEmail());
 
-            Korisnik savedKorisnik = korisnikService.save(korisnik);  // `save()` will perform the update
-            return ResponseEntity.ok(savedKorisnik);  // Return the updated Korisnik
+            Korisnik savedKorisnik = korisnikService.save(korisnik);
+            return ResponseEntity.ok(savedKorisnik);
         } else {
-            return ResponseEntity.notFound().build();  // Return 404 if not found
+            return ResponseEntity.notFound().build();
         }
     }
 
