@@ -166,3 +166,10 @@ hr.sep-3::after {
     transform: scale(0);
   }
 }
+
+@media (max-width: 1400px) {
+  header{
+      width:100%;
+      margin:0 auto;
+  }
+}

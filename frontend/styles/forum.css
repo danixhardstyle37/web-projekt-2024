@@ -366,3 +366,10 @@ h2 {
 .submit-btn:hover {
     background-color: #ff7878;
 }
+
+@media (max-width: 1400px) {
+    .custom-container{
+        max-width: 100%;
+        margin:0 auto;
+    }
+}
