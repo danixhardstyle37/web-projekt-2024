@@ -81,6 +81,7 @@ public class ForumController {
         }
     }
 
+    // Spremanje slike lokalno
     @PostMapping("/image")
     public ResponseEntity<ResponseMessage> uploadImage(@RequestParam("file") MultipartFile file, @RequestParam("fileNum") int fileNum) {
         String result = forumService.saveImage(file, fileNum);

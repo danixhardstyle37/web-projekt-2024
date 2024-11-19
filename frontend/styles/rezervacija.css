@@ -1,3 +1,4 @@
+/* Osnovni stilovi */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,6 +26,7 @@ body {
     flex-direction: column;
 }
 
+/* Header, 'Korak x od 8', Next button */
 .header {
     display: flex;
     justify-content: space-between;
@@ -55,14 +57,23 @@ body {
     position: absolute;
     top: 8px;
     right: 20px;
+    display: none;
 }
 
 .next-btn:hover {
-    background-color: #e54d4d; /* Darker shade for hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    background-color: #e54d4d; 
+    transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+.next-btn.visibleN{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+/* Steps container opcenito */
 .steps {
     flex-grow: 1;
     position: relative;
@@ -83,62 +94,32 @@ body {
     opacity: 0;
 }
 
+.step.active {
+    display: block; 
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
 
+/* Step id, pomicanje naslova, poravnanja */
 
-#step1{
+#step1, #step2, #step4, #step6, #step8{
     margin-top: 8%;
 }
 
-#step1Title{
-    margin-bottom: 5%;
-}
-
-#step2{
-    margin-top: 8%;
-}
-
-#step2Title{
-    margin-bottom: 5%;
-}
-
-#step3{
+#step3, #step5, #step7{
     margin-top: 2%;
 }
 
-#step4{
-    margin-top: 8%;
+#step1Title, #step2Title, #step6Title{
+    margin-bottom: 5%;
 }
 
 #step4Title{
     margin-bottom: 2%;
 }
 
-#step5{
-    margin-top: 2%;
-}
 
-#step6{
-    margin-top: 8%;
-}
-
-
-#step6Title{
-    margin-bottom: 5%;
-}
-
-#step7{
-    margin-top: 2%;
-}
-
-#step8{
-    margin-top: 8%;
-}
-
-.step.active {
-    display: block; /* Change from flex to block for correct showing */
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
+/* Options buttons, korak 1, 2 i 6 */
 
 .options {
     display: flex;
@@ -152,26 +133,24 @@ body {
     height: 250px;
     font-size: 1.2rem;
     cursor: pointer;
-    /*background-color: #FF5B5B; /* Default background color when visible */
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease; /* Smooth transition */
+    transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease; 
     outline: none;
-    opacity: 0; /* Initially hidden */
-    margin: 20px;
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    border-radius: 10px; /* Optional: rounded corners */
+    border-radius: 10px;
 }
 
 .option-btn img {
-    width: 100%; /* Image fills the button */
+    width: 100%; 
     height: 100%;
-    object-fit: cover; /* Ensures the image scales proportionally */
-    position: absolute; /* Layer the image on top of the button */
+    object-fit: cover; 
+    position: absolute; 
     top: 0;
     left: 0;
 }
@@ -179,13 +158,13 @@ body {
 .option-btn.visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.8s ease; /* Fade-in effect when visible */
+    transition: opacity 0.8s ease; 
 }
 
 .option-btn.selected {
-    border: 2px solid #FF5B5B; /* Set the border color when selected */
-    background-color: transparent; /* Ensure the background is transparent */
-    color: #FF5B5B; /* Optional: Make the text color match the border */
+    border: 2px solid #FF5B5B; 
+    background-color: transparent;
+    color: #FF5B5B; 
     box-shadow: 0 0 5px #FF5B5B;
 }
 
@@ -193,138 +172,122 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
 }
 
+/* Step 3 - biranje tura */
 
-.next-btn {
-    display: none;
-}
-
-.next-btn.visibleN{
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.8s ease;
-}
-
-/* Existing styles remain unchanged */
-
-/* Styles for Step 3 */
 .left, .right {
-    flex: 1; /* Equal space distribution */
-    padding: 20px; /* Added padding for spacing */
-    display: flex; /* Ensure content can use flexbox layout */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: flex-start; /* Align items to start */
+    flex: 1; 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
 }
 
 
-/* Adjust .steps to use flexbox for Step 3 */
 .steps {
     display: flex;
-    flex-direction: row; /* Align left and right sections side by side */
+    flex-direction: row; 
 }
-
 
 .tura-btn {
     padding: 15px 30px;
     font-size: 1.2rem;
     cursor: pointer;
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #FF5B5B; /* Primary color */
-    color: white; /* Text color */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px; /* Space between buttons */
+    border: none; 
+    border-radius: 8px; 
+    background-color: #FF5B5B; 
+    color: white; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px; 
 }
 
-/* Hover effect for buttons */
 .tura-btn:hover {
-    background-color: #e54d4d; /* Darker shade for hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #e54d4d; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Active state for buttons */
+
 .tura-btn.selected {
-    background-color: #0056b3; /* Same darker shade for active */
-    color: #ffffff; /* Keep text color white */
+    background-color: #0056b3; 
+    color: #ffffff; 
 }
 
 .tura-description {
     margin-top: 5px;
     height: 35rem;
     font-size: 1.2rem;
-    padding: 10px; /* Add padding for better readability */
-    border-radius: 5px; /* Optional: rounded corners */
+    padding: 10px; 
+    border-radius: 5px; 
     display: flex;
-    flex-direction: column; /* Stack image and details vertically */
-    height: 100%; /* Ensure this container takes the full height */
+    flex-direction: column; 
+    height: 100%; 
 }
 
 .tura-info-container {
     display: flex;
-    align-items: stretch; /* Stretch children to fill the container's height */
-    justify-content: flex-start; /* Align content to the left */
-    gap: 20px; /* Space between image and details */
-    height: 30rem; /* Make the container stretch to take full height */
+    align-items: stretch; 
+    justify-content: flex-start; 
+    gap: 20px; 
+    height: 30rem; 
 }
 
 .tura-image, .tura-details {
-    flex: 1; /* Both image and details take equal space */
-    height: 100%; /* Ensure both take up full height of the container */
-    min-width: 0; /* Prevent shrinking of flex items */
+    flex: 1; 
+    height: 100%; 
+    min-width: 0; 
     transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
 }
 
 .tura-image {
-    height: 100%; /* Adjust height of the image to fill the parent */
-    overflow: hidden; /* Hide anything outside the box */
+    height: 100%; 
+    overflow: hidden;
 }
 
 .tura-image img {
     display: none;
     border-radius: 5px;
-    width: 100%; /* Make the image fill the container */
+    width: 100%; 
     height: 100%;
-    object-fit: cover; /* Make the image cover the container without distortion */
+    object-fit: cover; 
 }
 
 .tura-details {
     font-size: 1rem;
     display: flex;
-    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
-    text-align: left; /* Align text to the left */
-    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
-    padding: 0; /* Remove any padding */
-    height: 100%; /* Make sure details take full height */
+    flex-direction: column; 
+    text-align: left; 
+    justify-content: flex-start; 
+    padding: 0;
+    height: 100%; 
 }
 
 .tura-details strong {
     font-size: 3.5rem;
-    display: block; /* Make the title block-level for better spacing */
-    margin-bottom: 5px; /* Add small margin at the bottom */
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 .tura-details p {
     font-size: 1.2rem;
     color: #555;
-    margin-top: 20px; /* Add margin-top to push the paragraph down */
+    margin-top: 20px; 
 }
 
 
 
-/* Flexbox layout for date-time-picker */
+/* Step 4 - biranje datuma, vrijeme */
 .date-time-picker {
     display: flex;
-    gap: 20px; /* Space between date and time selection */
+    gap: 20px; 
     align-items: flex-start;
-    flex-wrap: wrap; /* Allows elements to wrap to the next line if needed */
-    max-width: 800px; /* Optional: Adds a max-width for the entire date-time-picker container */
-    margin: 0 auto; /* Centers the content */
+    flex-wrap: wrap; 
+    max-width: 800px; 
+    margin: 0 auto; 
 }
 
-/* Date Selection Styling */
 .date-selection {
-    flex: 1; /* Takes up equal space */
+    flex: 1; 
 }
 
 .date-input {
@@ -332,21 +295,21 @@ body {
     font-size: 1.2rem;
     border: 2px solid #007bff;
     border-radius: 5px;
-    width: 250px; /* Fixed width for consistency */
-    margin-top: 20px; /* Space above the input */
-    display: block; /* Make input a block element */
+    width: 250px; 
+    margin-top: 20px; 
+    display: block; 
 }
 
 .selected-date {
-    margin-top: 15px; /* Space above selected date text */
+    margin-top: 15px; 
     font-size: 1.2rem;
-    color: #333; /* Darker color for contrast */
+    color: #333; 
 }
 
-/* Time Selection Styling (initially hidden) */
+
 .time-selection {
     display: none;
-    flex: 1; /* Takes up equal space */
+    flex: 1; 
     margin-top: 10px;
 }
 
@@ -372,89 +335,90 @@ body {
     background-color: #45a049;
 }
 
+/* Step 5 - biranje vodica*/
 
 .vodic-btn {
     padding: 15px 30px;
     font-size: 1.2rem;
     cursor: pointer;
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #FF5B5B; /* Primary color */
-    color: white; /* Text color */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px; /* Space between buttons */
+    border: none; 
+    border-radius: 8px; 
+    background-color: #FF5B5B; 
+    color: white; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin: 10px; 
 }
 
-/* Hover effect for buttons */
+
 .vodic-btn:hover {
-    background-color: #e54d4d; /* Darker shade for hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #e54d4d; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
 }
 
-/* Active state for buttons */
+
 .vodic-btn.selected {
-    background-color: #0056b3; /* Same darker shade for active */
-    color: #ffffff; /* Keep text color white */
+    background-color: #0056b3; 
+    color: #ffffff; 
 }
 
 .vodic-description {
     margin-top: 5px;
     height: 35rem;
     font-size: 1.2rem;
-    padding: 10px; /* Add padding for better readability */
-    border-radius: 5px; /* Optional: rounded corners */
+    padding: 10px; 
+    border-radius: 5px; 
     display: flex;
-    flex-direction: column; /* Stack image and details vertically */
-    height: 100%; /* Ensure this container takes the full height */
+    flex-direction: column; 
+    height: 100%; 
 }
 
 .vodic-info-container {
     display: flex;
-    align-items: stretch; /* Stretch children to fill the container's height */
-    justify-content: flex-start; /* Align content to the left */
-    gap: 20px; /* Space between image and details */
-    height: 30rem; /* Make the container stretch to take full height */
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+    height: 30rem;
 }
 
 .vodic-image, .vodic-details {
-    flex: 1; /* Both image and details take equal space */
-    height: 100%; /* Ensure both take up full height of the container */
-    min-width: 0; /* Prevent shrinking of flex items */
+    flex: 1;
+    height: 100%;
+    min-width: 0;
     transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
 }
 
 .vodic-image {
-    height: 100%; /* Adjust height of the image to fill the parent */
-    overflow: hidden; /* Hide anything outside the box */
+    height: 100%;
+    overflow: hidden;
 }
 
 .vodic-image img {
     display: none;
     border-radius: 5px;
-    width: 100%; /* Make the image fill the container */
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* Make the image cover the container without distortion */
+    object-fit: cover;
 }
 
 .vodic-details {
     font-size: 1rem;
     display: flex;
-    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
-    text-align: left; /* Align text to the left */
-    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
-    padding: 0; /* Remove any padding */
-    height: 100%; /* Make sure details take full height */
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 0;
+    height: 100%;
 }
 
 .vodic-details strong {
     font-size: 3.5rem;
-    display: block; /* Make the title block-level for better spacing */
-    margin-bottom: 5px; /* Add small margin at the bottom */
+    display: block;
+    margin-bottom: 5px;
 }
 
-#vodic-br-tura{
+#vodic-br-tura {
     font-size: 1rem;
     color: #475a8a;
     opacity: 80%;
@@ -464,98 +428,99 @@ body {
 .vodic-details p {
     font-size: 1.2rem;
     color: #555;
-    margin-top: 20px; /* Add margin-top to push the paragraph down */
+    margin-top: 20px;
 }
 
+/* Step 8 - biranje ljubimca*/
 
 .zivotinja-btn {
     padding: 15px 30px;
     font-size: 1.2rem;
     cursor: pointer;
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #FF5B5B; /* Primary color */
-    color: white; /* Text color */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px; /* Space between buttons */
+    border: none;
+    border-radius: 8px;
+    background-color: #FF5B5B;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
-/* Hover effect for buttons */
 .zivotinja-btn:hover {
-    background-color: #e54d4d; /* Darker shade for hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #e54d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Active state for buttons */
 .zivotinja-btn.selected {
-    background-color: #0056b3; /* Same darker shade for active */
-    color: #ffffff; /* Keep text color white */
+    background-color: #0056b3;
+    color: #ffffff;
 }
 
 .zivotinja-description {
     margin-top: 5px;
     height: 35rem;
     font-size: 1.2rem;
-    padding: 10px; /* Add padding for better readability */
-    border-radius: 5px; /* Optional: rounded corners */
+    padding: 10px;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column; /* Stack image and details vertically */
-    height: 100%; /* Ensure this container takes the full height */
+    flex-direction: column;
+    height: 100%;
 }
 
 .zivotinja-info-container {
     display: flex;
-    align-items: stretch; /* Stretch children to fill the container's height */
-    justify-content: flex-start; /* Align content to the left */
-    gap: 20px; /* Space between image and details */
-    height: 30rem; /* Make the container stretch to take full height */
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+    height: 30rem;
 }
 
 .zivotinja-image, .zivotinja-details {
-    flex: 1; /* Both image and details take equal space */
-    height: 100%; /* Ensure both take up full height of the container */
-    min-width: 0; /* Prevent shrinking of flex items */
+    flex: 1;
+    height: 100%;
+    min-width: 0;
     transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease;
 }
 
 .zivotinja-image {
-    height: 100%; /* Adjust height of the image to fill the parent */
-    overflow: hidden; /* Hide anything outside the box */
+    height: 100%;
+    overflow: hidden;
 }
 
 .zivotinja-image img {
     display: none;
     border-radius: 5px;
-    width: 100%; /* Make the image fill the container */
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* Make the image cover the container without distortion */
+    object-fit: cover;
 }
 
 .zivotinja-details {
     font-size: 1rem;
     display: flex;
-    flex-direction: column; /* Ensure that the content in the details section is stacked vertically */
-    text-align: left; /* Align text to the left */
-    justify-content: flex-start; /* Ensure content is aligned at the top of the div */
-    padding: 0; /* Remove any padding */
-    height: 100%; /* Make sure details take full height */
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 0;
+    height: 100%;
 }
 
 .zivotinja-details strong {
     font-size: 3.5rem;
-    display: block; /* Make the title block-level for better spacing */
-    margin-bottom: 5px; /* Add small margin at the bottom */
+    display: block;
+    margin-bottom: 5px;
 }
 
 .zivotinja-details p {
     font-size: 1.2rem;
     color: #555;
-    margin-top: 20px; /* Add margin-top to push the paragraph down */
+    margin-top: 20px;
 }
 
-.summary{
+/* Step 8 - prikaz detalja, save, reset button */
+
+.summary {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -566,7 +531,7 @@ body {
     align-items: center;
 }
 
-.allItems{
+.allItems {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -579,58 +544,56 @@ body {
     padding: 15px 30px;
     font-size: 1.2rem;
     cursor: pointer;
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #FF5B5B; /* Primary color */
-    color: white; /* Text color */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px; /* Space between buttons */
+    border: none;
+    border-radius: 8px;
+    background-color: #FF5B5B;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
-/* Hover effect for buttons */
 .save-btn:hover {
-    background-color: #e54d4d; /* Darker shade for hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background-color: #e54d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Active state for buttons */
 .save-btn.selected {
-    background-color: #0056b3; /* Same darker shade for active */
-    color: #ffffff; /* Keep text color white */
+    background-color: #0056b3;
+    color: #ffffff;
 }
 
-
-.restart-btn{
-    border:1px solid #FF5B5B;
-    color:#2E3A59;
+.restart-btn {
+    border: 1px solid #FF5B5B;
+    color: #2E3A59;
     padding: 12px 20px;
     cursor: pointer;
     border-radius: 5px;
     text-decoration: none;
-    font-size:19px;
+    font-size: 19px;
 }
 
-.restart-btn:hover{
+.restart-btn:hover {
     color: white;
 }
 
+/* GIF - lijevo, desno*/
+
 #top-left-gif {
-    position: fixed; /* Fixes the image to the viewport */
-    top: 3%; /* Distance from the top edge */
-    left: 7%; /* Distance from the left edge */
-    width: 150px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    z-index: 9999; /* Make sure it stays on top of other elements */
+    position: fixed;
+    top: 3%;
+    left: 7%;
+    width: 150px;
+    height: auto;
+    z-index: 9999;
 }
 
-
 #bottom-right-gif {
-    position: fixed; /* Fixes the image to the viewport */
-    bottom: 3%; /* Distance from the bottom edge */
-    right: 7%; /* Distance from the right edge */
-    width: 150px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    z-index: 9999; /* Make sure it stays on top of other elements */
+    position: fixed;
+    bottom: 3%;
+    right: 7%;
+    width: 150px;
+    height: auto;
+    z-index: 9999;
 }

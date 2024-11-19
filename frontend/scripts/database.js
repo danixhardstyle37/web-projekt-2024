@@ -36,6 +36,14 @@ const db = {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            
+            /*const rawResponse = await response.text();  // Get the raw response as text
+            console.log("Raw response:", rawResponse);   // Check the raw response
+            const data = JSON.parse(rawResponse);        // Manually parse the response if needed
+            return data;*/
+
+            
+
             return await response.json();
         } catch (error) {
             console.error('There has been a problem with your create operation:', error);
