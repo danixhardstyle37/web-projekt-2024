@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/navigacija.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/profile.css">
+</head>
+<body>
+
+  <script src="https://kit.fontawesome.com/64762dc118.js" crossorigin="anonymous"></script>
+
+      <header>
+          <nav class="navbar">
+              <div class="row" >
+                <div class="col col-lg-3 col-md-1 col-sm-1 col-xs-12">
+                  <div class="logo">
+                    <img src="imgs/logo.png" alt="Tartuf Logo">
+                    <span>TARTUF HUNT</span>
+                  </div>
+                </div>
+                <div class="col col-lg-8 col-md-9 col-sm-9 col-xs-10">
+                  <ul class="nav-links" >
+                    <li><a href="index.html">POČETNA</a></li>
+                    <li><a href="o_nama.html">O NAMA</a></li>
+                    <li><a id="rezervirajLink" href="rezervacija.html">REZERVACIJA</a></li>
+                    <li><a href="merch.html">PROIZVODI</a></li>
+                    <li><a href="kontakt.html">KONTAKT</a></li>
+                    <li><a href="forum.html">FORUM</a></li>
+                  </ul>
+                </div>
+                <div class="col col-lg-1 col-md-2 col-sm-2 col-xs-1" id="pomak">
+                  <a href="prijava.html" class="login-button" id="loginSignupLink">LOGIN</a>
+                </div>
+              </div>
+          </nav>
+      </header>
+
+      <div class="profil-main">
+            <div class="row">
+                <div class="col col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <div id="Rectangle">
+                        <img src="./imgs/profile-dog.png" alt="Profile Dog" id="RectangleImage">
+                        <div id="SpeechBubble">Pozdrav!</div>
+                    </div>
+                </div>
+                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+                        <h1>PROFIL</h1>
+                        <p>Ovdje možete pregledati i ažurirati svoje podatke profila u bilo kojem trenutku.</p>
+                  
+                        <hr class="sep-3" />
+
+                        <form id="profileForm">
+                          <div class="form-group">
+                            <label for="username">Korisničko ime</label>
+                            <span id="username" class="profile-info">admin</span>
+                          </div>
+                  
+                          <div class="form-group">
+                            <label for="password">Lozinka</label>
+                            <span id="password" class="profile-info">********</span>
+                          </div>
+                  
+                          <div class="form-group">
+                            <label for="fullName">Ime i prezime</label>
+                            <span id="fullName" class="profile-info">John Doe</span>
+                          </div>
+                  
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <span id="email" class="profile-info">admin@example.com</span>
+                          </div>
+                  
+                          <button type="button" id="editProfileButton" class="btn btn-primary">Uredi podatke</button>
+                          <button type="button" id="saveChangesButton" class="btn btn-success" style="display: none;">Spremi promjene</button>
+                          <button type="button" id="logoutButton" class="btn btn-danger" style="display: inline-block;">Odjava</button>
+                          <button type="button" id="cancelChangesButton" class="btn btn-warning" style="display: none;">Poništi</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+
+      <div class="links">
+        <footer>
+          <div class="container-fluid">
+              <div class="row" style="padding:50px;">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>KONTAKT</b></div>
+                      <ul class="footer-list">
+                          <li>Email</li>
+                          <li>Whatsapp</li>
+                          <li>Twitter</li>
+                          <li>Instagram</li>
+                          <li>Facebook</li>
+                      </ul>
+                  </div>
+      
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>INFORMACIJE</b></div>
+                      <ul class="footer-list">
+                          <li>Faq</li>
+                          <li>Vodič za ture</li>
+                          <li>Rezervacije</li>
+                          <li>Dućani</li>
+                          <li>Sponzori</li>
+                          <li>Općenito</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>O NAMA</b></div>
+                      <ul class="footer-list">
+                          <li>Naš tim</li>
+                          <li>Članci</li>
+                          <li>Tradicija</li>
+                          <li>Suradnici</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer"> 
+                      <div class="footer-title"><b>RADITE S NAMA</b></div>
+                      <ul class="footer-list">
+                          <li>Karijera</li>
+                          <li>Suradnja</li>
+                      </ul>
+                  </div>
+      
+                  <div  class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="padding-footer">
+                      <div class="footer-title"><b>ZAJEDNICA</b></div>
+                      <ul class="footer-list">
+                          <li>Instagram</li>
+                          <li>Tiktok</li>
+                          <li>Facebook</li>
+                          <li>Pinterest</li>
+                          <li>Youtube</li>
+                          <li>Linkedin</li>
+                      </ul>
+                  </div>
+    
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    
+                  </div>
+    
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="footer-title"><b>SPREMNI ZA AVANTURU?</b></div>
+                    <ul class="footer-list">
+                      <li>Ne propustite priliku za nezaboravno iskustvo u potrazi za tartufima! Rezervirajte svoj termin danas i pridružite se našim vođenim turama.</li>
+                    </ul>
+                    <button id="rezervirajLink" class="pretplatime-button" style="padding:2%; margin-top:5%;">Rezerviraj</button>
+                  </div>
+    
+              </div>
+    
+              <div class="row" style="padding:1%; background-color: #FF5B5B;">
+                <div class="row">
+                  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="padding-top:1%; padding-left:2%;">
+                      <p>© 2024 TARTUF HUNT All rights reserved. <u>Privacy Policy</u> | <u>Legal Notice</u> | <u>Terms and Conditions</u></p>
+                  </div>
+                
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="text-align: right;">
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-twitter" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-instagram" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-facebook-f" style="color: #e94949;"></i>
+                      </div>
+                      <div class="icon-circle">
+                        <i class="fa-brands fa-youtube" style="color: #e94949;"></i>
+                      </div>
+                  </div>
+    
+                </div>
+              </div>
+    
+          </div>
+    
+        </footer>
+      </div>
+
+      <script type="module">
+      import service from './scripts/service.js';
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            const username = localStorage.getItem("username") || "admin";
+            const user = await service.getKorisnikByUsername(username);
+
+            const usernameField = document.getElementById("username");
+            const passwordField = document.getElementById("password");
+            const fullNameField = document.getElementById("fullName");
+            const emailField = document.getElementById("email");
+
+            usernameField.textContent = user.username;
+            fullNameField.textContent = user.ime_prezime;
+            emailField.textContent = user.email;
+            passwordField.textContent = "********";
+
+            const speechBubble = document.getElementById("SpeechBubble");
+
+            const firstName = user.ime_prezime.split(' ')[0];
+            speechBubble.innerHTML = `Pozdrav ${firstName}!`;
+
+            setTimeout(function () {
+                speechBubble.style.animationName = "expand-bounce";
+                speechBubble.style.animationDuration = "0.25s";
+                speechBubble.style.opacity = 1;
+            }, 1000);
+
+            const editButton = document.getElementById("editProfileButton");
+            const saveButton = document.getElementById("saveChangesButton");
+            const cancelButton = document.getElementById("cancelChangesButton");
+            const logoutButton = document.getElementById("logoutButton");
+            const profileFields = document.querySelectorAll(".profile-info");
+            let isEditing = false;
+
+            async function checkIfExists(newUsername, newEmail) {
+                const allUsers = await service.getKorisnikAll();  
+                for (let otherUser of allUsers) {
+                    if (otherUser.id !== user.id) {
+                        if (otherUser.username === newUsername || otherUser.email === newEmail) {
+                            return otherUser;  
+                        }
+                    }
+                }
+                return null;  
+            }
+
+            function switchToEdit() {
+                profileFields.forEach((field) => {
+                    const input = document.createElement("input");
+                    input.type = "text";
+                    input.value = field.textContent.trim();
+                    input.className = "form-control";
+                    field.replaceWith(input);
+                });
+
+                editButton.style.display = "none";
+                saveButton.style.display = "inline-block";
+                cancelButton.style.display = "inline-block";
+                logoutButton.style.display = "none";
+                isEditing = true;
+            }
+
+            function saveChanges() {
+                const inputs = document.querySelectorAll(".form-control");
+
+                const newUsername = inputs[0].value;
+                const newEmail = inputs[3].value;
+
+                checkIfExists(newUsername, newEmail).then((existingUser) => {
+                    if (existingUser) {
+                        const message = existingUser.username === newUsername
+                            ? "Korisničko ime već postoji!"
+                            : "Email se već koristi!";
+
+                        speechBubble.innerHTML = message;
+
+                        speechBubble.style.animationName = "shrink";
+                        speechBubble.style.animationDuration = "0.25s";
+                        speechBubble.style.opacity = 1;
+
+                        setTimeout(() => {
+                            speechBubble.style.animationName = "expand-bounce";
+                            speechBubble.style.animationDuration = "0.25s";
+                        }, 300);
+                    } else {
+                        const updatedData = {
+                            username: newUsername,
+                            password: user.password,
+                            ime_prezime: inputs[2].value,
+                            email: newEmail,
+                        };
+
+                        localStorage.setItem("username", newUsername);
+                        service.updateKorisnik(user.id, updatedData);
+
+                        inputs.forEach((input, index) => {
+                            const span = document.createElement("span");
+                            span.className = "profile-info";
+                            span.textContent = input.value;
+
+                            switch(index) {
+                                case 0:  
+                                    span.id = "username";
+                                    break;
+                                case 1:  
+                                    span.id = "password";
+                                    break;
+                                case 2: 
+                                    span.id = "fullName";
+                                    break;
+                                case 3:  
+                                    span.id = "email";
+                                    break;
+                            }
+
+                            input.replaceWith(span);
+                        });
+
+                        editButton.style.display = "inline-block";
+                        saveButton.style.display = "none";
+                        cancelButton.style.display = "none";
+                        logoutButton.style.display = "inline-block";
+                        isEditing = false;
+
+                        speechBubble.innerHTML = "Promjene uspješno pohranjene!";
+                        speechBubble.style.animationName = "shrink";
+                        speechBubble.style.animationDuration = "0.25s";
+                        speechBubble.style.opacity = 1;
+
+                        setTimeout(function () {
+                            speechBubble.style.animationName = "expand-bounce";
+                            speechBubble.style.animationDuration = "0.25s";
+                        }, 300); 
+                    }
+                });
+            }
+
+            function cancelChanges() {
+                const inputs = document.querySelectorAll(".form-control");
+
+                inputs.forEach((input, index) => {
+                    const span = document.createElement("span");
+                    span.className = "profile-info";
+
+                    const originalValue = [user.username, "******", user.ime_prezime, user.email][index];
+                    span.textContent = originalValue;
+
+                    switch(index) {
+                                case 0:  
+                                    span.id = "username";
+                                    break;
+                                case 1:  
+                                    span.id = "password";
+                                    break;
+                                case 2: 
+                                    span.id = "fullName";
+                                    break;
+                                case 3:  
+                                    span.id = "email";
+                                    break;
+                    }
+
+                    input.replaceWith(span);
+                });
+
+                editButton.style.display = "inline-block";
+                saveButton.style.display = "none";
+                cancelButton.style.display = "none";
+                logoutButton.style.display = "inline-block";
+                isEditing = false;
+            }
+
+            function logout() {
+                localStorage.removeItem("username");
+                window.location.href = "index.html";
+            }
+
+            editButton.addEventListener("click", switchToEdit);
+            saveButton.addEventListener("click", saveChanges);
+            cancelButton.addEventListener("click", cancelChanges);
+            logoutButton.addEventListener("click", logout);
+
+
+            const loginSignupLink = document.getElementById('loginSignupLink');
+            const rezervirajLink = document.getElementById('rezervirajLink');
+            const dodajPricuLink = document.getElementById('openPopup');
+            
+            if (username) {
+              const icon = document.createElement('i');
+              icon.classList.add('fa', 'fa-user');  
+  
+              loginSignupLink.innerHTML = '';  
+              loginSignupLink.appendChild(icon);  
+              loginSignupLink.append(' ' + username);  
+  
+              loginSignupLink.href = 'profile.html'; 
+              rezervirajLink.href = 'rezervacija.html';
+            } else {
+                loginSignupLink.textContent = 'LOGIN'; 
+                loginSignupLink.href = 'prijava.html'; 
+                rezervirajLink.href = 'prijava.html';
+
+                dodajPricuLink.addEventListener('click', function (e) {
+                    e.preventDefault(); 
+                    window.location.href = 'prijava.html'; 
+                });
+            }
+        });
+    </script>
+
+    </body>
+</html>

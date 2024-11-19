@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700");
+
+@font-face {
+    font-family: 'MojBubbleFont'; 
+    src: url('./fonts/onama.ttf') format('truetype'); 
+}
+
+header{
+    width:80%;
+    margin:0 auto;
+}
+
+body {
+  background-color: white;
+  font-size: 18px;
+  margin: 0;
+  color: #444;
+  overflow-x:hidden;
+}
+
+h1 {
+  font-family: 'MojBubbleFont'; 
+  font-size: 82px;
+  color: #2E3A59;
+}
+
+#Rectangle {
+  font-family: "Open Sans", sans-serif;
+  width: 80%;
+  position: relative;
+
+  background: radial-gradient(circle, #dbe9f6 50%, transparent 20%);
+  background-size: 280% 280%; 
+  background-position: 70% 10%; 
+  background-repeat: no-repeat;
+}
+
+#RectangleImage {
+    width: 50%;
+    height: 50%;
+    object-fit: cover; 
+    display: block;
+    margin-left:15%;
+    margin-top:10%;
+}
+
+#Rectangle img{
+    width:70%;
+}
+
+#SpeechBubble {
+  position: absolute;
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: #5a5a5a;
+  color: white;
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px;
+  margin-left:55%;
+  margin-top:-36%;
+  transform: scale(0);
+  animation-fill-mode: forwards;
+  font-size: 1.2em;
+}
+
+#SpeechBubble::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: 33px;
+  left: -15px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #5a5a5a transparent transparent #5a5a5a;
+  transform: rotate(130deg);
+}
+
+
+#profileForm {
+    margin-top: 6%;
+}
+  
+.form-group {
+    margin-bottom: 15px;
+}
+  
+.form-group label{
+    font-size:1.4em;
+    color:#2E3A59;
+}
+
+.form-group span{
+    font-size:1em;
+    padding-bottom:1%;
+    color:#444;
+}
+
+.profile-info {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+  
+#editProfileButton,
+#saveChangesButton {
+    margin-top: 15px;
+    margin-right: 10px;
+    font-size:1.2em;
+}
+
+hr.sep-3 {
+    border: none;
+    height: 2px;
+    background-image: linear-gradient(to right, #f0f0f0, #2E3A59, #f0f0f0);
+}
+
+hr.sep-3::after {
+    content: '🐾';
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    padding: 1rem;
+    background-color: white;
+    color:#2E3A59;
+    font-size: 2.6rem; 
+}
+
+.profil-main p{
+    font-size: 1.3em;
+    padding-top:5%;
+}
+
+#logoutButton{
+    margin-top: 15px;
+    font-size:1.2em;
+}
+
+#cancelChangesButton{
+    margin-top: 15px;
+    font-size:1.2em;
+}
+
+@keyframes expand-bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
